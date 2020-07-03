@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVattachment_subject"><Ctrls>
+<ListCtrl Heading="subject,640;remark,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;attachment_subject_id,100;" loadedclick="0" ToolTip="ttp_attachment_subject" Name="attachment_subjectLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>attachment_subject_id</Index>
+<DbTable>vtigercrm6.attachment_subject a left join vtigercrm6.vtiger_users v on a.created_by=v.id left join vtigercrm6.vtiger_users v0 on a.last_update_by=v0.id</DbTable>
+<Data>a.subject,a.remark,v.user_name created_by,a.creation_date,v0.user_name last_update_by,a.last_update_date,a.attachment_subject_id</Data>
+<Order>attachment_subject_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>attachment_subject_id='%{attachment_subject_vLst[attachment_subject_id]}'</Where></DbDetails><submit next="$this.attachment_subject.attachment_subjectLst" namelist="DbDetails"/><assign name="$this.attachment_subject.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.attachment_subject</DbTable>
+<Where>attachment_subject_id='%{attachment_subject_vLst[attachment_subject_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

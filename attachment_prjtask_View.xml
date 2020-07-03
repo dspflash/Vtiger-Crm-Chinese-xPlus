@@ -1,0 +1,22 @@
+﻿<WndTap Name="attachment_prjtask_v" Text="attachment">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpicView.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask.xml"/>
+<Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVattachment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="attachment_vLst" ToolTip="ttp_attachment" Size="700,420" colsDisplay="16"  loadedclick="0">
+	<DbDetails >
+<DbTable>vtigercrm6.prj_task_detail</DbTable>
+<Index>attachment_id</Index>
+<Data>*</Data>
+<Order>attachment_id</Order></DbDetails>
+<DbDetails><Where>projectid='%{projectid}'</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by attachment_id desc limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

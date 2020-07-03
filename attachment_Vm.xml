@@ -1,0 +1,11 @@
+<WndTap Name="attachment_v" Text="attachment">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+<Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>
+<Label Name="lb_description" Size="60,120" Text="description" Align="Right"/>
+<TextBox Name="description" Size="630,120" Text="" Weight="630" ToolTip="ttp_description" readonly="1"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

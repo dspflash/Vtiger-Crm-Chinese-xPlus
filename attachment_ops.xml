@@ -1,0 +1,10 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="download"><assign name="topmost" expr="GetFile:%{attachment_vLst[filename]},dir=%{attachment_vLst[path]},localdir="/></op>
+<op text="view"><DbDetails><where>attachment_id='%{attachment_vLst[attachment_id]}'</where></DbDetails><submit namelist="DbDetails" next="$parent.picView.picture"/></op>
+<op text="locationMap"><if cond="'%{attachment_vLst[location]}'"><assign name="$parent.popweb.wb" expr="http://map.3ucs.com/xmap.php?mark=%{attachment_vLst[location]}" function="Navigate"/><else/><info expr="无数据"/></if></op>
+<!--op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.attachment</DbTable>
+<Where>attachment_id='%{attachment_vLst[attachment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+</operator>

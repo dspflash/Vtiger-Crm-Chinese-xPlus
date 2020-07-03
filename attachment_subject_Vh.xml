@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVattachment_subject" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="attachment_subjectLst" ToolTip="ttp_attachment_subject" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>attachment_subject_id</Index>
+<DbTable>vtigercrm6.attachment_subject</DbTable>
+<Data>subject,remark,created_by,creation_date,last_update_by,last_update_date,attachment_subject_id</Data>
+<Order>attachment_subject_id</Order></DbDetails>
+<OnClick><assign name="created_by[id]" expr="%{attachment_subjectLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{attachment_subjectLst[last_update_by]}" function="SetSel"/>
+<if cond="%{attachment_subject_id}"><SetVisible name="insertattachment_subject" Visible="0"/><SetVisible name="modifyattachment_subject" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,32 @@
+﻿<WndTap Name="attachment" Text="attachment" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<var name="work2do" expr=""/>
+<xi:include href="lan\attachment.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_GBOPE.xml"/>
+	<BR /--><Button Name="TakePhoto" Size="50,20" Text="拍照"><OnClick><assign name="type" expr="1"/><assign name="typeStr" expr="图片"/><assign name="work2do" expr="takephoto" function=""/><submit next="doreal" function="click"/></OnClick></Button><TAB/>
+	<Button Name="PickPhoto" Size="50,20" Text="选照"><OnClick><assign name="type" expr="1"/><assign name="typeStr" expr="图片"/><assign name="work2do" expr="takephoto:1" function=""/><submit next="doreal" function="click"/></OnClick></Button><TAB/>
+	<Button Name="TakeVideo" Size="50,20" Text="拍视频"><OnClick><assign name="type" expr="2"/><assign name="typeStr" expr="视频"/><assign name="work2do" expr="takevideo" function=""/><submit next="doreal" function="click"/></OnClick></Button><TAB/>
+	<Button Name="PickVideo" Size="50,20" Text="选视频"><OnClick><assign name="type" expr="2"/><assign name="typeStr" expr="视频"/><assign name="work2do" expr="takevideo:1" function=""/><submit next="doreal" function="click"/></OnClick></Button><TAB/>
+	<Button Name="Signature" Size="50,20" Text="签名"><OnClick><if cond="'%{project_no}'"><assign name="type" expr="1"/><assign name="typeStr" expr="图片"/><assign name="work2do" expr="Signature:%{userid}_%{project_no}" function=""/><submit next="doreal" function="click"/></if></OnClick></Button><TAB/>
+	<!--Button Name="attachment" Size="50,20" Text="attachment">
+			<OnClick><if cond="!%{projecttaskid}"><alert expr="上传附件前请先生成单据！"/><else/><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/%{user_id}/','file/%{user_id}/%{_upload_file_name}','vtiger_projecttask',%{projecttaskid}, '%{user_id}',now(),'%{user_id}',now())"/>
+			<submit next="DocList"/></if></OnClick></Button><TAB/--> ON DUPLICATE KEY UPDATE filename='%{_upload_file_name}',path='file/%{user_id}/',attachment='file/%{user_id}/%{_upload_file_name}', last_update_by='%{user_id}',last_update_date=now()
+	<!--Button Name="Download"  Size="50,20" Text="下载文件">
+			<OnClick><assign name="topmost" expr="GetFile:%{DocList[filenameany]},dir=%{DocList[path]},localdir="/></OnClick>
+			<OnFecthFileEnd><alert next="GroupBox" expr="xiazai"/></OnFecthFileEnd></Button-->
+	<TextBox Name="tmpfile" Size="10,20" Text="" tooltip="" visible="0"><onenchange><if cond="'%{tmpfile}'"><submit next="sendfile" function="click"/></if></onenchange></TextBox>
+	<Button Name="sendfile" Size="50,20" Text="发送" visible="0">
+	<OnClick><SetVisible name="sendfile" Visible="0"/><assign name="topmost" expr="SendFile:%{tmpfile},filter=*.*|*.*|,dir=file/prj/%{project_no}/%{username},localdir=,query=insert into attachment (subject,invokes,location,description,filename,path,attachment,reftbl, refid,type,typestr, created_by, creation_date, last_update_by, last_update_date) values('%{subject}','%{invokes}','%{location}','%{description}','%{_upload_file_name}','file/prj/%{project_no}/%{username}/','file/prj/%{project_no}/%{username}/%{_upload_file_name}','vtiger_projecttask',%{projecttaskid}, %{type},'%{typestr}','%{user_id}',now(),'%{user_id}',now());update vtigercrm6.vtiger_projecttask SET startdate=now() WHERE projecttaskid='%{projecttaskid}' AND projecttaskstatus=2;update vtigercrm6.vtiger_projecttask SET projecttaskstatus=3 WHERE projecttaskid='%{projecttaskid}' AND projecttaskstatus=2;UPDATE vtigercrm6.vtiger_project SET startdate=NOW() WHERE projectid=(SELECT projectid FROM vtiger_projecttask WHERE projecttaskid='%{projecttaskid}') AND projectstatus=3;UPDATE vtigercrm6.vtiger_project SET projectstatus=4 WHERE projectid=(SELECT projectid FROM vtiger_projecttask WHERE projecttaskid='%{projecttaskid}') AND projectstatus=3;"/></OnClick>||(!%{invokes})
+	<OnSendFileEnd><if cond="%{sendfile[result]}"><submit next="attachment_vLst"/><else/><SetVisible name="sendfile" Visible="1"/></if></OnSendFileEnd></Button>
+	<Button Name="doreal" Size="50,20" Text="doreal" visible="0"><OnClick><if cond="!'%{subject}'"><alert expr="请先填主题"/><elseif cond="!'%{invokes}'"/><alert expr="请先填人数"/><elseif cond="!%{invokes}"/><alert expr="请先填人数"/><elseif cond="!'%{description}'"/><alert expr="请先填说明"/><else/><assign name="tmpfile" expr=""/><assign name="location" expr="location" function=""/><assign name="tmpfile" expr="%{work2do}" function=""/></if></OnClick>
+	</Button><TAB/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertattachment" Visible="1"/><SetVisible name="modifyattachment" Visible="0"/></OnActivate>
+</WndTap>

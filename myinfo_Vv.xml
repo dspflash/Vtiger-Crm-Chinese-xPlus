@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVusers_v" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="users_v_vLst" ToolTip="ttp_users_v" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>vtigercrm6.users_v u</DbTable>
+
+<Data>u.user_name,u.fullname,u.rolename,u.first_name,u.last_name</Data>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>%{primary}='%{users_v_vLst[%{primary}]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.users_v.users_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.users_v</DbTable>
+<Where>%{primary}='%{users_v_vLst[%{primary}]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

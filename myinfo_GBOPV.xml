@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVusers_v" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteusers_v" Name="deleteusers_v" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.users_v</DbTable>
+<Where>user_name='%{users_vLst[user_name]}' and fullname='%{users_vLst[fullname]}' and rolename='%{users_vLst[rolename]}' and first_name='%{users_vLst[first_name]}' and last_name='%{users_vLst[last_name]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchusers_v" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshusers_v" Name="searchusers_v" Size="50,20">
+			  <OnClick><submit next="users_vLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPusers_vLst" OnClick="(users_vLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREusers_vLst" OnClick="(users_vLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPusers_vLst" OnClick="(users_vLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<WndTap Text="modifypass" Name="userlogin_modifypass" remark="For administor modify pass" Ver="2" popup="1">
+		<var name="refreshAfterEdit" expr="2"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_users.xml"/>
+		<Ctrls>
+		<GroupBox Text="userlogin" Name="GBuserlogin" id="userlogin" Size="100,100"><Ctrls>
+		<GroupBox Name="GBDEDITuserlogin"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="new password" PASSWORD="true" Name="lb_password" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="password" Size="170,20"/>
+</Ctrls></GroupBox><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="reinupt password" PASSWORD="true" Name="lb_password" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="passwordsec" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+		<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="50,20">
+			<OnClick><if cond="%{password}!=%{passwordsec}"><alert expr="new passwords input does not match!"/><else/>
+			<DbDetails fcsm="1">
+		<DbTable>vtigercrm6.vtiger_users</DbTable>
+		<DataEx>user_password,modified_user_id,date_modified;md5('%{password}'),'%{user_id}',now()</DataEx>
+		<Where>id='%{_user_id}'</Where>
+		<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+			<submit namelist="DbDetails"/>
+			<if cond="!%{modifyPass[broke]}"><if cond="%{refreshAfterEdit}==2"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/></if></if></if></if></OnClick>
+			</Button><TAB/>
+			</Ctrls></GroupBox>
+			</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>

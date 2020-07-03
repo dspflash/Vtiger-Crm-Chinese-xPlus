@@ -1,0 +1,22 @@
+﻿<GroupBox Name="GBDEDITusers_v"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_name"><Ctrls>
+<Label Align="Right" Text="user_name" Name="lb_user_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_name" Name="user_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fullname"><Ctrls>
+<Label Align="Right" Text="fullname" Name="lb_fullname" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fullname" Name="fullname" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rolename"><Ctrls>
+<Label Align="Right" Text="rolename" Name="lb_rolename" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_rolename" Name="rolename" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_first_name" Name="first_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_name" Name="last_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,82 @@
+﻿<GroupBox Name="GBDEDITattachment"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"  onload="init"/>
+<ComboBox Name="subject" Size="55,100" Text="" Weight="55"  ToolTip="ttp_subject"  onload="init">
+	<DbDetails fcsm="true">
+<Index></Index>
+<DbTable>vtigercrm6.attachment_subject</DbTable>
+<Data>subject,'' description,remark</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<Label Name="lb_invokes" Size="60,20" Text="invokes" Align="Right"/>
+<TextBox Name="invokes" Size="55,20" Text="" Weight="55" ToolTip="ttp_invokes"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_typestr" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_typestr" Size="60,20" Text="typestr" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="typestr" Size="170,20" Text="" Weight="170" ToolTip="ttp_typestr" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>
+<Label Name="lb_description" Size="60,50" Text="description" Align="Right"/>
+<TextBox Name="description" Size="600,50" Text="" Weight="600" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_filename" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_filename" Size="60,20" Text="filename" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="filename" Size="170,20" Text="" Weight="170" ToolTip="ttp_filename" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_location" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_location" Size="60,20" Text="location" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="location" Size="170,20" Text="" Weight="170" ToolTip="ttp_location" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_path" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_path" Size="60,20" Text="path" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="path" Size="170,20" Text="" Weight="170" ToolTip="ttp_path" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachment" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_attachment" Size="60,20" Text="attachment" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="attachment" Size="170,20" Text="" Weight="170" ToolTip="ttp_attachment" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reftbl" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reftbl" Size="60,20" Text="reftbl" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="reftbl" Size="170,20" Text="" Weight="170" ToolTip="ttp_reftbl" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_refid" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_refid" Size="60,20" Text="refid" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="refid" Size="170,20" Text="" Weight="170" ToolTip="ttp_refid" Visible="false" overlap="pre" readonly="true"><OnEnChange><submit next="addressLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="type" Size="170,20" Text="" Weight="170" ToolTip="ttp_type" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachment_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_attachment_id" Size="60,20" Text="attachment_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="attachment_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_attachment_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{attachment_id}'"><SetVisible name="insertattachment" Visible="0"/><SetVisible name="modifyattachment" Visible="1"/><else/><SetVisible name="insertattachment" Visible="1"/><SetVisible name="modifyattachment" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR autoheight="1"/><GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4"><Ctrls> <Label Name="lb_task_remark" Size="60,20" Text="主要任务" Align="Right"/><TextBox Text=""  Name="task_remark" Size="170,20" Readonly="1"/> </Ctrls></GroupBox> <GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4"><Ctrls> <Label Name="lb_remark" Size="60,20" Text="主题说明" Align="Right"/><TextBox Text=""  Name="remark" Size="170,20" Readonly="1"/> </Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_address"><Ctrls> <Label Align="Right" Text="address" Name="lb_address" Size="60,20"/> <TextBox Weight="170" Text="" ToolTip="ttp_address" Name="address" Size="170,20" Readonly="1"/> </Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contact"><Ctrls> <Label Align="Right" Text="contact" Name="lb_contact" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_contact" Name="contact" Size="150,20" Readonly="1"/> <MagicCtrl ToolTip="DialToCall" Name="dialmobile" OnClick="nis3ucs:%{mobile}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/></Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile" visible="0"><Ctrls> <Label Align="Right" Text="mobile" Name="lb_mobile" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_mobile" Name="mobile" Size="150,20" Readonly="1"/> </Ctrls></GroupBox></Ctrls></GroupBox>

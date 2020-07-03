@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302">
+	<webconfig theme="../biz/theme/delight-vtiger/theme.html"/>
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>vtigercrm6</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="config/db.xml" xpointer="pass"/>
+		</DbDetails>
+	<EventHandlers>
+		<EventHandler Event="ReceivedCall('%{callerid}')">
+		<assign name="contact.base_mobile" expr="%{callerid}"/>
+		<assign name="contact.TB_callid" expr="%{input}"/>
+		<DbDetails><Where>where base_mobile='%{contact.base_mobile}' or base_phone='%{contact.base_mobile}'</Where></DbDetails><submit next="contact.ContactList" namelist="DbDetails" method="post"/>
+		</EventHandler>
+		<EventHandler Handler="(contact.TB_callid)SetText(%{input});" Event="CallAlerting('%{input}')"/>
+		<EventHandler Event="CallDisconnected()"><assign name="topmost" expr="nis3ucs:USS|b"/>
+		</EventHandler>
+	</EventHandlers>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_account_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_leaddetails_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_campaign_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_quotes_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_View.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_vendor_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_purchaseorder_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_troubletickets_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_service_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_assets_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xdoc_code_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_role_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\mylayout\mycorp.xml"/-->
+	<WndTap Text="系统设置" Name="vSystem" id="vSystem">
+	<WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestonetype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectpriority_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectstatus_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttasktype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskstatus_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_subject_v.xml"/>
+	</WndTaps>
+	</WndTap>
+	</WndTaps>
+</XI3uWnd>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" title="武铁站段管理系统" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302">
+	<EventHandlers>
+		<EventHandler Event="ReceivedCall('%{callerid}')">
+		<assign name="contact.base_mobile" expr="%{callerid}"/>
+		<assign name="contact.TB_callid" expr="%{input}"/>
+		<DbDetails><Where>where base_mobile='%{contact.base_mobile}' or base_phone='%{contact.base_mobile}'</Where></DbDetails><submit next="contact.ContactList" namelist="DbDetails" method="post"/>
+		</EventHandler>
+		<EventHandler Handler="(contact.TB_callid)SetText(%{input});" Event="CallAlerting('%{input}')"/>
+		<EventHandler Event="CallDisconnected()"><assign name="topmost" expr="nis3ucs:USS|b"/>
+		</EventHandler>
+	</EventHandlers>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_account_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_vm.xml"/>
+	<WndTap Text="系统设置" Name="vSystem" id="vSystem">
+	<WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestonetype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectpriority_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectstatus_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttasktype_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskstatus_v.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_subject_v.xml"/>
+	</WndTaps>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	</WndTaps>
+</XI3uWnd>
