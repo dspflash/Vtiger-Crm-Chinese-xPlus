@@ -8,8 +8,11 @@ C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流�
 截图及演示地址：http://prj.3ucs.com
 
 可参考ERP视频资料
+
 音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
+
 音视频演示(3UCS ERP基础功能) http://3ucs.com/video.php?vid=42
+
 音视频演示(x+网页版安装部署) http://3ucs.com/video.php?vid=53
 
 
