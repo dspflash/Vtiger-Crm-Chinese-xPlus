@@ -18,7 +18,7 @@ C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流�
 
 Discuss（在线客服）
 
-Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.crm.3ucs.com%2F" target="_blank">Chat 在线客服</a> if you have feedback, questions or want to chat. 
+Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.crm.3ucs.com%2F" target="_blank"><img src="http://3ucs.com/images/livechat.png"/>Chat 在线客服</a> if you have feedback, questions or want to chat. 
 
 
 
