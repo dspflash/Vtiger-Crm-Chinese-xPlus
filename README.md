@@ -1,9 +1,7 @@
 # ViterCrm-Chinese-xPlus
 CRM Based ViterCRM v6, Chinese Version, depend on xPlus.  User can Use Mobile Client、PC Client、Browser to Acess the sevice!
 
-![](imgs/20200209_143918.png)
-
-![](imgs/20200209_144332.png)
+![](imgs/crmgif.gif)
 
 ![](imgs/Screenshot_2019-10-27-15-09-08.png)
 
