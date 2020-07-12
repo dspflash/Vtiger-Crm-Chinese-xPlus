@@ -5,6 +5,8 @@ C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流�
 
 源代码太多，在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便），此处，只上传一丢丢。
 
+![](imgs/xwebcrm.png)
+
 ![](imgs/crmgif.gif)
 
 ![](imgs/prjmobile.gif)
