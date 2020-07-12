@@ -1,9 +1,17 @@
-# ViterCrm-Chinese-xPlus
-CRM Based ViterCRM v6, Chinese Version, depend on xPlus.  User can Use Mobile Client、PC Client、Browser to Acess the sevice!
-
-C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器 .
-
+## ViterCrm-Chinese-xPlus
 源代码太多，在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便），此处，只上传一丢丢。
+
+## 简介
+客户关系管理系统，提供、客户、联系人、线索、商业活动、商机、报价、项目管理、供应商、采购、票据、销售、服务、工单、产品、资产、活动、布告等管理。
+
+## 特性
+- C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器
+- 部署简单方便
+- 个性化开发定制简单快捷
+
+## 依赖性
+- 3UCS xPlus（http://3ucs.com/x/
+- MySQL
 
 ![](imgs/xwebcrm.png)
 
