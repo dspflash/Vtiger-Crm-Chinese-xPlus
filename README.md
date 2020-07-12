@@ -3,7 +3,7 @@ CRM Based ViterCRM v6, Chinese Version, depend on xPlus.  User can Use Mobile Cl
 
 ![](imgs/crmgif.gif)
 
-![](imgs/Screenshot_2019-10-27-15-09-08.png)
+![](imgs/prjmobile.gif)
 
 ![](imgs/Screenshot_2019-12-06-11-05-48.png)
 
