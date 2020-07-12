@@ -1,13 +1,13 @@
 # ViterCrm-Chinese-xPlus
 CRM Based ViterCRM v6, Chinese Version, depend on xPlus.  User can Use Mobile Client、PC Client、Browser to Acess the sevice!
 
+C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器 .
+
+源代码太多，在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便），此处，只上传一丢丢。
+
 ![](imgs/crmgif.gif)
 
 ![](imgs/prjmobile.gif)
-
-C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器 .
-
-源代码在安装目录下（vtiger文件夹，直接下载release的安装包，简单方便）
 
 截图及演示地址：http://prj.3ucs.com
 
