@@ -1,4 +1,4 @@
-## [English](README_en.md)ViterCrm-Chinese-xPlus (http://prj.3ucs.com)
+## ViterCrm-Chinese-xPlus (http://prj.3ucs.com)
 源代码文件太多，而安装包带有完整源代码，安装完成后源代码在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便），故此处只上传一丢丢。
 
 ## 简介
@@ -69,8 +69,8 @@ install/	install scripts and instructions
 直接修改源代码或使用BizTool工具载入配置文件（xpj）修改后重新生成代码
 参考 视频演示(3UCS ERP二次开发培训视频2017) http://3ucs.com/video.php?vid=46
 
-Discuss（在线客服）
-
+## 在线沟通 Discuss
+可点击图片与我们在线沟通交流
 Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.crm.3ucs.com%2F" target="_blank"><img src="http://3ucs.com/images/livechat.png" alt="Chat 在线客服"/></a> if you have feedback, questions or want to chat. 
 
 
