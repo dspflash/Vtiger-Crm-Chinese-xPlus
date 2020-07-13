@@ -70,7 +70,7 @@ install/	install scripts and instructions
 参考 视频演示(3UCS ERP二次开发培训视频2017) http://3ucs.com/video.php?vid=46
 
 ## 在线沟通 Discuss
-可点击图片与我们在线沟通交流
+可点击图片与我们在线沟通交流<br/>
 Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.crm.3ucs.com%2F" target="_blank"><img src="http://3ucs.com/images/livechat.png" alt="Chat 在线客服"/></a> if you have feedback, questions or want to chat. 
 
 
