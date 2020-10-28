@@ -19,7 +19,7 @@ ViterCrm-Chinese-xPlus是开源的C/S、B/S双架构客户关系管理系统，�
 ## 演示地址及截图：http://prj.3ucs.com
 ![](imgs/xwebcrm.png)
 
-![](imgs/crmgifXone.gif)
+![](imgs/crmgifXOne.gif)
 
 ![](imgs/crmgif.gif)
 
