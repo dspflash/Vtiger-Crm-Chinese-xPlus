@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_contactdetails" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_contactdetails_vLst" ToolTip="ttp_vtiger_contactdetails_v" Size="700,450" OnLoad="init"   colsDisplay="14" Heading="" loadedclick="0">
+	<DbDetails >
+<Index>contactid</Index>
+<DbTable>vtigercrm6.vtiger_contactdetails v left join vtigercrm6.vtiger_salutationtype v0 on v.salutation=v0.salutationid left join vtigercrm6.vtiger_account v1 on v.accountid=v1.accountid left join vtigercrm6.contacts_v c on v.reportsto=c.contactid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>v.contact_no,v.lastname,v0.salutationtype salutation,v.firstname,v1.accountname accountid,v.department,v.title,c.fullname reportsto,v.phone,v.mobile,v.fax,v.email,v.otheremail,v.secondaryemail,v.imagename,v.donotcall,v.emailoptout,v.notify_owner,v.isconvertedfromlead,v.contactid,v2.user_name created_by,v.creation_date,v3.user_name last_update_by,v.last_update_date</Data>
+<Order>contactid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>contactid='%{vtiger_contactdetails_vLst[contactid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_contactdetails.vtiger_contactdetailsLst"/><assign name="$this.vtiger_contactdetails.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_contactdetails</DbTable>
+<Where>contactid='%{vtiger_contactdetails_vLst[contactid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_contactdetails" expr="js(%{vtiger_contactdetails_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_contactdetails" expr="js(%{vtiger_contactdetails_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

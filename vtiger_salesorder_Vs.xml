@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITvtiger_salesorder" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accountid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_accountid" Size="60,20" Text="accountid" Align="Right" onload="init"/>
+<ComboBox Name="accountid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_accountid" onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="contactid"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contactid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contactid" Size="60,20" Text="contactid" Align="Right" onload="init"/>
+<ComboBox Name="contactid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_contactid" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where>accountid='%{accountid[accountid]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

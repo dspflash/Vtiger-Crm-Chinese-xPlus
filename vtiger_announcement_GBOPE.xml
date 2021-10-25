@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_announcement" Size="100,100"><Ctrls>
+<Button sqlpkinsert="creatorid" Text="create" ToolTip="ttp_createvtiger_announcement" Name="insertvtiger_announcement" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>title,announcement</Data>
+<DataEx>time;now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_announcement[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_announcementLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_announcement_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_announcement" Name="modifyvtiger_announcement" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>title,announcement</Data>
+<DataEx>time;now()</DataEx>
+<Where>creatorid='%{creatorid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_announcement[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_announcementLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_announcement_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_announcement" Name="resetvtiger_announcement" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_announcement" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_announcement" Name="gsearchvtiger_announcement" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_announcementLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_announcement" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

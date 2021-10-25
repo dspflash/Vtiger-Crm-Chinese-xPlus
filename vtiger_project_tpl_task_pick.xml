@@ -1,0 +1,23 @@
+﻿<WndTap Name="vtiger_project_tpl_task_pick" Text="vtiger_project_tpl_task_Pick">
+<var name="searchtmpl"><projecttpltaskname format="(v.projecttpltaskname like '%%{opvalue}%')"/><project_ms_idx format="v.project_ms_idx='%{opvalue}'"/><responsible format="v.responsible='%{opvalue}'"/><projecttasktype format="v.projecttasktype='%{opvalue}'"/><projecttaskpriority format="v.projecttaskpriority='%{opvalue}'"/><attachedfile format="v.attachedfile is %{opvalue}"/><description format="(v.description like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><projecttpltaskid format="(v.projecttpltaskid like '%%{opvalue}%')"/><projecttplid format="(v.projecttplid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl_task.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_project_tpl_task" id="vtiger_project_tpl_task" Text="vtiger_project_tpl_task" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_project_tpl_task" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_project_tpl_task" Name="resetvtiger_project_tpl_task" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_project_tpl_task" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_project_tpl_task" Name="gsearchvtiger_project_tpl_task" Size="50,20">	<OnClick>	
+<search next="vtiger_project_tpl_task_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_project_tpl_task" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_project_tpl_task" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_task_vLst" ToolTip="ttp_vtiger_project_tpl_task_v" Size="700,450" Heading="projecttpltaskname,250;project_ms_idx,120;responsible,120;projecttasktype,120;projecttaskpriority,120;attachedfile,60;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttpltaskid,55;projecttplid,55;"       colsDisplay="9"  loadedclick="0">
+	<DbDetails >
+<Index>projecttpltaskid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_task v LEFT JOIN vtigercrm6.vtiger_project_tpl_milestone v0 ON v.project_ms_idx=v0.project_ms_idx AND v0.projecttplid=v.projecttplid left join vtigercrm6.users_v u on v.responsible=u.id LEFT JOIN vtigercrm6.vtiger_projecttasktype v1 ON v.projecttasktype=v1.projecttasktypeid LEFT JOIN vtigercrm6.vtiger_projecttaskpriority v2 ON v.projecttaskpriority=v2.projecttaskpriorityid LEFT JOIN vtigercrm6.vtiger_users v3 ON v.created_by=v3.id LEFT JOIN vtigercrm6.vtiger_users v4 ON v.last_update_by=v4.id </DbTable>
+<Data>v.projecttpltaskname,v0.projecttplmilestonename project_ms_idx,u.fullname responsible,v1.projecttasktype projecttasktype,v2.projecttaskpriority projecttaskpriority,v.attachedfile,v.description,v3.user_name created_by,v.creation_date,v4.user_name last_update_by,v.last_update_date,v.projecttpltaskid,v.projecttplid</Data>
+<Order>projecttpltaskid</Order></DbDetails>
+<DbDetails></DbDetails>
+<OnClick><if cond="%{vtiger_project_tpl_task_vLst[projecttpltaskid]}"><DbDetails><Where>projecttpltaskid='%{vtiger_project_tpl_task_vLst[projecttpltaskid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

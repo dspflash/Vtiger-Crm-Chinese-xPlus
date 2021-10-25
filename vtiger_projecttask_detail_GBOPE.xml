@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEvtiger_projecttask_detail" Size="100,100"><Ctrls>
+<Button sqlpkinsert="projecttask_detailid" Text="create" ToolTip="ttp_createvtiger_projecttask_detail" Name="insertvtiger_projecttask_detail" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttask_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>address,remark,projecttaskid</Data>
+<DataEx>startdate,enddate,created_by,creation_date,last_update_by,last_update_date;now(),now(),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="vtiger_projecttask_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_projecttask_detail" Name="modifyvtiger_projecttask_detail" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttask_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>address,remark</Data>
+<DataEx>enddate,last_update_by,last_update_date;now(),'%{user_id}',now()</DataEx>
+<Where>projecttask_detailid='%{projecttask_detailid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="vtiger_projecttask_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttask_detail" Name="resetvtiger_projecttask_detail" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITvtiger_projecttask_detail" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchvtiger_projecttask_detail" Name="gsearchvtiger_projecttask_detail" Size="50,20" visible="false">
+	<OnClick>
+	<search next="vtiger_projecttask_detailLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITvtiger_projecttask_detail" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

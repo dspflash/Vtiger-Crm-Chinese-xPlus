@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDITvtiger_project" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projectname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectname" Size="60,20" Text="projectname" Align="Right"/>
+<TextBox Name="projectname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projectname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_responsible" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_responsible" Size="60,20" Text="responsible" Align="Right"  onload="init"/>
+<ComboBox Name="responsible" Size="170,100" Text="" Weight="170"  ToolTip="ttp_responsible"  onload="init">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.users_v</DbTable>
+<Data>fullname,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

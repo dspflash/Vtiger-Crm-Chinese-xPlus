@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_projecttaskpriority" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialvtiger_projecttaskpriority" Size="50,20">
+<OnClick><submit next="vtiger_projecttaskpriority_vLst" function="initial"/><submit next="records_vtiger_projecttaskpriority" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPvtiger_projecttaskpriority_vLst" Size="50,20">
+<OnClick><submit next="vtiger_projecttaskpriority_vLst" function="GetPage(first)"/><submit next="records_vtiger_projecttaskpriority"/></OnClick></Button>
+<Button Text="prepage" Name="PREvtiger_projecttaskpriority_vLst" Size="50,20">
+<OnClick><submit next="vtiger_projecttaskpriority_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPvtiger_projecttaskpriority_vLst" Size="50,20">
+<OnClick><submit next="vtiger_projecttaskpriority_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

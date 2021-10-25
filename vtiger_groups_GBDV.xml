@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_groups"><Ctrls>
+<ListCtrl Heading="groupname,500;description,20;groupid,95;" loadedclick="0" ToolTip="ttp_vtiger_groups" Name="vtiger_groupsLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>groupid</Index>
+<DbTable>vtigercrm6.vtiger_groups</DbTable>
+<Data>groupname,description,groupid</Data>
+<Order>groupid</Order></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>groupid='%{vtiger_groups_vLst[groupid]}'</Where></DbDetails><submit next="$this.vtiger_groups.vtiger_groupsLst" namelist="DbDetails"/><assign name="$this.vtiger_groups.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_groups</DbTable>
+<Where>groupid='%{vtiger_groups_vLst[groupid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

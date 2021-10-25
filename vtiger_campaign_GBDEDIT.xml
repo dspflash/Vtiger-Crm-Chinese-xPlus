@@ -1,0 +1,138 @@
+﻿<GroupBox Name="GBDEDITvtiger_campaign"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_campaign_no" Visible="false"><Ctrls>
+<Label Align="Right" Text="campaign_no" overlap="pre" Name="lb_campaign_no" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_campaign_no" overlap="pre" Name="campaign_no" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_campaignname"><Ctrls>
+<Label Align="Right" Text="campaignname" Name="lb_campaignname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_campaignname" Name="campaignname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_campaigntype"><Ctrls>
+<Label Align="Right" Text="campaigntype" onload="init" Name="lb_campaigntype" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_campaigntype" onload="init" Name="campaigntype" Size="170,100">
+	<DbDetails>
+<Index>campaigntypeid</Index>
+<DbTable>vtigercrm6.vtiger_campaigntype</DbTable>
+<Data>campaigntype,campaigntypeid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_campaignstatus" Visible="false"><Ctrls>
+<Label Align="Right" Text="campaignstatus" overlap="pre" Name="lb_campaignstatus" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_campaignstatus" overlap="pre" Name="campaignstatus" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>campaignstatusid</Index>
+<DbTable>vtigercrm6.vtiger_campaignstatus</DbTable>
+<Data>campaignstatus,campaignstatusid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_id"><Ctrls>
+<Label Align="Right" Text="product_id" onload="init" Name="lb_product_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_product_id" onload="init" Name="product_id" Size="170,100">
+	<DbDetails>
+<Index>productid</Index>
+<DbTable>vtigercrm6.vtiger_products</DbTable>
+<Data>productname,productid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_closingdate"><Ctrls>
+<Label Align="Right" Text="closingdate" Name="lb_closingdate" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_closingdate" Name="closingdate" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expectedrevenue"><Ctrls>
+<Label Align="Right" Text="expectedrevenue" Name="lb_expectedrevenue" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_expectedrevenue" Name="expectedrevenue" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expectedresponse"><Ctrls>
+<Label Align="Right" Text="expectedresponse" onload="init" Name="lb_expectedresponse" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_expectedresponse" onload="init" Name="expectedresponse" Size="170,100">
+	<DbDetails>
+<Index>expectedresponseid</Index>
+<DbTable>vtigercrm6.vtiger_expectedresponse</DbTable>
+<Data>expectedresponse,expectedresponseid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_budgetcost"><Ctrls>
+<Label Align="Right" Text="budgetcost" Name="lb_budgetcost" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_budgetcost" Name="budgetcost" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actualcost"><Ctrls>
+<Label Align="Right" Text="actualcost" Name="lb_actualcost" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_actualcost" Name="actualcost" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sponsor"><Ctrls>
+<Label Align="Right" Text="sponsor" Name="lb_sponsor" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sponsor" Name="sponsor" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_numsent"><Ctrls>
+<Label Align="Right" Text="numsent" Name="lb_numsent" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_numsent" Name="numsent" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_targetaudience"><Ctrls>
+<Label Align="Right" Text="targetaudience" Name="lb_targetaudience" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_targetaudience" Name="targetaudience" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_targetsize"><Ctrls>
+<Label Align="Right" Text="targetsize" Name="lb_targetsize" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_targetsize" Name="targetsize" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expectedresponsecount"><Ctrls>
+<Label Align="Right" Text="expectedresponsecount" Name="lb_expectedresponsecount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_expectedresponsecount" Name="expectedresponsecount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expectedsalescount"><Ctrls>
+<Label Align="Right" Text="expectedsalescount" Name="lb_expectedsalescount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_expectedsalescount" Name="expectedsalescount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expectedroi"><Ctrls>
+<Label Align="Right" Text="expectedroi" Name="lb_expectedroi" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_expectedroi" Name="expectedroi" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actualresponsecount"><Ctrls>
+<Label Align="Right" Text="actualresponsecount" Name="lb_actualresponsecount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_actualresponsecount" Name="actualresponsecount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actualsalescount"><Ctrls>
+<Label Align="Right" Text="actualsalescount" Name="lb_actualsalescount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_actualsalescount" Name="actualsalescount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actualroi"><Ctrls>
+<Label Align="Right" Text="actualroi" Name="lb_actualroi" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_actualroi" Name="actualroi" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_campaignid" Visible="false"><Ctrls>
+<Label Align="Right" Text="campaignid" overlap="pre" Name="lb_campaignid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_campaignid" overlap="pre" Name="campaignid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{campaignid}'"><SetVisible name="insertvtiger_campaign" Visible="0"/><SetVisible name="modifyvtiger_campaign" Visible="1"/><else/><SetVisible name="insertvtiger_campaign" Visible="1"/><SetVisible name="modifyvtiger_campaign" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

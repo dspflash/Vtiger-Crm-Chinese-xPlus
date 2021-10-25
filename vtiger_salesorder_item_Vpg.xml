@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_salesorder_item"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_salesorder_item" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>salesorder_itemid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder_item v left join vtigercrm6.vtiger_users v0 on v.created_by=v0.id left join vtigercrm6.vtiger_users v1 on v.last_update_by=v1.id</DbTable>
+<Data>count(*) records</Data>
+<Order>salesorder_itemid</Order><Queryformat>select %{data} from (select v.salesorder_itemid from %{dbtable} %{where} GROUP BY v.salesorder_itemid  ORDER BY v.salesorder_itemid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_salesorder_item" expr="js(Math.ceil(%{records_vtiger_salesorder_item}/%{vtiger_salesorder_item_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_salesorder_item" expr="js('1~'+Math.ceil(%{records_vtiger_salesorder_item}/%{vtiger_salesorder_item_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_salesorder_item" Size="60,20"><OnSelEndOK><submit next="vtiger_salesorder_item_vLst" function="GetPage(%{pgscb_vtiger_salesorder_item}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_salesorder_item" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_salesorder_item" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_salesorder_item_vLst" Size="50,20"><OnClick><submit next="vtiger_salesorder_item_vLst" function="GetPage(%{pgcur_vtiger_salesorder_item}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

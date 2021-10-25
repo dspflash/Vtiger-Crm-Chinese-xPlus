@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_account" Size="100,100"><Ctrls>
+<Button sqlpkinsert="accountid" Text="create" ToolTip="ttp_createvtiger_account" Name="insertvtiger_account" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>accountname,parentid[accountid],rating[rating_id],industry[industryid],account_type[accounttypeid],annualrevenue,employees,website,phone,otherphone,fax,email1,email2,emailoptout,ownership,notify_owner</Data>
+<DataEx>account_no,created_by,creation_date,last_update_by,last_update_date;@odn,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0;SELECT SUBSTR(account_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_account ORDER BY account_no DESC LIMIT 0,1;SELECT CONCAT(Code_Prefix, LPAD((@seq + 1), 5, '0')) INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='account';INSERT INTO %{TABLE} %{DATA};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_account[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_accountLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_account_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_account" Name="modifyvtiger_account" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>accountname,parentid[accountid],rating[rating_id],industry[industryid],account_type[accounttypeid],annualrevenue,employees,website,phone,otherphone,fax,email1,email2,emailoptout,ownership,notify_owner</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>accountid='%{accountid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_account[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_accountLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_account_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_account" Name="resetvtiger_account" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_account" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_account" Name="gsearchvtiger_account" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_accountLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_account" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

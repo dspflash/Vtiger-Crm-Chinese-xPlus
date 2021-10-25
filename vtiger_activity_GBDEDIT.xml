@@ -1,0 +1,108 @@
+﻿<GroupBox Name="GBDEDITvtiger_activity"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subject"><Ctrls>
+<Label Align="Right" Text="subject" Name="lb_subject" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_subject" Name="subject" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_semodule"><Ctrls>
+<Label Align="Right" Text="semodule" Name="lb_semodule" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_semodule" Name="semodule" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_activitytype"><Ctrls>
+<Label Align="Right" Text="activitytype" onload="init" Name="lb_activitytype" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_activitytype" onload="init" Name="activitytype" Size="170,100">
+	<DbDetails>
+<Index>activitytypeid</Index>
+<DbTable>vtigercrm6.vtiger_activitytype</DbTable>
+<Data>activitytype,activitytypeid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_date_start"><Ctrls>
+<Label Align="Right" Text="date_start" Name="lb_date_start" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_date_start" Name="date_start" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_due_date"><Ctrls>
+<Label Align="Right" Text="due_date" Name="lb_due_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_due_date" Name="due_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_time_start"><Ctrls>
+<Label Align="Right" Text="time_start" Name="lb_time_start" Size="60,20" Format="HH:mm"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_time_start" Name="time_start" Size="170,20" Format="HH:mm"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_time_end"><Ctrls>
+<Label Align="Right" Text="time_end" Name="lb_time_end" Size="60,20" Format="HH:mm"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_time_end" Name="time_end" Size="170,20" Format="HH:mm"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sendnotification"><Ctrls>
+<Label Align="Right" Text="sendnotification" Name="lb_sendnotification" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sendnotification" Name="sendnotification" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_duration_hours"><Ctrls>
+<Label Align="Right" Text="duration_hours" Name="lb_duration_hours" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_duration_hours" Name="duration_hours" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_duration_minutes"><Ctrls>
+<Label Align="Right" Text="duration_minutes" Name="lb_duration_minutes" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_duration_minutes" Name="duration_minutes" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_eventstatus" Visible="false"><Ctrls>
+<Label Align="Right" Text="eventstatus" overlap="pre" Name="lb_eventstatus" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_eventstatus" overlap="pre" Name="eventstatus" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_priority"><Ctrls>
+<Label Align="Right" Text="priority" Name="lb_priority" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_priority" Name="priority" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_location"><Ctrls>
+<Label Align="Right" Text="location" Name="lb_location" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_location" Name="location" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_notime"><Ctrls>
+<Label Align="Right" Text="notime" Name="lb_notime" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_notime" Name="notime" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_visibility"><Ctrls>
+<Label Align="Right" Text="visibility" Name="lb_visibility" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_visibility" Name="visibility" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_recurringtype"><Ctrls>
+<Label Align="Right" Text="recurringtype" Name="lb_recurringtype" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_recurringtype" Name="recurringtype" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_activityid" Visible="false"><Ctrls>
+<Label Align="Right" Text="activityid" overlap="pre" Name="lb_activityid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_activityid" overlap="pre" Name="activityid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{activityid}'"><SetVisible name="insertvtiger_activity" Visible="0"/><SetVisible name="modifyvtiger_activity" Visible="1"/><else/><SetVisible name="insertvtiger_activity" Visible="1"/><SetVisible name="modifyvtiger_activity" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

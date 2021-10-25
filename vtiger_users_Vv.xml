@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVvtiger_users" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_users_vLst" ToolTip="ttp_vtiger_users_v" Size="700,450" OnLoad="init" Heading="user_name,640;first_name,150;last_name,150;title,250;phone_home,250;phone_mobile,250;phone_work,250;phone_other,250;phone_fax,250;email1,500;email2,500;secondaryemail,500;description,630;status,60;id,55;is_admin,20;is_owner,25;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users v left join vtigercrm6.vtiger_users v0 on v.created_by=v0.id left join vtigercrm6.vtiger_users v1 on v.last_update_by=v1.id</DbTable>
+<Data>v.user_name,v.first_name,v.last_name,v.title,v.phone_home,v.phone_mobile,v.phone_work,v.phone_other,v.phone_fax,v.email1,v.email2,v.secondaryemail,v.description,v.status,v.id,v.is_admin,v.is_owner,v0.user_name created_by,v.creation_date,v1.user_name last_update_by,v.last_update_date</Data>
+<Order>id</Order></DbDetails>
+<DbDetails><queryFormat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_vtiger_users" expr="js(%{vtiger_users_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_users" expr="js(%{vtiger_users_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

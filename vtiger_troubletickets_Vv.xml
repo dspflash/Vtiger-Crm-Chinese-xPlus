@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_troubletickets" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_troubletickets_vLst" ToolTip="ttp_vtiger_troubletickets_v" Size="700,450" OnLoad="init" Heading="title,250;category,120;days,125;ticket_no,100;hours,125;contact_id,120;parent_id,120;priority,120;severity,120;status,120;groupname,120;product_id,120;version_id,55;update_log,20;solution,20;ticketid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>ticketid</Index>
+<DbTable>vtigercrm6.vtiger_troubletickets v left join vtigercrm6.vtiger_ticketcategories v0 on v.category=v0.ticketcategories_id left join vtigercrm6.contacts_v c on v.contact_id=c.contactid left join vtigercrm6.vtiger_troubletickets v1 on v.parent_id=v1.ticketid left join vtigercrm6.vtiger_ticketpriorities v2 on v.priority=v2.ticketpriorities_id left join vtigercrm6.vtiger_ticketseverities v3 on v.severity=v3.ticketseverities_id left join vtigercrm6.vtiger_ticketstatus v4 on v.status=v4.ticketstatus_id left join vtigercrm6.vtiger_groups v5 on v.groupname=v5.groupid left join vtigercrm6.vtiger_products v6 on v.product_id=v6.productid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>v.title,v0.ticketcategories category,v.days,v.ticket_no,v.hours,c.fullname contact_id,v1.ticket_no parent_id,v2.ticketpriorities priority,v3.ticketseverities severity,v4.ticketstatus status,v5.groupname groupname,v6.productname product_id,v.version_id,v.update_log,v.solution,v.ticketid,v7.user_name created_by,v.creation_date,v8.user_name last_update_by,v.last_update_date</Data>
+<Order>ticketid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>ticketid='%{vtiger_troubletickets_vLst[ticketid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_troubletickets.vtiger_troubleticketsLst"/><assign name="$this.vtiger_troubletickets.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_troubletickets</DbTable>
+<Where>ticketid='%{vtiger_troubletickets_vLst[ticketid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_troubletickets" expr="js(%{vtiger_troubletickets_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_troubletickets" expr="js(%{vtiger_troubletickets_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

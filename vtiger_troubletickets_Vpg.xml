@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_troubletickets"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_troubletickets" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>ticketid</Index>
+<DbTable>vtigercrm6.vtiger_troubletickets v left join vtigercrm6.vtiger_ticketcategories v0 on v.category=v0.ticketcategories_id left join vtigercrm6.contacts_v c on v.contact_id=c.contactid left join vtigercrm6.vtiger_troubletickets v1 on v.parent_id=v1.ticketid left join vtigercrm6.vtiger_ticketpriorities v2 on v.priority=v2.ticketpriorities_id left join vtigercrm6.vtiger_ticketseverities v3 on v.severity=v3.ticketseverities_id left join vtigercrm6.vtiger_ticketstatus v4 on v.status=v4.ticketstatus_id left join vtigercrm6.vtiger_groups v5 on v.groupname=v5.groupid left join vtigercrm6.vtiger_products v6 on v.product_id=v6.productid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>count(*) records</Data>
+<Order>ticketid</Order><Queryformat>select %{data} from (select v.ticketid from %{dbtable} %{where} GROUP BY v.ticketid  ORDER BY v.ticketid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_troubletickets" expr="js(Math.ceil(%{records_vtiger_troubletickets}/%{vtiger_troubletickets_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_troubletickets" expr="js('1~'+Math.ceil(%{records_vtiger_troubletickets}/%{vtiger_troubletickets_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_troubletickets" Size="60,20"><OnSelEndOK><submit next="vtiger_troubletickets_vLst" function="GetPage(%{pgscb_vtiger_troubletickets}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_troubletickets" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_troubletickets" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_troubletickets_vLst" Size="50,20"><OnClick><submit next="vtiger_troubletickets_vLst" function="GetPage(%{pgcur_vtiger_troubletickets}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_projecttaskstatus"><Ctrls>
+<ListCtrl Heading="projecttaskstatus,640;presence,20;picklist_valueid,55;sortorderid,55;projecttaskstatusid,55;" loadedclick="0" ToolTip="ttp_vtiger_projecttaskstatus" Name="vtiger_projecttaskstatusLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>projecttaskstatusid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskstatus</DbTable>
+<Data>projecttaskstatus,presence,picklist_valueid,sortorderid,projecttaskstatusid</Data>
+<Order>projecttaskstatusid</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>projecttaskstatusid='%{vtiger_projecttaskstatus_vLst[projecttaskstatusid]}'</Where></DbDetails><submit next="$this.vtiger_projecttaskstatus.vtiger_projecttaskstatusLst" namelist="DbDetails"/><assign name="$this.vtiger_projecttaskstatus.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttaskstatus</DbTable>
+<Where>projecttaskstatusid='%{vtiger_projecttaskstatus_vLst[projecttaskstatusid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

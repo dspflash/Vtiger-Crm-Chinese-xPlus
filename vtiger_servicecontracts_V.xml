@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_servicecontracts_v" Text="vtiger_servicecontracts">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><subject format="(v.subject like '%%{opvalue}%')"/><contract_type format="v.contract_type='%{opvalue}'"/><priority format="v.priority='%{opvalue}'"/><contract_no format="(v.contract_no like '%%{opvalue}%')"/><start_date format="(v.start_date between '%{start_date[datetime]}' and '%{start_date[datetime2]}')"/><end_date format="(v.end_date between '%{end_date[datetime]}' and '%{end_date[datetime2]}')"/><due_date format="(v.due_date between '%{due_date[datetime]}' and '%{due_date[datetime2]}')"/><sc_related_to format="v.sc_related_to='%{opvalue}'"/><tracking_unit format="v.tracking_unit='%{opvalue}'"/><total_units format="(v.total_units like '%%{opvalue}%')"/><used_units format="(v.used_units like '%%{opvalue}%')"/><planned_duration format="(v.planned_duration like '%%{opvalue}%')"/><actual_duration format="(v.actual_duration like '%%{opvalue}%')"/><contract_status format="(v.contract_status like '%%{opvalue}%')"/><progress format="(v.progress like '%%{opvalue}%')"/><servicecontractsid format="(v.servicecontractsid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_servicecontracts.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_servicecontracts" id="vtiger_servicecontracts" Text="vtiger_servicecontracts" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_servicecontracts" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_servicecontracts.GBDEDITvtiger_servicecontracts" function="reset"/><assign name="$this.vtiger_servicecontracts.frmwndctrl" expr="%{$this.vtiger_servicecontracts_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_servicecontracts" Name="resetvtiger_servicecontracts" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_servicecontracts" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_servicecontracts" Name="gsearchvtiger_servicecontracts" Size="50,20">	<OnClick>	
+<search next="vtiger_servicecontracts_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_servicecontracts" namelist="search" function="search"/>	
+<search next="records_vtiger_servicecontracts" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_servicecontracts" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,28 @@
+﻿<GroupBox Name="GBDEDITvtiger_activity" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_semodule" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_semodule" Size="60,20" Text="semodule" Align="Right"/>
+<TextBox Name="semodule" Size="170,20" Text="" Weight="170" ToolTip="ttp_semodule"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_activitytype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_activitytype" Size="60,20" Text="activitytype" Align="Right"  onload="init"/>
+<ComboBox Name="activitytype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_activitytype"  onload="init">
+	<DbDetails>
+<Index>activitytypeid</Index>
+<DbTable>vtigercrm6.vtiger_activitytype</DbTable>
+<Data>activitytype,activitytypeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_date_start" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_date_start" Size="60,20" Text="date_start" Align="Right"/>
+<DateTime Name="date_start" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_date_start"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_due_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_due_date" Size="60,20" Text="due_date" Align="Right"/>
+<DateTime Name="due_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_due_date"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

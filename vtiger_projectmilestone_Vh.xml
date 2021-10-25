@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_projectmilestone" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestoneLst" ToolTip="ttp_vtiger_projectmilestone" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone</DbTable>
+<Data>projectmilestonename,projectmilestonetype,projectmilestonedate,project_ms_idx,reviewed,review_memo,created_by,creation_date,last_update_by,last_update_date,projectid,projectmilestoneid,reviewed_date,reviewed_by</Data>
+<Order>projectmilestoneid</Order></DbDetails>
+<OnClick><assign name="projectmilestonetype[projectmilestonetypeid]" expr="%{vtiger_projectmilestoneLst[projectmilestonetype]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_projectmilestoneLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_projectmilestoneLst[last_update_by]}" function="SetSel"/>
+<if cond="'%{projectmilestoneid}'"><SetVisible name="insertvtiger_projectmilestone" Visible="0"/><SetVisible name="modifyvtiger_projectmilestone" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

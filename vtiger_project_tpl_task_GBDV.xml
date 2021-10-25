@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_project_tpl_task"><Ctrls>
+<ListCtrl Heading="projecttpltaskname,250;project_ms_idx,120;responsible,120;projecttasktype,120;projecttaskpriority,120;attachedfile,60;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttpltaskid,55;projecttplid,55;" loadedclick="0" ToolTip="ttp_vtiger_project_tpl_task" Name="vtiger_project_tpl_taskLst" Size="700,450" colsDisplay="9">
+	<DbDetails fcsm="1">
+<Index>projecttpltaskid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_task v LEFT JOIN vtigercrm6.vtiger_project_tpl_milestone v0 ON v.project_ms_idx=v0.project_ms_idx AND v0.projecttplid=v.projecttplid left join vtigercrm6.users_v u on v.responsible=u.id LEFT JOIN vtigercrm6.vtiger_projecttasktype v1 ON v.projecttasktype=v1.projecttasktypeid LEFT JOIN vtigercrm6.vtiger_projecttaskpriority v2 ON v.projecttaskpriority=v2.projecttaskpriorityid LEFT JOIN vtigercrm6.vtiger_users v3 ON v.created_by=v3.id LEFT JOIN vtigercrm6.vtiger_users v4 ON v.last_update_by=v4.id </DbTable>
+<Data>v.projecttpltaskname,v0.projecttplmilestonename project_ms_idx,u.fullname responsible,v1.projecttasktype projecttasktype,v2.projecttaskpriority projecttaskpriority,v.attachedfile,v.description,v3.user_name created_by,v.creation_date,v4.user_name last_update_by,v.last_update_date,v.projecttpltaskid,v.projecttplid</Data>
+<Order>projecttpltaskid</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{projecttplid}"><alert expr="projecttplid is Empty!"/><else/><submit next="$parent.vtiger_project_tpl_task.GBDEDITvtiger_project_tpl_task" function="reset"/><assign name="$parent.vtiger_project_tpl_task.projecttplid" expr="%{projecttplid}"/><assign name="$parent.vtiger_project_tpl_task.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>projecttpltaskid='%{vtiger_project_tpl_task_vLst[projecttpltaskid]}'</Where></DbDetails><submit next="$parent.vtiger_project_tpl_task.vtiger_project_tpl_taskLst" namelist="DbDetails"/><assign name="$parent.vtiger_project_tpl_task.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project_tpl_task</DbTable>
+<Where>projecttpltaskid='%{vtiger_project_tpl_task_vLst[projecttpltaskid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

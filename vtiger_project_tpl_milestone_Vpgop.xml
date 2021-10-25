@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_project_tpl_milestone"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialvtiger_project_tpl_milestone" Size="50,20">
+<OnClick><submit next="vtiger_project_tpl_milestone_vLst" function="initial"/><submit next="records_vtiger_project_tpl_milestone" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPvtiger_project_tpl_milestone_vLst" Size="50,20">
+<OnClick><submit next="vtiger_project_tpl_milestone_vLst" function="GetPage(first)"/><submit next="records_vtiger_project_tpl_milestone"/></OnClick></Button>
+<Button Text="prepage" Name="PREvtiger_project_tpl_milestone_vLst" Size="50,20">
+<OnClick><submit next="vtiger_project_tpl_milestone_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPvtiger_project_tpl_milestone_vLst" Size="50,20">
+<OnClick><submit next="vtiger_project_tpl_milestone_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

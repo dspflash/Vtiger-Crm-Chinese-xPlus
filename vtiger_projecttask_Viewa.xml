@@ -1,0 +1,8 @@
+﻿<WndTap Name="vtiger_projecttask_v" Text="vtiger_projecttask">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder_item.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projecttask" id="vtiger_projecttask" Text="vtiger_projecttask" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Viewva.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

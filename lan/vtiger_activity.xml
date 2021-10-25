@@ -1,0 +1,56 @@
+﻿<Language name="vtiger_activity">
+<Lang name="vtiger_activity" value="活动"/>
+<Lang name="TabEditvtiger_activity" value="vtiger_activity Edit"/>
+<Lang name="TabViewvtiger_activity" value="vtiger_activity View"/>
+<Lang name="subject" value="主题"/>
+<Lang name="ttp_subject" value=""/>
+<Lang name="semodule" value=""/>
+<Lang name="ttp_semodule" value=""/>
+<Lang name="activitytype" value=""/>
+<Lang name="ttp_activitytype" value=""/>
+<Lang name="date_start" value=""/>
+<Lang name="ttp_date_start" value=""/>
+<Lang name="due_date" value=""/>
+<Lang name="ttp_due_date" value=""/>
+<Lang name="time_start" value=""/>
+<Lang name="ttp_time_start" value=""/>
+<Lang name="time_end" value=""/>
+<Lang name="ttp_time_end" value=""/>
+<Lang name="sendnotification" value=""/>
+<Lang name="ttp_sendnotification" value=""/>
+<Lang name="duration_hours" value=""/>
+<Lang name="ttp_duration_hours" value=""/>
+<Lang name="duration_minutes" value=""/>
+<Lang name="ttp_duration_minutes" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="eventstatus" value=""/>
+<Lang name="ttp_eventstatus" value=""/>
+<Lang name="priority" value=""/>
+<Lang name="ttp_priority" value=""/>
+<Lang name="location" value=""/>
+<Lang name="ttp_location" value=""/>
+<Lang name="notime" value=""/>
+<Lang name="ttp_notime" value=""/>
+<Lang name="visibility" value=""/>
+<Lang name="ttp_visibility" value=""/>
+<Lang name="recurringtype" value=""/>
+<Lang name="ttp_recurringtype" value=""/>
+<Lang name="activityid" value=""/>
+<Lang name="ttp_activityid" value=""/>
+<Lang name="ttp_operationvtiger_activity" value=""/>
+<Lang name="ttp_createvtiger_activity" value=""/>
+<Lang name="ttp_modifyvtiger_activity" value=""/>
+<Lang name="ttp_resetvtiger_activity" value=""/>
+<Lang name="ttp_deletevtiger_activity" value=""/>
+<Lang name="ttp_refreshvtiger_activity" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

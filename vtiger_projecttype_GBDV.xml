@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_projecttype"><Ctrls>
+<ListCtrl Heading="projecttype,640;presence,20;picklist_valueid,55;sortorderid,55;projecttypeid,55;" loadedclick="0" ToolTip="ttp_vtiger_projecttype" Name="vtiger_projecttypeLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>projecttypeid</Index>
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Data>projecttype,presence,picklist_valueid,sortorderid,projecttypeid</Data>
+<Order>projecttypeid</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>projecttypeid='%{vtiger_projecttype_vLst[projecttypeid]}'</Where></DbDetails><submit next="$this.vtiger_projecttype.vtiger_projecttypeLst" namelist="DbDetails"/><assign name="$this.vtiger_projecttype.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Where>projecttypeid='%{vtiger_projecttype_vLst[projecttypeid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

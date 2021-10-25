@@ -1,0 +1,178 @@
+﻿<GroupBox Name="GBDEDITvtiger_purchaseorder"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subject"><Ctrls>
+<Label Align="Right" Text="subject" Name="lb_subject" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_subject" Name="subject" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_requisition_no"><Ctrls>
+<Label Align="Right" Text="requisition_no" Name="lb_requisition_no" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_requisition_no" Name="requisition_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_purchaseorder_no" Visible="false"><Ctrls>
+<Label Align="Right" Text="purchaseorder_no" overlap="pre" Name="lb_purchaseorder_no" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_purchaseorder_no" overlap="pre" Name="purchaseorder_no" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tracking_no"><Ctrls>
+<Label Align="Right" Text="tracking_no" Name="lb_tracking_no" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_tracking_no" Name="tracking_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_postatus" Visible="false"><Ctrls>
+<Label Align="Right" Text="postatus" overlap="pre" Name="lb_postatus" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_postatus" overlap="pre" Name="postatus" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>postatusid</Index>
+<DbTable>vtigercrm6.vtiger_postatus</DbTable>
+<Data>postatus,postatusid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quoteid"><Ctrls>
+<Label Align="Right" Text="quoteid" onload="init" Name="lb_quoteid" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_quoteid" onload="init" Name="quoteid" Size="170,100">
+	<DbDetails>
+<Index>quoteid</Index>
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Data>subject,quoteid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_vendorid"><Ctrls>
+<Label Align="Right" Text="vendorid" onload="init" Name="lb_vendorid" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_vendorid" onload="init" Name="vendorid" Size="170,100">
+	<DbDetails>
+<Index>vendorid</Index>
+<DbTable>vtigercrm6.vtiger_vendor</DbTable>
+<Data>vendorname,vendorid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contactid"><Ctrls>
+<Label Align="Right" Text="contactid" onload="init" Name="lb_contactid" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_contactid" onload="init" Name="contactid" Size="170,100">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_duedate"><Ctrls>
+<Label Align="Right" Text="duedate" Name="lb_duedate" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_duedate" Name="duedate" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_carrier"><Ctrls>
+<Label Align="Right" Text="carrier" onload="init" Name="lb_carrier" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_carrier" onload="init" Name="carrier" Size="170,100">
+	<DbDetails>
+<Index>carrierid</Index>
+<DbTable>vtigercrm6.vtiger_carrier</DbTable>
+<Data>carrier,carrierid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_terms_conditions"><Ctrls>
+<Label Align="Right" Text="terms_conditions" Name="lb_terms_conditions" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_terms_conditions" Name="terms_conditions" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_adjustment"><Ctrls>
+<Label Align="Right" Text="adjustment" Name="lb_adjustment" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_adjustment" Name="adjustment" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_salescommission"><Ctrls>
+<Label Align="Right" Text="salescommission" Name="lb_salescommission" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_salescommission" Name="salescommission" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_exciseduty"><Ctrls>
+<Label Align="Right" Text="exciseduty" Name="lb_exciseduty" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_exciseduty" Name="exciseduty" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pre_tax_total"><Ctrls>
+<Label Align="Right" Text="pre_tax_total" Name="lb_pre_tax_total" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pre_tax_total" Name="pre_tax_total" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total"><Ctrls>
+<Label Align="Right" Text="total" Name="lb_total" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_total" Name="total" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subtotal"><Ctrls>
+<Label Align="Right" Text="subtotal" Name="lb_subtotal" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_subtotal" Name="subtotal" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_taxtype"><Ctrls>
+<Label Align="Right" Text="taxtype" Name="lb_taxtype" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_taxtype" Name="taxtype" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_percent"><Ctrls>
+<Label Align="Right" Text="discount_percent" Name="lb_discount_percent" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_discount_percent" Name="discount_percent" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_amount"><Ctrls>
+<Label Align="Right" Text="discount_amount" Name="lb_discount_amount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_discount_amount" Name="discount_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_s_h_amount"><Ctrls>
+<Label Align="Right" Text="s_h_amount" Name="lb_s_h_amount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_s_h_amount" Name="s_h_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_s_h_percent"><Ctrls>
+<Label Align="Right" Text="s_h_percent" Name="lb_s_h_percent" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_s_h_percent" Name="s_h_percent" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency_id"><Ctrls>
+<Label Align="Right" Text="currency_id" onload="init" Name="lb_currency_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_currency_id" onload="init" Name="currency_id" Size="170,100">
+	<DbDetails>
+<Index>currencyid</Index>
+<DbTable>vtigercrm6.vtiger_currencies</DbTable>
+<Data>currency_code,currencyid</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_conversion_rate"><Ctrls>
+<Label Align="Right" Text="conversion_rate" Name="lb_conversion_rate" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_conversion_rate" Name="conversion_rate" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_paid"><Ctrls>
+<Label Align="Right" Text="paid" Name="lb_paid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_paid" Name="paid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_balance"><Ctrls>
+<Label Align="Right" Text="balance" Name="lb_balance" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_balance" Name="balance" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_type"><Ctrls>
+<Label Align="Right" Text="type" Name="lb_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_type" Name="type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_purchaseorderid" Visible="false"><Ctrls>
+<Label Align="Right" Text="purchaseorderid" overlap="pre" Name="lb_purchaseorderid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_purchaseorderid" overlap="pre" Name="purchaseorderid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{purchaseorderid}'"><SetVisible name="insertvtiger_purchaseorder" Visible="0"/><SetVisible name="modifyvtiger_purchaseorder" Visible="1"/><else/><SetVisible name="insertvtiger_purchaseorder" Visible="1"/><SetVisible name="modifyvtiger_purchaseorder" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

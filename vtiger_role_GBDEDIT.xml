@@ -1,0 +1,29 @@
+﻿<GroupBox Name="GBDEDITvtiger_role"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_roleid"><Ctrls>
+<Label Align="Right" Text="roleid" Name="lb_roleid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_roleid" Name="roleid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rolename"><Ctrls>
+<Label Align="Right" Text="rolename" Name="lb_rolename" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_rolename" Name="rolename" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rolelayout"><Ctrls>
+<Label Align="Right" Text="rolelayout" Name="lb_rolelayout" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_rolelayout" Name="rolelayout" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_parentrole"><Ctrls>
+<Label Align="Right" Text="parentrole" Name="lb_parentrole" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_parentrole" Name="parentrole" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_depth"><Ctrls>
+<Label Align="Right" Text="depth" Name="lb_depth" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_depth" Name="depth" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_allowassignedrecordsto"><Ctrls>
+<CheckBox Text="allowassignedrecordsto" ToolTip="ttp_allowassignedrecordsto" Name="allowassignedrecordsto" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_roleidx" Visible="false"><Ctrls>
+<Label Align="Right" Text="roleidx" overlap="pre" Name="lb_roleidx" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_roleidx" overlap="pre" Name="roleidx" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{roleidx}'"><SetVisible name="insertvtiger_role" Visible="0"/><SetVisible name="modifyvtiger_role" Visible="1"/><else/><SetVisible name="insertvtiger_role" Visible="1"/><SetVisible name="modifyvtiger_role" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

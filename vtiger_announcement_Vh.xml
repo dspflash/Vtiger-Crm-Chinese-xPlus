@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_announcement" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_announcementLst" ToolTip="ttp_vtiger_announcement" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>creatorid</Index>
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Data>title,announcement,time,creatorid</Data>
+<Order>creatorid</Order></DbDetails>
+<OnClick>
+<if cond="%{creatorid}"><SetVisible name="insertvtiger_announcement" Visible="0"/><SetVisible name="modifyvtiger_announcement" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

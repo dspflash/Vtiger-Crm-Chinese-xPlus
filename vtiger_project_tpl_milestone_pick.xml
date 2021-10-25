@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_project_tpl_milestone_pick" Text="vtiger_project_tpl_milestone_Pick">
+<var name="searchtmpl"><project_ms_idx format="(v.project_ms_idx like '%%{opvalue}%')"/><projecttplmilestonename format="(v.projecttplmilestonename like '%%{opvalue}%')"/><responsible format="v.responsible='%{opvalue}'"/><projectmilestonetype format="v.projectmilestonetype='%{opvalue}'"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><projecttplid format="(v.projecttplid like '%%{opvalue}%')"/><projecttplmilestoneid format="(v.projecttplmilestoneid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl_milestone.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_project_tpl_milestone" id="vtiger_project_tpl_milestone" Text="vtiger_project_tpl_milestone" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_milestone_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_project_tpl_milestone" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_project_tpl_milestone" Name="resetvtiger_project_tpl_milestone" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_project_tpl_milestone" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_project_tpl_milestone" Name="gsearchvtiger_project_tpl_milestone" Size="50,20">	<OnClick>	
+<search next="vtiger_project_tpl_milestone_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_project_tpl_milestone" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_project_tpl_milestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_milestone_vLst" ToolTip="ttp_vtiger_project_tpl_milestone_v" Size="700,450" Heading="project_ms_idx,120;projecttplmilestonename,250;responsible,120;projectmilestonetype,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttplid,55;projecttplmilestoneid,55;"     colsDisplay="5" loadedclick="0">
+	<DbDetails >
+<Index>projecttplmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_milestone v left join vtigercrm6.users_v u on v.responsible=u.id left join vtigercrm6.vtiger_projectmilestonetype v0 on v.projectmilestonetype=v0.projectmilestonetypeid left join vtigercrm6.vtiger_users v1 on v.created_by=v1.id left join vtigercrm6.vtiger_users v2 on v.last_update_by=v2.id</DbTable>
+<Data>v.project_ms_idx,v.projecttplmilestonename,u.fullname responsible,v0.projectmilestonetype projectmilestonetype,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projecttplid,v.projecttplmilestoneid</Data>
+<Order>projecttplmilestoneid</Order></DbDetails>
+<OnClick><if cond="%{vtiger_project_tpl_milestone_vLst[projecttplmilestoneid]}"><DbDetails><Where>projecttplmilestoneid='%{vtiger_project_tpl_milestone_vLst[projecttplmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,43 @@
+﻿<Language name="vtiger_project_tpl">
+<Lang name="vtiger_project_tpl" value="项目模板"/>
+<Lang name="vtiger_project_tpl_v" value="项目模板"/>
+<Lang name="projectname" value="项目名称"/>
+<Lang name="createPrjWithTpl" value="创建项目"/>
+<Lang name="TabEditvtiger_project_tpl" value="vtiger_project_tpl Edit"/>
+<Lang name="TabViewvtiger_project_tpl" value="vtiger_project_tpl View"/>
+<Lang name="projecttplname" value="模板名称"/>
+<Lang name="ttp_projecttplname" value=""/>
+<Lang name="projectdays" value="工期"/>
+<Lang name="ttp_projectdays" value=""/>
+<Lang name="projecttype" value="类型"/>
+<Lang name="ttp_projecttype" value=""/>
+<Lang name="projectpriority" value="优先级"/>
+<Lang name="ttp_projectpriority" value=""/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="projecttplid" value=""/>
+<Lang name="ttp_projecttplid" value=""/>
+<Lang name="ttp_operationvtiger_project_tpl" value=""/>
+<Lang name="ttp_createvtiger_project_tpl" value=""/>
+<Lang name="ttp_modifyvtiger_project_tpl" value=""/>
+<Lang name="ttp_resetvtiger_project_tpl" value=""/>
+<Lang name="ttp_deletevtiger_project_tpl" value=""/>
+<Lang name="ttp_refreshvtiger_project_tpl" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

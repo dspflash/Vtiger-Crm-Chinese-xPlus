@@ -1,0 +1,75 @@
+﻿<GroupBox Name="GBDEDITvtiger_projecttask" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projectname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectname" Size="60,20" Text="projectname" Align="Right"/>
+<TextBox Name="projectname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projectname"></TextBox>
+</Ctrls></GroupBox>
+<!--GroupBox Name="GB_project_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_no" Size="60,20" Text="project_no" Align="Right"/>
+<TextBox Name="project_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_no"></TextBox>
+</Ctrls></GroupBox-->
+<GroupBox Name="GB_projecttaskname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskname" Size="60,20" Text="projecttaskname" Align="Right"/>
+<TextBox Name="projecttaskname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projecttaskname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_schedule_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_schedule_date" Size="60,20" Text="schedule_date" Align="Right" Format="yyyy-MM-dd"/>
+<DateTime Name="schedule_date" Size="170,20" Text="a week ago" Weight="170" Text2="1 week" ToolTip="ttp_schedule_date" Format="yyyy-MM-dd"></DateTime>
+</Ctrls></GroupBox>
+<!--GroupBox Name="GB_projecttasktype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttasktype" Size="60,20" Text="projecttasktype" Align="Right" onload="init"/>
+<ComboBox Name="projecttasktype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttasktype" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttasktype</DbTable>
+<Index></Index>
+<Data>projecttasktype,projecttasktypeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_projecttaskpriority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskpriority" Size="60,20" Text="projecttaskpriority" Align="Right" onload="init"/>
+<ComboBox Name="projecttaskpriority" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttaskpriority" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Index></Index>
+<Data>projecttaskpriority,projecttaskpriorityid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox-->
+<BR AutoHeight="1"/><GroupBox Name="GB_projecttaskstatus" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskstatus" Size="60,20" Text="projecttaskstatus" Align="Right"/>
+<ComboBox Name="projecttaskstatus" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttaskstatus" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttaskstatus</DbTable>
+<Index>projecttaskstatusid</Index>
+<Data>projecttaskstatus,projecttaskstatusid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails>
+<!--OnSelEndOk><submit next="gsearchvtiger_projecttask" function="click"/></OnSelEndOk-->
+</ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_itemcode" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_itemcode" Size="60,20" Text="itemcode" Align="Right"/>
+<TextBox Name="itemcode" Size="170,20" Text="" Weight="170" ToolTip="ttp_itemcode"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_responsible" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_responsible" Size="60,20" Text="responsible" Align="Right"  onload="init"/>
+<ComboBox Name="responsible" Size="150,100" Text="" Weight="150"  ToolTip="ttp_responsible"  onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Index>id</Index>
+<Data>user_name,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshresponsible" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="responsible"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<!--GroupBox Name="GB_startdate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_startdate" Size="60,20" Text="startdate" Align="Right"/>
+<DateTime Name="startdate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_startdate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_enddate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_enddate" Size="60,20" Text="enddate" Align="Right"/>
+<DateTime Name="enddate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_enddate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_attachedfile"><Ctrls>
+<CheckBox Text="attachedfile" ToolTip="ttp_attachedfile" Name="attachedfile" Size="230,20"/>
+</Ctrls></GroupBox-->
+</Ctrls></GroupBox>

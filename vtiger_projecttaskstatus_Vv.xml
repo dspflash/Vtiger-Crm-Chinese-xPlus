@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVvtiger_projecttaskstatus" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttaskstatus_vLst" ToolTip="ttp_vtiger_projecttaskstatus_v" Size="700,450" OnLoad="init" Heading="projecttaskstatus,640;presence,20;picklist_valueid,55;sortorderid,55;projecttaskstatusid,55;" loadedclick="0">
+	<DbDetails >
+<Index>projecttaskstatusid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskstatus v</DbTable>
+<Data>v.projecttaskstatus,v.presence,v.picklist_valueid,v.sortorderid,v.projecttaskstatusid</Data>
+<Order>projecttaskstatusid</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>projecttaskstatusid='%{vtiger_projecttaskstatus_vLst[projecttaskstatusid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_projecttaskstatus.vtiger_projecttaskstatusLst"/><assign name="$this.vtiger_projecttaskstatus.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttaskstatus</DbTable>
+<Where>projecttaskstatusid='%{vtiger_projecttaskstatus_vLst[projecttaskstatusid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_projecttaskstatus" expr="js(%{vtiger_projecttaskstatus_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_projecttaskstatus" expr="js(%{vtiger_projecttaskstatus_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

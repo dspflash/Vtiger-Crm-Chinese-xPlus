@@ -1,0 +1,11 @@
+﻿<GroupBox Name="GBDVvtiger_projecttask" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttask_vLst" ToolTip="ttp_vtiger_projecttask_v" Size="700,450"      colsDisplay="9" Heading="projecttaskname,250;contact,100;telphone,100;projecttasktype,120;schedule_date,150;milestone,50;milestone_date,50;responsible,120;projecttaskpriority,120;projecttaskstatus,120;startdate,150;enddate,150;address,380;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projectid,55;projecttaskid,55;addrlng,20;addrlat,76;" loadedclick="0">
+	<DbDetails >
+<Index>projecttaskid</Index>
+<DbTable>vtigercrm6.prj_ms_task_v v</DbTable>
+<Data>v.projecttaskname,v.contact,v.telphone,v0.projecttasktype projecttasktype,DATE_FORMAT(schedule_date,'%Y-%m-%d') schedule_date,u.fullname responsible,v1.projecttaskpriority projecttaskpriority,v2.projecttaskstatus projecttaskstatus,v.attachedfile,v.startdate,v.enddate,v.address,v.description,v3.user_name created_by,v.creation_date,v4.user_name last_update_by,v.last_update_date,v.projectid,v.projecttaskid,v.addrlng,v.addrlat,projecttaskstatusid</Data>
+<Order>projecttaskid</Order></DbDetails>
+<DbDetails><Data>*</Data></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

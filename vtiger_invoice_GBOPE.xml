@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_invoice" Size="100,100"><Ctrls>
+<Button sqlpkinsert="invoiceid" Text="create" ToolTip="ttp_createvtiger_invoice" Name="insertvtiger_invoice" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_invoice</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,invoicedate,salesorderid[salesorderid],customerno,duedate,accountid[accountid],contactid[contactid],type,purchaseorder[purchaseorderid],shipping,invoiceterms,terms_conditions,notes,taxtype,s_h_amount,s_h_percent,adjustment,salescommission,exciseduty,discount_percent,discount_amount,pre_tax_total,total,subtotal,currency_id[currencyid],conversion_rate,received,balance</Data>
+<DataEx>invoice_no,invoicestatus,created_by,creation_date,last_update_by,last_update_date;@odn,1,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(invoice_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_invoice WHERE DATE(creation_date)=CURDATE() ORDER BY invoice_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='invoice'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_invoice[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_invoiceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_invoice_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_invoice" Name="modifyvtiger_invoice" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_invoice</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,invoicedate,salesorderid[salesorderid],customerno,duedate,accountid[accountid],contactid[contactid],type,purchaseorder[purchaseorderid],shipping,invoiceterms,terms_conditions,notes,taxtype,s_h_amount,s_h_percent,adjustment,salescommission,exciseduty,discount_percent,discount_amount,pre_tax_total,total,subtotal,currency_id[currencyid],conversion_rate,received,balance</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>invoiceid='%{invoiceid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_invoice[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_invoiceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_invoice_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_invoice" Name="resetvtiger_invoice" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_invoice" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_invoice" Name="gsearchvtiger_invoice" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_invoiceLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_invoice" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

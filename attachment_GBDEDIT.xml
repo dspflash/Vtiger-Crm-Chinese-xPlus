@@ -1,16 +1,4 @@
 ﻿<GroupBox Name="GBDEDITattachment"><Ctrls>
-<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subject"><Ctrls>
-<Label Align="Right" Text="subject" onload="init" Name="lb_subject" Size="60,20"/>
-<ComboBox Weight="80" Text="" ToolTip="ttp_subject" onload="init" Name="subject" Size="80,100">
-	<DbDetails fcsm="true">
-<Index/>
-<DbTable>vtigercrm6.attachment_subject</DbTable>
-<Data>subject,'' description,remark</Data>
-<Where/>
-<queryFormat/></DbDetails></ComboBox>
-<Label Align="Right" Text="invokes" Name="lb_invokes" Size="60,20"/>
-<TextBox Weight="40" Text="" ToolTip="ttp_invokes" Name="invokes" Size="40,20"/>
-</Ctrls></GroupBox>
 <GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
 <Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
 <DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
@@ -19,7 +7,7 @@
 <Label Align="Right" Text="typestr" overlap="pre" Name="lb_typestr" readonly="true" Size="60,20" Visible="false"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_typestr" overlap="pre" Name="typestr" readonly="true" Size="170,20" Visible="false"/>
 </Ctrls></GroupBox>
-<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md6 lg4" Multiline="0" Name="GB_description"><Ctrls>
+<GroupBox cols="xs12" Multiline="0" Name="GB_description"><Ctrls>
 <Label Align="Right" Text="description" Name="lb_description" Size="60,50"/>
 <TextBox Weight="630" Text="" ToolTip="ttp_description" Name="description" Size="630,50"/>
 </Ctrls></GroupBox>
@@ -79,5 +67,4 @@
 <Label Align="Right" Text="attachment_id" overlap="pre" Name="lb_attachment_id" readonly="true" Size="60,20" Visible="false"/>
 <TextBox Weight="170" Text="" ToolTip="ttp_attachment_id" overlap="pre" Name="attachment_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{attachment_id}'"><SetVisible name="insertattachment" Visible="0"/><SetVisible name="modifyattachment" Visible="1"/><else/><SetVisible name="insertattachment" Visible="1"/><SetVisible name="modifyattachment" Visible="0"/></if></OnEnChange></TextBox>
 </Ctrls></GroupBox>
-<BR autoheight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_txt"><Ctrls> <Label Align="Right" Text="主要任务" Name="lb_task_remark" Size="60,20"/><TextBox Text="" Name="task_remark" Readonly="1" Size="170,20"/> </Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_txt"><Ctrls> <Label Align="Right" Text="主题说明" Name="lb_remark" Size="60,20"/><TextBox Text="" Name="remark" Readonly="1" Size="170,20"/> </Ctrls></GroupBox>
-<BR autoheight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_address"><Ctrls> <Label Align="Right" Text="address" Name="lb_address" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_address" Name="address" Readonly="1" Size="150,20"/><MagicCtrl Name="location" Link="tip:Location" images=",data/marker.png" button="type:0" Size="20,20"><OnClick><if cond="'%{address[location]}'"><assign name="topmost" expr="locationmap:%{address[location]},%{address}"/></if></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contact"><Ctrls> <Label Align="Right" Text="contact" Name="lb_contact" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_contact" Name="contact" Readonly="1" Size="150,20"/> <MagicCtrl ToolTip="DialToCall" Name="dialmobile" OnClick="nis3ucs:%{mobile}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/></Ctrls></GroupBox> <GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile" visible="0"><Ctrls> <Label Align="Right" Text="mobile" Name="lb_mobile" Size="60,20"/> <TextBox Weight="150" Text="" ToolTip="ttp_mobile" Name="mobile" Readonly="1" Size="150,20"/> </Ctrls></GroupBox></Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITvtiger_potential" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_potentialname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_potentialname" Size="60,20" Text="potentialname" Align="Right"/>
+<TextBox Name="potentialname" Size="170,20" Text="" Weight="170" ToolTip="ttp_potentialname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_potentialtype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_potentialtype" Size="60,20" Text="potentialtype" Align="Right" onload="init"/>
+<ComboBox Name="potentialtype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_potentialtype" onload="init">
+	<DbDetails>
+<Index>opptypeid</Index>
+<DbTable>vtigercrm6.vtiger_opportunity_type</DbTable>
+<Data>opportunity_type,opptypeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_probability" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_probability" Size="60,20" Text="probability" Align="Right"/>
+<TextBox Name="probability" Size="170,20" Text="" Weight="170" ToolTip="ttp_probability"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_contact_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contact_id" Size="60,20" Text="contact_id" Align="Right" onload="init"/>
+<ComboBox Name="contact_id" Size="150,100" Text="" Weight="150"  ToolTip="ttp_contact_id" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcontact_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="contact_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_related_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_related_to" Size="60,20" Text="related_to" Align="Right" onload="init"/>
+<ComboBox Name="related_to" Size="150,100" Text="" Weight="150"  ToolTip="ttp_related_to" onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshrelated_to" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="related_to"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_campaignid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_campaignid" Size="60,20" Text="campaignid" Align="Right" onload="init"/>
+<ComboBox Name="campaignid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_campaignid" onload="init">
+	<DbDetails>
+<Index>campaignid</Index>
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Data>campaignname,campaignid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_leadsource" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leadsource" Size="60,20" Text="leadsource" Align="Right" onload="init"/>
+<ComboBox Name="leadsource" Size="170,100" Text="" Weight="170"  ToolTip="ttp_leadsource" onload="init">
+	<DbDetails>
+<Index>leadsourceid</Index>
+<DbTable>vtigercrm6.vtiger_leadsource</DbTable>
+<Data>leadsource,leadsourceid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_closingdate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_closingdate" Size="60,20" Text="closingdate" Align="Right"/>
+<DateTime Name="closingdate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_closingdate"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

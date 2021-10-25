@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_project_tpl_task"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_project_tpl_task" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>projecttpltaskid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_task v LEFT JOIN vtigercrm6.vtiger_project_tpl_milestone v0 ON v.project_ms_idx=v0.project_ms_idx AND v0.projecttplid=v.projecttplid left join vtigercrm6.users_v u on v.responsible=u.id LEFT JOIN vtigercrm6.vtiger_projecttasktype v1 ON v.projecttasktype=v1.projecttasktypeid LEFT JOIN vtigercrm6.vtiger_projecttaskpriority v2 ON v.projecttaskpriority=v2.projecttaskpriorityid LEFT JOIN vtigercrm6.vtiger_users v3 ON v.created_by=v3.id LEFT JOIN vtigercrm6.vtiger_users v4 ON v.last_update_by=v4.id </DbTable>
+<Data>count(*) records</Data>
+<Order>projecttpltaskid</Order><Queryformat>select %{data} from (select v.projecttpltaskid from %{dbtable} %{where} GROUP BY v.projecttpltaskid  ORDER BY v.projecttpltaskid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_project_tpl_task" expr="js(Math.ceil(%{records_vtiger_project_tpl_task}/%{vtiger_project_tpl_task_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_project_tpl_task" expr="js('1~'+Math.ceil(%{records_vtiger_project_tpl_task}/%{vtiger_project_tpl_task_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_project_tpl_task" Size="60,20"><OnSelEndOK><submit next="vtiger_project_tpl_task_vLst" function="GetPage(%{pgscb_vtiger_project_tpl_task}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_project_tpl_task" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_project_tpl_task" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_project_tpl_task_vLst" Size="50,20"><OnClick><submit next="vtiger_project_tpl_task_vLst" function="GetPage(%{pgcur_vtiger_project_tpl_task}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,34 @@
+<Language name="vtiger_projectmilestone">
+<Lang name="projecttask" value="任务查看"/>
+<Lang name="vtiger_projectmilestone" value="项目阶段"/>
+<Lang name="vtiger_projectmilestone_v" value="项目阶段"/>
+<Lang name="projectmilestonename" value="阶段名称"/>
+<Lang name="ttp_projectmilestonename" value=""/>
+<Lang name="projectid" value="项目阶段"/>
+<Lang name="ttp_projectid" value=""/>
+<Lang name="projectmilestonedate" value="阶段日期"/>
+<Lang name="ttp_projectmilestonedate" value=""/>
+<Lang name="projectmilestonetype" value="阶段类型"/>
+<Lang name="ttp_projectmilestonetype" value=""/>
+<Lang name="projectmilestoneid" value="项目阶段"/>
+<Lang name="ttp_projectmilestoneid" value=""/>
+<Lang name="projectmilestone_no" value="projectmilestone_no"/>
+<Lang name="ttp_projectmilestone_no" value=""/>
+<Lang name="review" value="评审"/>
+<Lang name="ttp_review" value=""/>
+<Lang name="review_memo" value="评审说明"/>
+<Lang name="reviewed" value="已评审"/>
+<Lang name="ttp_operationvtiger_projectmilestone" value="操作"/>
+<Lang name="ttp_createvtiger_projectmilestone" value="新增"/>
+<Lang name="ttp_modifyvtiger_projectmilestone" value="修改"/>
+<Lang name="ttp_deletevtiger_projectmilestone" value="删除"/>
+<Lang name="ttp_refreshvtiger_projectmilestone" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

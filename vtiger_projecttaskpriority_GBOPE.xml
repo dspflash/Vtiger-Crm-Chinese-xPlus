@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_projecttaskpriority" Size="100,100"><Ctrls>
+<Button sqlpkinsert="projecttaskpriorityid" Text="create" ToolTip="ttp_createvtiger_projecttaskpriority" Name="insertvtiger_projecttaskpriority" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttaskpriority,presence,picklist_valueid,sortorderid</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_projecttaskpriority[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttaskpriorityLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttaskpriority_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_projecttaskpriority" Name="modifyvtiger_projecttaskpriority" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttaskpriority,presence,picklist_valueid,sortorderid</Data>
+<DataEx/>
+<Where>projecttaskpriorityid='%{projecttaskpriorityid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_projecttaskpriority[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttaskpriorityLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttaskpriority_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttaskpriority" Name="resetvtiger_projecttaskpriority" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_projecttaskpriority" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttaskpriority" Name="gsearchvtiger_projecttaskpriority" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_projecttaskpriorityLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_projecttaskpriority" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>id='%{vtiger_users_vLst[id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_users.vtiger_usersLst"/><assign name="$this.vtiger_users.frmwndctrl" expr="%{this}"/></op>
+<op text="role"><assign name="$this.vtiger_user2role.userid" expr="%{vtiger_users_vLst[id]}"/><DbDetails><Where>userid='%{vtiger_users_vLst[id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_user2role.vtiger_user2roleLst"/><assign name="$this.vtiger_user2role.frmwndctrl" expr="%{this}"/></op>
+<op text="ModifyPass"><submit next="$this.userlogin_modifypass.GBDEDITuserlogin" function="reset"/><assign name="$this.userlogin_modifypass._user_id" expr="%{vtiger_users_vLst[id]}"/><assign name="$this.userlogin_modifypass.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Where>id='%{vtiger_users_vLst[id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

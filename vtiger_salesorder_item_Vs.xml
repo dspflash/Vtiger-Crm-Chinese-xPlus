@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITvtiger_salesorder_item" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_itemcode" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_itemcode" Size="60,20" Text="itemcode" Align="Right"/>
+<TextBox Name="itemcode" Size="170,20" Text="" Weight="170" ToolTip="ttp_itemcode"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_customitem" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_customitem" Size="60,20" Text="customitem" Align="Right"/>
+<TextBox Name="customitem" Size="170,20" Text="" Weight="170" ToolTip="ttp_customitem"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_itemname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_itemname" Size="60,20" Text="itemname" Align="Right"/>
+<TextBox Name="itemname" Size="170,20" Text="" Weight="170" ToolTip="ttp_itemname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

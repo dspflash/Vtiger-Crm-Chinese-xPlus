@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_groups"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_groups" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>groupid</Index>
+<DbTable>vtigercrm6.vtiger_groups v</DbTable>
+<Data>count(*) records</Data>
+<Order>groupid</Order><Queryformat>select %{data} from (select v.groupid from %{dbtable} %{where} GROUP BY v.groupid  ORDER BY v.groupid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_groups" expr="js(Math.ceil(%{records_vtiger_groups}/%{vtiger_groups_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_groups" expr="js('1~'+Math.ceil(%{records_vtiger_groups}/%{vtiger_groups_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_groups" Size="60,20"><OnSelEndOK><submit next="vtiger_groups_vLst" function="GetPage(%{pgscb_vtiger_groups}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_groups" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_groups" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_groups_vLst" Size="50,20"><OnClick><submit next="vtiger_groups_vLst" function="GetPage(%{pgcur_vtiger_groups}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

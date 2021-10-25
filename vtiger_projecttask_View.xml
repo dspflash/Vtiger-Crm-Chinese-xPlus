@@ -1,0 +1,28 @@
+﻿<WndTap Name="vtiger_projecttask_v" Text="vtiger_projecttask">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vm.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpicView.xml" popup="1"/>
+<WndTap Name="popweb" Text="三优地图" popup="1"><Ctrls>
+	<WebBrowser Name="wb" Studio="0" Size="700,600">
+</WebBrowser>
+</Ctrls></WndTap>
+</WndTaps>
+<var name="searchtmpl"><project_no format="(project_no like '%%{opvalue}%')"/><projectname format="(projectname like '%%{opvalue}%')"/><projecttaskname format="(projecttaskname like '%%{opvalue}%')"/><projecttaskstatus format="v.projecttaskstatus='%{opvalue}%'"/><schedule_date format="(schedule_date is null or (schedule_date between '%{schedule_date[datetime]}' and '%{schedule_date[datetime2]}'))"/><itemcode format="(soi.itemcode like '%%{opvalue}%')"/><responsible format="(IF(v.responsible,v.responsible,vpm.responsible)='%{opvalue}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder_item.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projecttask" id="vtiger_projecttask" Text="vtiger_projecttask" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projecttask" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttask" Name="resetvtiger_projecttask" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projecttask" function="reset"/>	</OnClick>	</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttask" Name="gsearchvtiger_projecttask" Size="50,20">	<OnClick>	
+<search next="vtiger_projecttask_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projecttask" namelist="search" function="search"/>	
+<search next="records_vtiger_projecttask" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projecttask" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Vpgm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Viewv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

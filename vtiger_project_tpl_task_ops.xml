@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{projecttplmilestoneid}"><alert expr="projecttplmilestoneid is Empty!"/><else/><submit next="$parent.vtiger_project_tpl_task.GBDEDITvtiger_project_tpl_task" function="reset"/><assign name="$parent.vtiger_project_tpl_task.projecttplmilestoneid" expr="%{projecttplmilestoneid}"/><assign name="$parent.vtiger_project_tpl_task.projecttplid" expr="%{projecttplid}"/><assign name="$parent.vtiger_project_tpl_task.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>projecttpltaskid='%{vtiger_project_tpl_task_vLst[projecttpltaskid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_project_tpl_task.vtiger_project_tpl_taskLst"/><assign name="$parent.vtiger_project_tpl_task.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project_tpl_task</DbTable>
+<Where>projecttpltaskid='%{vtiger_project_tpl_task_vLst[projecttpltaskid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

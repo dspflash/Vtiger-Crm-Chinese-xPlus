@@ -1,0 +1,22 @@
+﻿<WndTap Name="attachment_pick" Text="attachment_Pick">
+<var name="searchtmpl"><creation_date format="(a.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><typestr format="(a.typestr like '%%{opvalue}%')"/><description format="(a.description like '%%{opvalue}%')"/><created_by format="a.created_by='%{opvalue}'"/><filename format="(a.filename like '%%{opvalue}%')"/><location format="(a.location like '%%{opvalue}%')"/><path format="(a.path like '%%{opvalue}%')"/><attachment format="(a.attachment like '%%{opvalue}%')"/><reftbl format="(a.reftbl like '%%{opvalue}%')"/><refid format="(a.refid like '%%{opvalue}%')"/><type format="(a.type like '%%{opvalue}%')"/><last_update_by format="a.last_update_by='%{opvalue}'"/><last_update_date format="(a.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><attachment_id format="(a.attachment_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+<Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVattachment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetattachment" Name="resetattachment" Size="50,20">	<OnClick>	<submit next="GBDEDITattachment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchattachment" Name="gsearchattachment" Size="50,20">	<OnClick>	
+<search next="attachment_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITattachment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVattachment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="attachment_vLst" ToolTip="ttp_attachment_v" Size="700,450"          Heading="creation_date,80;typeStr,50;description,150;created_by,50;filename,50;" loadedclick="0">
+	<DbDetails >
+<Index>attachment_id</Index>
+<DbTable>vtigercrm6.attachment a left join vtigercrm6.vtiger_users v on a.created_by=v.id left join vtigercrm6.vtiger_users v0 on a.last_update_by=v0.id</DbTable>
+<Data>a.creation_date,a.typestr,a.description,v.user_name created_by,a.filename,a.location,a.path,a.attachment,a.reftbl,a.refid,a.type,v0.user_name last_update_by,a.last_update_date,a.attachment_id</Data>
+<Order>attachment_id</Order></DbDetails>
+<OnClick><if cond="%{attachment_vLst[attachment_id]}"><DbDetails><Where>attachment_id='%{attachment_vLst[attachment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_service"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_service" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>serviceid</Index>
+<DbTable>vtigercrm6.vtiger_service v left join vtigercrm6.vtiger_servicecategory v0 on v.servicecategory=v0.servicecategoryid left join vtigercrm6.vtiger_service_usageunit v1 on v.service_usageunit=v1.service_usageunitid left join vtigercrm6.vtiger_currencies v2 on v.currency_id=v2.currencyid left join vtigercrm6.vtiger_taxclass v3 on v.taxclass=v3.taxclassid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>count(*) records</Data>
+<Order>serviceid</Order><Queryformat>select %{data} from (select v.serviceid from %{dbtable} %{where} GROUP BY v.serviceid  ORDER BY v.serviceid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_service" expr="js(Math.ceil(%{records_vtiger_service}/%{vtiger_service_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_service" expr="js('1~'+Math.ceil(%{records_vtiger_service}/%{vtiger_service_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_service" Size="60,20"><OnSelEndOK><submit next="vtiger_service_vLst" function="GetPage(%{pgscb_vtiger_service}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_service" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_service" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_service_vLst" Size="50,20"><OnClick><submit next="vtiger_service_vLst" function="GetPage(%{pgcur_vtiger_service}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_purchaseorder" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_purchaseorderLst" ToolTip="ttp_vtiger_purchaseorder" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>purchaseorderid</Index>
+<DbTable>vtigercrm6.vtiger_purchaseorder</DbTable>
+<Data>subject,requisition_no,purchaseorder_no,tracking_no,postatus,quoteid,vendorid,contactid,duedate,carrier,terms_conditions,adjustment,salescommission,exciseduty,pre_tax_total,total,subtotal,taxtype,discount_percent,discount_amount,s_h_amount,s_h_percent,currency_id,conversion_rate,paid,balance,type,created_by,creation_date,last_update_by,last_update_date,purchaseorderid</Data>
+<Order>purchaseorderid</Order></DbDetails>
+<OnClick><assign name="postatus[postatusid]" expr="%{vtiger_purchaseorderLst[postatus]}" function="SetSel"/><assign name="quoteid[quoteid]" expr="%{vtiger_purchaseorderLst[quoteid]}" function="SetSel"/><assign name="vendorid[vendorid]" expr="%{vtiger_purchaseorderLst[vendorid]}" function="SetSel"/><assign name="contactid[contactid]" expr="%{vtiger_purchaseorderLst[contactid]}" function="SetSel"/><assign name="carrier[carrierid]" expr="%{vtiger_purchaseorderLst[carrier]}" function="SetSel"/><assign name="currency_id[currencyid]" expr="%{vtiger_purchaseorderLst[currency_id]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_purchaseorderLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_purchaseorderLst[last_update_by]}" function="SetSel"/>
+<if cond="%{purchaseorderid}"><SetVisible name="insertvtiger_purchaseorder" Visible="0"/><SetVisible name="modifyvtiger_purchaseorder" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

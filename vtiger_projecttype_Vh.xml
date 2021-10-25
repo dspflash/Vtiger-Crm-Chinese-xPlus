@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_projecttype" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_projecttypeLst" ToolTip="ttp_vtiger_projecttype" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>projecttypeid</Index>
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Data>projecttype,presence,picklist_valueid,sortorderid,projecttypeid</Data>
+<Order>projecttypeid</Order></DbDetails>
+<OnClick>
+<if cond="%{projecttypeid}"><SetVisible name="insertvtiger_projecttype" Visible="0"/><SetVisible name="modifyvtiger_projecttype" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

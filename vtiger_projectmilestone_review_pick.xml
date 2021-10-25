@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_projectmilestone_review_pick" Text="vtiger_projectmilestone_review_Pick">
+<var name="searchtmpl"><projectmilestonename format="(v.projectmilestonename like '%%{opvalue}%')"/><reviewed format="v.reviewed is %{opvalue}"/><projectmilestonedate format="(v.projectmilestonedate between '%{projectmilestonedate[datetime]}' and '%{projectmilestonedate[datetime2]}')"/><projectmilestoneid format="(v.projectmilestoneid like '%%{opvalue}%')"/><reviewed_date format="(v.reviewed_date between '%{reviewed_date[datetime]}' and '%{reviewed_date[datetime2]}')"/><reviewed_by format="(v.reviewed_by like '%%{opvalue}%')"/><review_memo format="(v.review_memo like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projectmilestone_review.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projectmilestone" id="vtiger_projectmilestone" Text="vtiger_projectmilestone" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_review_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projectmilestone" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projectmilestone" Name="resetvtiger_projectmilestone" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projectmilestone" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projectmilestone" Name="gsearchvtiger_projectmilestone" Size="50,20">	<OnClick>	
+<search next="vtiger_projectmilestone_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projectmilestone" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_projectmilestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestone_vLst" ToolTip="ttp_vtiger_projectmilestone_v" Size="700,450" Heading="projectmilestonename,250;reviewed,60;projectmilestonedate,90;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;review_memo,640;"       colsDisplay="5" loadedclick="0">
+	<DbDetails >
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone v</DbTable>
+<Data>v.projectmilestonename,v.reviewed,v.projectmilestonedate,v.projectmilestoneid,v.reviewed_date,v.reviewed_by,v.review_memo</Data>
+<Order>projectmilestoneid</Order></DbDetails>
+<OnClick><if cond="%{vtiger_projectmilestone_vLst[projectmilestoneid]}"><DbDetails><Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

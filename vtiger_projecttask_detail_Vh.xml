@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_projecttask_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_projecttask_detailLst" ToolTip="ttp_vtiger_projecttask_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttask_detail</DbTable>
+<Index>projecttask_detailid</Index>
+<Data>address,remark,startdate,enddate,created_by,creation_date,last_update_by,last_update_date,projecttask_detailid</Data>
+<Order>projecttask_detailid</Order></DbDetails>
+<OnClick>
+<if cond="%{projecttask_detailid}"><SetVisible name="insertvtiger_projecttask_detail" Visible="0"/><SetVisible name="modifyvtiger_projecttask_detail" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

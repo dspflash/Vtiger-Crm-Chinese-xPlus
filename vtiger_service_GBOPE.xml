@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_service" Size="100,100"><Ctrls>
+<Button sqlpkinsert="serviceid" Text="create" ToolTip="ttp_createvtiger_service" Name="insertvtiger_service" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_service</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>servicename,servicecategory[servicecategoryid],discontinued,service_usageunit[service_usageunitid],qty_per_unit,unit_price,currency_id[currencyid],taxclass[taxclassid],commissionrate,sales_start_date,sales_end_date,start_date,expiry_date,website</Data>
+<DataEx>service_no,created_by,creation_date,last_update_by,last_update_date;@odn,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(service_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_service WHERE DATE(creation_date)=CURDATE() ORDER BY service_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='svo'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_service[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_serviceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_service_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_service" Name="modifyvtiger_service" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_service</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>servicename,servicecategory[servicecategoryid],discontinued,service_usageunit[service_usageunitid],qty_per_unit,unit_price,currency_id[currencyid],taxclass[taxclassid],commissionrate,sales_start_date,sales_end_date,start_date,expiry_date,website</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>serviceid='%{serviceid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_service[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_serviceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_service_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_service" Name="resetvtiger_service" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_service" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_service" Name="gsearchvtiger_service" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_serviceLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_service" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

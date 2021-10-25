@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_activity" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletevtiger_activity" Name="deletevtiger_activity" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.vtiger_activity</DbTable>
+<Where>activityid='%{vtiger_activityLst[activityid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_activity" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshvtiger_activity" Name="searchvtiger_activity" Size="50,20">
+			  <OnClick><submit next="vtiger_activityLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPvtiger_activityLst" OnClick="(vtiger_activityLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREvtiger_activityLst" OnClick="(vtiger_activityLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPvtiger_activityLst" OnClick="(vtiger_activityLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

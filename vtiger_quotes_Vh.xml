@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_quotes" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_quotesLst" ToolTip="ttp_vtiger_quotes" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>quoteid</Index>
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Data>subject,potentialid,quotestage,inventorymanager,validtill,quote_no,contactid,accountid,carrier,shipping,pre_tax_total,total,subtotal,taxtype,discount_percent,discount_amount,adjustment,s_h_amount,s_h_percent,terms_conditions,currency_id,conversion_rate,type,created_by,creation_date,last_update_by,last_update_date,quoteid</Data>
+<Order>quoteid</Order></DbDetails>
+<OnClick><assign name="potentialid[potentialid]" expr="%{vtiger_quotesLst[potentialid]}" function="SetSel"/><assign name="quotestage[quotestageid]" expr="%{vtiger_quotesLst[quotestage]}" function="SetSel"/><assign name="inventorymanager[id]" expr="%{vtiger_quotesLst[inventorymanager]}" function="SetSel"/><assign name="contactid[contactid]" expr="%{vtiger_quotesLst[contactid]}" function="SetSel"/><assign name="accountid[accountid]" expr="%{vtiger_quotesLst[accountid]}" function="SetSel"/><assign name="taxtype[taxclassid]" expr="%{vtiger_quotesLst[taxtype]}" function="SetSel"/><assign name="currency_id[currencyid]" expr="%{vtiger_quotesLst[currency_id]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_quotesLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_quotesLst[last_update_by]}" function="SetSel"/>
+<if cond="%{quoteid}"><SetVisible name="insertvtiger_quotes" Visible="0"/><SetVisible name="modifyvtiger_quotes" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

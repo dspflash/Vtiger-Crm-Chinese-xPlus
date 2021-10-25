@@ -1,0 +1,69 @@
+﻿<Language name="vtiger_users">
+<Lang name="vtiger_users" value="用户"/>
+<Lang name="role" value="角色"/>
+<Lang name="myinfo" value="我的信息"/>
+<Lang name="fullname" value="全名"/>
+<Lang name="rolename" value="角色名"/>
+<Lang name="rolelayout" value="应用路径"/>
+<Lang name="ModifyPass" value="修改密码"/>
+<Lang name="old password" value="旧密码"/>
+<Lang name="new password" value="新密码"/>
+<Lang name="reinupt password" value="新密码(重复)"/>
+<Lang name="TabEditvtiger_users" value="vtiger_users Edit"/>
+<Lang name="TabViewvtiger_users" value="vtiger_users View"/>
+<Lang name="user_name" value="用户名"/>
+<Lang name="ttp_user_name" value=""/>
+<Lang name="first_name" value="名"/>
+<Lang name="ttp_first_name" value=""/>
+<Lang name="last_name" value="姓"/>
+<Lang name="ttp_last_name" value=""/>
+<Lang name="title" value="头衔"/>
+<Lang name="ttp_title" value=""/>
+<Lang name="phone_home" value="电话"/>
+<Lang name="ttp_phone_home" value=""/>
+<Lang name="phone_mobile" value="手机"/>
+<Lang name="ttp_phone_mobile" value=""/>
+<Lang name="phone_work" value="办公电话"/>
+<Lang name="ttp_phone_work" value=""/>
+<Lang name="phone_other" value="办公电话1"/>
+<Lang name="ttp_phone_other" value=""/>
+<Lang name="phone_fax" value="传真"/>
+<Lang name="ttp_phone_fax" value=""/>
+<Lang name="email1" value="邮件1"/>
+<Lang name="ttp_email1" value=""/>
+<Lang name="email2" value="邮件2"/>
+<Lang name="ttp_email2" value=""/>
+<Lang name="secondaryemail" value="邮件3"/>
+<Lang name="ttp_secondaryemail" value=""/>
+<Lang name="user_password" value="密码"/>
+<Lang name="ttp_user_password" value=""/>
+<Lang name="status" value="状态"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="id" value=""/>
+<Lang name="ttp_id" value=""/>
+<Lang name="is_admin" value=""/>
+<Lang name="ttp_is_admin" value=""/>
+<Lang name="date_entered" value=""/>
+<Lang name="ttp_date_entered" value=""/>
+<Lang name="date_modified" value=""/>
+<Lang name="ttp_date_modified" value=""/>
+<Lang name="modified_user_id" value=""/>
+<Lang name="ttp_modified_user_id" value=""/>
+<Lang name="is_owner" value=""/>
+<Lang name="ttp_is_owner" value=""/>
+<Lang name="ttp_operationvtiger_users" value=""/>
+<Lang name="ttp_createvtiger_users" value=""/>
+<Lang name="ttp_modifyvtiger_users" value=""/>
+<Lang name="ttp_resetvtiger_users" value=""/>
+<Lang name="ttp_deletevtiger_users" value=""/>
+<Lang name="ttp_refreshvtiger_users" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

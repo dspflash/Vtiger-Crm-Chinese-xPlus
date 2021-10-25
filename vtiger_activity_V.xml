@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_activity_v" Text="vtiger_activity">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><subject format="(v.subject like '%%{opvalue}%')"/><semodule format="(v.semodule like '%%{opvalue}%')"/><activitytype format="v.activitytype='%{opvalue}'"/><date_start format="(v.date_start between '%{date_start[datetime]}' and '%{date_start[datetime2]}')"/><due_date format="(v.due_date between '%{due_date[datetime]}' and '%{due_date[datetime2]}')"/><time_start format="(v.time_start between '%{time_start[datetime]}' and '%{time_start[datetime2]}')"/><time_end format="(v.time_end between '%{time_end[datetime]}' and '%{time_end[datetime2]}')"/><sendnotification format="(v.sendnotification like '%%{opvalue}%')"/><duration_hours format="(v.duration_hours like '%%{opvalue}%')"/><duration_minutes format="(v.duration_minutes like '%%{opvalue}%')"/><status format="(v.status like '%%{opvalue}%')"/><eventstatus format="(v.eventstatus like '%%{opvalue}%')"/><priority format="(v.priority like '%%{opvalue}%')"/><location format="(v.location like '%%{opvalue}%')"/><notime format="(v.notime like '%%{opvalue}%')"/><visibility format="(v.visibility like '%%{opvalue}%')"/><recurringtype format="(v.recurringtype like '%%{opvalue}%')"/><activityid format="(v.activityid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_activity.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_activity" id="vtiger_activity" Text="vtiger_activity" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_activity" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_activity.GBDEDITvtiger_activity" function="reset"/><assign name="$this.vtiger_activity.frmwndctrl" expr="%{$this.vtiger_activity_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_activity" Name="resetvtiger_activity" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_activity" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_activity" Name="gsearchvtiger_activity" Size="50,20">	<OnClick>	
+<search next="vtiger_activity_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_activity" namelist="search" function="search"/>	
+<search next="records_vtiger_activity" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_activity" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_activity_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_salesorder_item" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletevtiger_salesorder_item" Name="deletevtiger_salesorder_item" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.vtiger_salesorder_item</DbTable>
+<Where>salesorder_itemid='%{vtiger_salesorder_itemLst[salesorder_itemid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_salesorder_item" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshvtiger_salesorder_item" Name="searchvtiger_salesorder_item" Size="50,20">
+			  <OnClick><submit next="vtiger_salesorder_itemLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPvtiger_salesorder_itemLst" OnClick="(vtiger_salesorder_itemLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREvtiger_salesorder_itemLst" OnClick="(vtiger_salesorder_itemLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPvtiger_salesorder_itemLst" OnClick="(vtiger_salesorder_itemLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

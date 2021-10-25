@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_products" Size="100,100"><Ctrls>
+<Button sqlpkinsert="productid" Text="create" ToolTip="ttp_createvtiger_products" Name="insertvtiger_products" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_products</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>productcode,productname,imagename</Data>
+<DataEx>product_no,created_by,creation_date,last_update_by,last_update_date;@odn,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(product_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_products ORDER BY product_no DESC LIMIT 0,1; SELECT CONCAT(Code_Prefix, LPAD((@seq + 1), 5, '0')) INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='prd'; INSERT INTO %{TABLE} %{DATA};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_products[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_productsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_products_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_products" Name="modifyvtiger_products" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_products</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>productcode,productname,imagename</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>productid='%{productid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_products[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_productsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_products_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_products" Name="resetvtiger_products" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_products" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_products" Name="gsearchvtiger_products" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_productsLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_products" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

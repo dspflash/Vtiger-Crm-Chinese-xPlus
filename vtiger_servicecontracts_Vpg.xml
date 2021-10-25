@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_servicecontracts"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_servicecontracts" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>servicecontractsid</Index>
+<DbTable>vtigercrm6.vtiger_servicecontracts v left join vtigercrm6.vtiger_contract_type v0 on v.contract_type=v0.contract_typeid left join vtigercrm6.vtiger_contract_priority v1 on v.priority=v1.contract_priorityid left join vtigercrm6.vtiger_account v2 on v.sc_related_to=v2.accountid left join vtigercrm6.vtiger_service_usageunit v3 on v.tracking_unit=v3.service_usageunitid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>count(*) records</Data>
+<Order>servicecontractsid</Order><Queryformat>select %{data} from (select v.servicecontractsid from %{dbtable} %{where} GROUP BY v.servicecontractsid  ORDER BY v.servicecontractsid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_servicecontracts" expr="js(Math.ceil(%{records_vtiger_servicecontracts}/%{vtiger_servicecontracts_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_servicecontracts" expr="js('1~'+Math.ceil(%{records_vtiger_servicecontracts}/%{vtiger_servicecontracts_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_servicecontracts" Size="60,20"><OnSelEndOK><submit next="vtiger_servicecontracts_vLst" function="GetPage(%{pgscb_vtiger_servicecontracts}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_servicecontracts" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_servicecontracts" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_servicecontracts_vLst" Size="50,20"><OnClick><submit next="vtiger_servicecontracts_vLst" function="GetPage(%{pgcur_vtiger_servicecontracts}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

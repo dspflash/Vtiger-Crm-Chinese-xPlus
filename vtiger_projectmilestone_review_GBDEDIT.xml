@@ -1,0 +1,29 @@
+﻿<GroupBox Name="GBDEDITvtiger_projectmilestone"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projectmilestonename"><Ctrls>
+<Label Align="Right" Text="projectmilestonename" Name="lb_projectmilestonename" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projectmilestonename" Name="projectmilestonename" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reviewed" Visible="false"><Ctrls>
+<CheckBox Text="reviewed" ToolTip="ttp_reviewed" overlap="pre" Name="reviewed" readonly="true" Size="230,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projectmilestonedate"><Ctrls>
+<Label Align="Right" Text="projectmilestonedate" Name="lb_projectmilestonedate" readonly="true" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_projectmilestonedate" Name="projectmilestonedate" readonly="true" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projectmilestoneid" Visible="false"><Ctrls>
+<Label Align="Right" Text="projectmilestoneid" overlap="pre" Name="lb_projectmilestoneid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projectmilestoneid" overlap="pre" Name="projectmilestoneid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{projectmilestoneid}'"><SetVisible name="insertvtiger_projectmilestone" Visible="0"/><SetVisible name="modifyvtiger_projectmilestone" Visible="1"/><else/><SetVisible name="insertvtiger_projectmilestone" Visible="1"/><SetVisible name="modifyvtiger_projectmilestone" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reviewed_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="reviewed_date" overlap="pre" Name="lb_reviewed_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_reviewed_date" overlap="pre" Name="reviewed_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reviewed_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="reviewed_by" overlap="pre" Name="lb_reviewed_by" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reviewed_by" overlap="pre" Name="reviewed_by" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12" Multiline="0" Name="GB_review_memo"><Ctrls>
+<Label Align="Right" Text="review_memo" Name="lb_review_memo" Size="60,50"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_review_memo" Name="review_memo" Size="630,50"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

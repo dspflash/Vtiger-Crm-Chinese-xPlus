@@ -1,0 +1,7 @@
+﻿<WndTap Name="vtiger_projectmilestone_v" Text="vtiger_projectmilestone_v">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projectmilestone.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projectmilestone" id="vtiger_projectmilestone" Text="vtiger_projectmilestone" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

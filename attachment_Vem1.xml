@@ -1,0 +1,26 @@
+﻿<WndTap Name="attachment" Text="attachment" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\attachment.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_GBDEDIT.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPEattachment" Size="100,100"><Ctrls>
+<Button sqlpkinsert="attachment_id" Text="create" ToolTip="ttp_createattachment" Name="insertattachment" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.attachment</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>typestr,description,filename,location,path,attachment,reftbl,refid,type</Data>
+<DataEx>creation_date,created_by,last_update_by,last_update_date;now(),'%{user_id}','%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertattachment[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="attachmentLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.attachment_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox></Ctrls>
+	<OnActivate><SetVisible name="insertattachment" Visible="1"/><SetVisible name="modifyattachment" Visible="0"/></OnActivate>
+</WndTap>

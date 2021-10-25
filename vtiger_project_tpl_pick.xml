@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_project_tpl_pick" Text="vtiger_project_tpl_Pick">
+<var name="searchtmpl"><projecttplname format="(v.projecttplname like '%%{opvalue}%')"/><projectdays format="(v.projectdays like '%%{opvalue}%')"/><responsible format="v.responsible='%{opvalue}'"/><projecttype format="v.projecttype='%{opvalue}'"/><projectpriority format="v.projectpriority='%{opvalue}'"/><description format="(v.description like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><projecttplid format="(v.projecttplid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_project_tpl" id="vtiger_project_tpl" Text="vtiger_project_tpl" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_project_tpl" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_project_tpl" Name="resetvtiger_project_tpl" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_project_tpl" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_project_tpl" Name="gsearchvtiger_project_tpl" Size="50,20">	<OnClick>	
+<search next="vtiger_project_tpl_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_project_tpl" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_project_tpl" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_vLst" ToolTip="ttp_vtiger_project_tpl_v" Size="700,450" Heading="projecttplname,250;projectdays,55;responsible,120;projecttype,120;projectpriority,120;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttplid,55;"      colsDisplay="11" AutoSizeCol="0"  loadedclick="0">
+	<DbDetails >
+<Index>projecttplid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl v left join vtigercrm6.users_v u on v.responsible=u.id left join vtigercrm6.vtiger_projecttype v0 on v.projecttype=v0.projecttypeid left join vtigercrm6.vtiger_projectpriority v1 on v.projectpriority=v1.projectpriorityid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>v.projecttplname,v.projectdays,u.fullname responsible,v0.projecttype projecttype,v1.projectpriority projectpriority,v.description,v2.user_name created_by,v.creation_date,v3.user_name last_update_by,v.last_update_date,v.projecttplid</Data>
+<Order>projecttplid</Order></DbDetails>
+<OnClick><if cond="%{vtiger_project_tpl_vLst[projecttplid]}"><DbDetails><Where>projecttplid='%{vtiger_project_tpl_vLst[projecttplid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

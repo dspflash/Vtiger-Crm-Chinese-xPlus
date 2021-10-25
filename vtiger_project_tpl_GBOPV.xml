@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_project_tpl" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletevtiger_project_tpl" Name="deletevtiger_project_tpl" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.vtiger_project_tpl</DbTable>
+<Where>projecttplid='%{vtiger_project_tplLst[projecttplid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_project_tpl" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshvtiger_project_tpl" Name="searchvtiger_project_tpl" Size="50,20">
+			  <OnClick><submit next="vtiger_project_tplLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPvtiger_project_tplLst" OnClick="(vtiger_project_tplLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREvtiger_project_tplLst" OnClick="(vtiger_project_tplLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPvtiger_project_tplLst" OnClick="(vtiger_project_tplLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

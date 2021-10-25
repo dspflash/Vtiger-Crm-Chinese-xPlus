@@ -1,0 +1,68 @@
+﻿<GroupBox Name="GBDEDITvtiger_account" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_accountname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_accountname" Size="60,20" Text="accountname" Align="Right"/>
+<TextBox Name="accountname" Size="170,20" Text="" Weight="170" ToolTip="ttp_accountname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_parentid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_parentid" Size="60,20" Text="parentid" Align="Right"  onload="init"/>
+<ComboBox Name="parentid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_parentid"  onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshparentid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="parentid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_rating" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rating" Size="60,20" Text="rating" Align="Right"  onload="init"/>
+<ComboBox Name="rating" Size="170,100" Text="" Weight="170"  ToolTip="ttp_rating"  onload="init">
+	<DbDetails>
+<Index>rating_id</Index>
+<DbTable>vtigercrm6.vtiger_rating</DbTable>
+<Data>rating,rating_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_industry" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_industry" Size="60,20" Text="industry" Align="Right"  onload="init"/>
+<ComboBox Name="industry" Size="150,100" Text="" Weight="150"  ToolTip="ttp_industry"  onload="init">
+	<DbDetails>
+<Index>industryid</Index>
+<DbTable>vtigercrm6.vtiger_industry</DbTable>
+<Data>industry,industryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshindustry" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="industry"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_account_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_account_type" Size="60,20" Text="account_type" Align="Right"  onload="init"/>
+<ComboBox Name="account_type" Size="150,100" Text="" Weight="150"  ToolTip="ttp_account_type"  onload="init">
+	<DbDetails>
+<Index>accounttypeid</Index>
+<DbTable>vtigercrm6.vtiger_accounttype</DbTable>
+<Data>accounttype,accounttypeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshaccount_type" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="account_type"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_website" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_website" Size="60,20" Text="website" Align="Right"/>
+<TextBox Name="website" Size="170,20" Text="" Weight="170" ToolTip="ttp_website"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_phone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_phone" Size="60,20" Text="phone" Align="Right"/>
+<TextBox Name="phone" Size="150,20" Text="" Weight="150" ToolTip="ttp_phone"></TextBox>
+<MagicCtrl Name="dialphone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{phone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_otherphone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_otherphone" Size="60,20" Text="otherphone" Align="Right"/>
+<TextBox Name="otherphone" Size="150,20" Text="" Weight="150" ToolTip="ttp_otherphone"></TextBox>
+<MagicCtrl Name="dialotherphone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{otherphone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_fax" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fax" Size="60,20" Text="fax" Align="Right"/>
+<TextBox Name="fax" Size="170,20" Text="" Weight="170" ToolTip="ttp_fax"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_ownership" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ownership" Size="60,20" Text="ownership" Align="Right"/>
+<TextBox Name="ownership" Size="170,20" Text="" Weight="170" ToolTip="ttp_ownership"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

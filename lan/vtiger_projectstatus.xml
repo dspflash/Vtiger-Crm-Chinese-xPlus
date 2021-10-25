@@ -1,0 +1,30 @@
+﻿<Language name="vtiger_projectstatus">
+<Lang name="vtiger_projectstatus" value="项目状态"/>
+<Lang name="TabEditvtiger_projectstatus" value="vtiger_projectstatus Edit"/>
+<Lang name="TabViewvtiger_projectstatus" value="vtiger_projectstatus View"/>
+<Lang name="projectstatus" value="项目状态"/>
+<Lang name="ttp_projectstatus" value=""/>
+<Lang name="presence" value=""/>
+<Lang name="ttp_presence" value=""/>
+<Lang name="picklist_valueid" value=""/>
+<Lang name="ttp_picklist_valueid" value=""/>
+<Lang name="sortorderid" value=""/>
+<Lang name="ttp_sortorderid" value=""/>
+<Lang name="projectstatusid" value="ID"/>
+<Lang name="ttp_projectstatusid" value=""/>
+<Lang name="ttp_operationvtiger_projectstatus" value=""/>
+<Lang name="ttp_createvtiger_projectstatus" value=""/>
+<Lang name="ttp_modifyvtiger_projectstatus" value=""/>
+<Lang name="ttp_resetvtiger_projectstatus" value=""/>
+<Lang name="ttp_deletevtiger_projectstatus" value=""/>
+<Lang name="ttp_refreshvtiger_projectstatus" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

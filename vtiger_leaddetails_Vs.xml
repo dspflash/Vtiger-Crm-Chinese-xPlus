@@ -1,0 +1,72 @@
+﻿<GroupBox Name="GBDEDITvtiger_leaddetails" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_firstname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_firstname" Size="60,20" Text="firstname" Align="Right"/>
+<TextBox Name="firstname" Size="170,20" Text="" Weight="170" ToolTip="ttp_firstname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lastname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lastname" Size="60,20" Text="lastname" Align="Right"/>
+<TextBox Name="lastname" Size="94,20" Text="" Weight="94" ToolTip="ttp_lastname"></TextBox>
+<ComboBox Name="salutation" Size="76,100" Text="" Weight="76"  ToolTip="ttp_salutation" onload="init">
+	<DbDetails>
+<Index>salutationid</Index>
+<DbTable>vtigercrm6.vtiger_salutationtype</DbTable>
+<Data>salutationtype,salutationid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_leadsource" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leadsource" Size="60,20" Text="leadsource" Align="Right" onload="init"/>
+<ComboBox Name="leadsource" Size="170,100" Text="" Weight="170"  ToolTip="ttp_leadsource" onload="init">
+	<DbDetails>
+<Index>leadsourceid</Index>
+<DbTable>vtigercrm6.vtiger_leadsource</DbTable>
+<Data>leadsource,leadsourceid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_campaign" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_campaign" Size="60,20" Text="campaign" Align="Right" onload="init"/>
+<ComboBox Name="campaign" Size="150,100" Text="" Weight="150"  ToolTip="ttp_campaign" onload="init">
+	<DbDetails>
+<Index>campaignid</Index>
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Data>campaignname,campaignid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcampaign" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="campaign"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_company" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_company" Size="60,20" Text="company" Align="Right"/>
+<TextBox Name="company" Size="170,20" Text="" Weight="170" ToolTip="ttp_company"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_industry" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_industry" Size="60,20" Text="industry" Align="Right" onload="init"/>
+<ComboBox Name="industry" Size="170,100" Text="" Weight="170"  ToolTip="ttp_industry" onload="init">
+	<DbDetails>
+<Index>industryid</Index>
+<DbTable>vtigercrm6.vtiger_industry</DbTable>
+<Data>industry,industryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_revenuetype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_revenuetype" Size="60,20" Text="revenuetype" Align="Right"/>
+<TextBox Name="revenuetype" Size="170,20" Text="" Weight="170" ToolTip="ttp_revenuetype"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_product" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product" Size="60,20" Text="product" Align="Right"/>
+<TextBox Name="product" Size="170,20" Text="" Weight="170" ToolTip="ttp_product"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_evaluationstatus" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_evaluationstatus" Size="60,20" Text="evaluationstatus" Align="Right"/>
+<TextBox Name="evaluationstatus" Size="170,20" Text="" Weight="170" ToolTip="ttp_evaluationstatus"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_assignleadchk" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="assignleadchk" Size="230,20" Text="assignleadchk" ToolTip="ttp_assignleadchk"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_emailoptout" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="emailoptout" Size="230,20" Text="emailoptout" ToolTip="ttp_emailoptout"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_converted" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="converted" Size="230,20" Text="converted" ToolTip="ttp_converted"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

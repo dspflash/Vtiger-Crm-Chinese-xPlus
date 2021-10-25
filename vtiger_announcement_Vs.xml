@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDITvtiger_announcement" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_title" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_title" Size="60,20" Text="title" Align="Right"/>
+<TextBox Name="title" Size="170,20" Text="" Weight="170" ToolTip="ttp_title"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

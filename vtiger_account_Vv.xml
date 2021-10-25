@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_account" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_account_vLst" ToolTip="ttp_vtiger_account_v" Size="700,450" OnLoad="init" Heading="account_no,150;accountname,250;parentid,120;rating,120;industry,120;account_type,120;annualrevenue,125;employees,50;website,250;phone,100;otherphone,100;fax,100;email1,250;email2,250;emailoptout,60;ownership,150;notify_owner,60;isconvertedfromlead,60;accountid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account v left join vtigercrm6.vtiger_account v0 on v.parentid=v0.accountid left join vtigercrm6.vtiger_rating v1 on v.rating=v1.rating_id left join vtigercrm6.vtiger_industry v2 on v.industry=v2.industryid left join vtigercrm6.vtiger_accounttype v3 on v.account_type=v3.accounttypeid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>v.account_no,v.accountname,v0.accountname parentid,v1.rating rating,v2.industry industry,v3.accounttype account_type,v.annualrevenue,v.employees,v.website,v.phone,v.otherphone,v.fax,v.email1,v.email2,v.emailoptout,v.ownership,v.notify_owner,v.isconvertedfromlead,v.accountid,v4.user_name created_by,v.creation_date,v5.user_name last_update_by,v.last_update_date</Data>
+<Order>accountid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>accountid='%{vtiger_account_vLst[accountid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_account.vtiger_accountLst"/><assign name="$this.vtiger_account.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Where>accountid='%{vtiger_account_vLst[accountid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_account" expr="js(%{vtiger_account_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_account" expr="js(%{vtiger_account_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

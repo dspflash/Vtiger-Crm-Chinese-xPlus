@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_users" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_usersLst" ToolTip="ttp_vtiger_users" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,first_name,last_name,title,phone_home,phone_mobile,phone_work,phone_other,phone_fax,email1,email2,secondaryemail,description,status,id,is_admin,is_owner,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>id</Order></DbDetails>
+<OnClick><assign name="created_by[id]" expr="%{vtiger_usersLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_usersLst[last_update_by]}" function="SetSel"/>
+<if cond="%{id}"><SetVisible name="insertvtiger_users" Visible="0"/><SetVisible name="modifyvtiger_users" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

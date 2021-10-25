@@ -1,0 +1,22 @@
+﻿<operator refresh="1" firstpage="0" prepage="0" nextpage="0">
+<EvalTbl rules="" table="project_task_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/project_task_ops.xml"/></rules>
+<inputs taskstatus="%{vtiger_projecttask_vLst[projecttaskstatusid]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="addone" mustselected="0"><if cond="!%{projectid}"><alert expr="projectid is Empty!"/><else/><submit next="$parent.vtiger_projecttask.GBDEDITvtiger_projecttask" function="reset"/><assign name="$parent.vtiger_projecttask.projectid" expr="%{projectid}"/><assign name="$parent.vtiger_projecttask.frmwndctrl" expr="%{this}"/></if></op>
+<op text="add milestone"><submit next="$parent.vtiger_projectmilestone.GBDEDITvtiger_projectmilestone" function="reset"/><assign name="$parent.vtiger_projectmilestone.projectid" expr="%{projectid}"/><assign name="$parent.vtiger_projectmilestone.projectmilestonedate" expr="%{vtiger_projecttask_vLst[schedule_date]}"/><assign name="$parent.vtiger_projectmilestone.frmwndctrl" expr="%{this}"/></op>
+<op text="modify milestone"><DbDetails><Where>projectmilestoneid='%{vtiger_projecttask_vLst[projectmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_projectmilestone.vtiger_projectmilestoneLst"/><assign name="$parent.vtiger_projectmilestone.frmwndctrl" expr="%{this}"/></op>
+<op text="SetResponsible"><assign name="$parent.SetResponsibleMT.projectid" expr="%{vtiger_projecttask_vLst[projectid]}"/><assign name="$parent.SetResponsibleMT.project_ms_idx" expr="%{vtiger_projecttask_vLst[project_ms_idx]}"/></op>
+<op text="attachments"><DbDetails><Where>reftbl='vtiger_projecttask' and refid='%{vtiger_projecttask_vLst[projecttaskid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.attachment_v.attachment_vLst"/><assign name="$parent.attachment_v.description" expr="%{vtiger_projecttask_vLst[description]}"/></op>
+<op text="modify"><DbDetails><Where>projecttaskid='%{vtiger_projecttask_vLst[projecttaskid]}' and  projecttaskstatus=2</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_projecttask.vtiger_projecttaskLst"/><assign name="$parent.vtiger_projecttask.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttask</DbTable>
+<Where>projecttaskid='%{vtiger_projecttask_vLst[projecttaskid]}' and  projecttaskstatus=2</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="cancel" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttask</DbTable>
+<Where>projecttaskid='%{vtiger_projecttask_vLst[projecttaskid]}' and  projecttaskstatus=2</Where>
+<queryFormat>update %{table} set projecttaskstatus=6 where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

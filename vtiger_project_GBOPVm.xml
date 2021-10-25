@@ -1,0 +1,12 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_project" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial_project" Name="initialvtiger_project" Size="50,20">
+<OnClick><submit next="vtiger_project_vLst" function="initial"/><submit next="pages" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPvtiger_projectLst" Size="50,20">
+<OnClick><submit next="vtiger_project_vLst" function="GetPage(first)"/><submit next="pages" function="GetPage(First)"/></OnClick></Button>
+<TAB/><!--MagicCtrl Name="PREvtiger_projectLst" Link="tip:PrePage" images=",data/arrowL.png" button="type:0" Size="20,20">
+<OnClick><submit next="vtiger_project_vLst" function="GetPage(Pre)"/></OnClick></MagicCtrl-->
+<Button Text="prepage" Name="PREvtiger_projectLst" Size="50,20">
+<OnClick><submit next="vtiger_project_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<TAB/><Button Text="nextpage" Name="NPvtiger_projectLst" Size="50,20">
+<OnClick><submit next="vtiger_project_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

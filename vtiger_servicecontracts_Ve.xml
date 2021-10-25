@@ -1,0 +1,13 @@
+﻿<WndTap Name="vtiger_servicecontracts" Text="vtiger_servicecontracts" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_servicecontracts.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_servicecontracts" id="vtiger_servicecontracts" Text="vtiger_servicecontracts" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_servicecontracts_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_servicecontracts" Visible="1"/><SetVisible name="modifyvtiger_servicecontracts" Visible="0"/></OnActivate>
+</WndTap>

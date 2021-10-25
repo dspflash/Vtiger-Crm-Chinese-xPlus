@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_groups" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_groupsLst" ToolTip="ttp_vtiger_groups" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>groupid</Index>
+<DbTable>vtigercrm6.vtiger_groups</DbTable>
+<Data>groupname,description,groupid</Data>
+<Order>groupid</Order></DbDetails>
+<OnClick>
+<if cond="%{groupid}"><SetVisible name="insertvtiger_groups" Visible="0"/><SetVisible name="modifyvtiger_groups" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

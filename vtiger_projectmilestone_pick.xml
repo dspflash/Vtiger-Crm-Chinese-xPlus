@@ -1,0 +1,29 @@
+﻿<WndTap Name="vtiger_projectmilestone_pick" Text="vtiger_projectmilestone_Pick">
+<var name="searchtmpl"><projectmilestonename format="(v.projectmilestonename like '%%{opvalue}%')"/><projectmilestonetype format="v.projectmilestonetype='%{opvalue}'"/><projectmilestonedate format="(v.projectmilestonedate between '%{projectmilestonedate[datetime]}' and '%{projectmilestonedate[datetime2]}')"/><project_ms_idx format="(v.project_ms_idx like '%%{opvalue}%')"/><reviewed format="v.reviewed is %{opvalue}"/><review_memo format="(v.review_memo like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><projectid format="(v.projectid like '%%{opvalue}%')"/><projectmilestoneid format="(v.projectmilestoneid like '%%{opvalue}%')"/><reviewed_date format="(v.reviewed_date between '%{reviewed_date[datetime]}' and '%{reviewed_date[datetime2]}')"/><reviewed_by format="(v.reviewed_by like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projectmilestone.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projectmilestone" id="vtiger_projectmilestone" Text="vtiger_projectmilestone" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projectmilestone" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projectmilestone" Name="resetvtiger_projectmilestone" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projectmilestone" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projectmilestone" Name="gsearchvtiger_projectmilestone" Size="50,20">	<OnClick>	
+<search next="vtiger_projectmilestone_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projectmilestone" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_projectmilestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestone_vLst" ToolTip="ttp_vtiger_projectmilestone_v" Size="700,450"   colsDisplay="7" Heading="projectmilestonename,250;projectmilestonetype,120;projectmilestonedate,90;progress_memo,100;reviewed,60;review_memo,630;project_ms_idx,20;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projectid,55;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;" loadedclick="0">
+	<DbDetails >
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone v left join vtigercrm6.vtiger_projectmilestonetype v0 on v.projectmilestonetype=v0.projectmilestonetypeid left join vtigercrm6.vtiger_users v1 on v.created_by=v1.id left join vtigercrm6.vtiger_users v2 on v.last_update_by=v2.id</DbTable>
+<Data>v.projectmilestonename,v0.projectmilestonetype projectmilestonetype,v.projectmilestonedate,v.project_ms_idx,v.reviewed,v.review_memo,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projectid,v.projectmilestoneid,v.reviewed_date,v.reviewed_by</Data>
+<Order>projectmilestoneid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">SELECT v.projectmilestonename,v0.projectmilestonetype projectmilestonetype,v.projectmilestonedate,GROUP_CONCAT(a.description SEPARATOR ';') progress_memo,v.reviewed,v.review_memo,v.project_ms_idx,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projectid,v.projectmilestoneid,vm.projectmilestoneid vmxid,v.reviewed_date,v.reviewed_by 
+FROM vtigercrm6.vtiger_projectmilestone v 
+LEFT JOIN vtigercrm6.vtiger_projectmilestonetype v0 ON v.projectmilestonetype=v0.projectmilestonetypeid 
+LEFT JOIN vtigercrm6.vtiger_users v1 ON v.created_by=v1.id 
+LEFT JOIN vtigercrm6.vtiger_users v2 ON v.last_update_by=v2.id 
+LEFT JOIN vtigercrm6.attachment a ON a.reftbl='vtiger_projectmilestone' AND a.refid=v.projectmilestoneid 
+LEFT JOIN vtigercrm6.vtiger_projectmilestone vm ON vm.projectid=v.projectid AND vm.project_ms_idx&lt;v.project_ms_idx AND !vm.reviewed %{where} GROUP BY v.projectmilestoneid limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<OnClick><if cond="%{vtiger_projectmilestone_vLst[projectmilestoneid]}"><DbDetails><Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

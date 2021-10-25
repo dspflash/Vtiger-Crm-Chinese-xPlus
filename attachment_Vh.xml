@@ -3,10 +3,10 @@
 	<DbDetails fcsm="1">
 <Index>attachment_id</Index>
 <DbTable>vtigercrm6.attachment</DbTable>
-<Data>subject,invokes,creation_date,typestr,description,created_by,filename,location,path,attachment,reftbl,refid,type,last_update_by,last_update_date,attachment_id</Data>
+<Data>creation_date,typestr,description,created_by,filename,location,path,attachment,reftbl,refid,type,last_update_by,last_update_date,attachment_id</Data>
 <Order>attachment_id</Order></DbDetails>
 <OnClick><assign name="created_by[id]" expr="%{attachmentLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{attachmentLst[last_update_by]}" function="SetSel"/>
-<if cond="%{attachment_id}"><SetVisible name="insertattachment" Visible="0"/><SetVisible name="modifyattachment" Visible="1"/></if>
+<if cond="'%{attachment_id}'"><SetVisible name="insertattachment" Visible="0"/><SetVisible name="modifyattachment" Visible="1"/></if>
 </OnClick>
 </ListCtrl>
 </Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_user2role" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletevtiger_user2role" Name="deletevtiger_user2role" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.vtiger_user2role</DbTable>
+<Where>userid='%{vtiger_user2roleLst[userid]}' and idx='%{vtiger_user2roleLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_user2role" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshvtiger_user2role" Name="searchvtiger_user2role" Size="50,20">
+			  <OnClick><submit next="vtiger_user2roleLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPvtiger_user2roleLst" OnClick="(vtiger_user2roleLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREvtiger_user2roleLst" OnClick="(vtiger_user2roleLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPvtiger_user2roleLst" OnClick="(vtiger_user2roleLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_salesorder_item_pick" Text="vtiger_salesorder_item_Pick">
+<var name="searchtmpl"><itemcode format="(v.itemcode like '%%{opvalue}%')"/><itemimg format="(v.itemimg like '%%{opvalue}%')"/><customitem format="(v.customitem like '%%{opvalue}%')"/><itemname format="(v.itemname like '%%{opvalue}%')"/><statuscode format="(v.statuscode like '%%{opvalue}%')"/><salesorderid format="(v.salesorderid like '%%{opvalue}%')"/><salesorder_itemid format="(v.salesorder_itemid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder_item.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_salesorder_item" id="vtiger_salesorder_item" Text="vtiger_salesorder_item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_item_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_salesorder_item" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_salesorder_item" Name="resetvtiger_salesorder_item" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_salesorder_item" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_salesorder_item" Name="gsearchvtiger_salesorder_item" Size="50,20">	<OnClick>	
+<search next="vtiger_salesorder_item_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_salesorder_item" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_salesorder_item" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_salesorder_item_vLst" ToolTip="ttp_vtiger_salesorder_item_v" Size="700,450" Heading="itemcode,100;itemimg,250;customitem,250;itemname,250;statuscode,50;salesorderid,55;salesorder_itemid,250;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>salesorder_itemid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder_item v left join vtigercrm6.vtiger_users v0 on v.created_by=v0.id left join vtigercrm6.vtiger_users v1 on v.last_update_by=v1.id</DbTable>
+<Data>v.itemcode,v.itemimg,v.customitem,v.itemname,v.statuscode,v.salesorderid,v.salesorder_itemid,v0.user_name created_by,v.creation_date,v1.user_name last_update_by,v.last_update_date</Data>
+<Order>salesorder_itemid</Order></DbDetails>
+<OnClick><if cond="%{vtiger_salesorder_item_vLst[salesorder_itemid]}"><DbDetails><Where>salesorder_itemid='%{vtiger_salesorder_item_vLst[salesorder_itemid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

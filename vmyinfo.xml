@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="myinfo" Name="myinfo" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modify_pass_4user.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_users.xml"/>
+<Ctrls>
+<GroupBox Text="myinfo" Name="GBhr_employee_v" id="hr_employee_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="myinfo_GBDEDIT.xml"></xi:include>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modify_Pass" Size="100,20"><OnClick><submit next="$this.userlogin_modifypass.GBDEDITuserlogin" function="reset"/></OnClick></Button><TAB/>
+</Ctrls></GroupBox>
+<ListCtrl onload="init" Name="hr_employee_vLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.users_v</DbTable>
+<Data>user_name,fullname,rolename,rolelayout,first_name,last_name</Data>
+</DbDetails><DbDetails><Where>id='%{user_id}'</Where></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

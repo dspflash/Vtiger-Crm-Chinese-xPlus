@@ -1,0 +1,34 @@
+﻿<Language name="vtiger_role">
+<Lang name="vtiger_role" value="角色"/>
+<Lang name="TabEditvtiger_role" value="vtiger_role Edit"/>
+<Lang name="TabViewvtiger_role" value="vtiger_role View"/>
+<Lang name="roleid" value="角色ID"/>
+<Lang name="ttp_roleid" value=""/>
+<Lang name="rolename" value="角色名"/>
+<Lang name="ttp_rolename" value=""/>
+<Lang name="rolelayout" value="角色应用"/>
+<Lang name="ttp_rolelayout" value=""/>
+<Lang name="parentrole" value="父角色"/>
+<Lang name="ttp_parentrole" value=""/>
+<Lang name="depth" value="层次"/>
+<Lang name="ttp_depth" value=""/>
+<Lang name="allowassignedrecordsto" value="允许分配给用户"/>
+<Lang name="ttp_allowassignedrecordsto" value=""/>
+<Lang name="roleidx" value=""/>
+<Lang name="ttp_roleidx" value=""/>
+<Lang name="ttp_operationvtiger_role" value=""/>
+<Lang name="ttp_createvtiger_role" value=""/>
+<Lang name="ttp_modifyvtiger_role" value=""/>
+<Lang name="ttp_resetvtiger_role" value=""/>
+<Lang name="ttp_deletevtiger_role" value=""/>
+<Lang name="ttp_refreshvtiger_role" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,132 @@
+﻿<GroupBox Name="GBDEDITvtiger_project"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projectname"><Ctrls>
+<Label Align="Right" Text="projectname" Name="lb_projectname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projectname" Name="projectname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projecttype"><Ctrls>
+<Label Align="Right" Text="projecttype" onload="init" Name="lb_projecttype" Size="60,20" selectedIndex="1"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_projecttype" onload="init" Name="projecttype" Size="170,100" selectedIndex="1">
+	<DbDetails>
+<Index>projecttypeid</Index>
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Data>projecttype,projecttypeid</Data>
+<Where>presence</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projectstatus" Visible="false"><Ctrls>
+<Label Align="Right" Text="projectstatus" overlap="pre" Name="lb_projectstatus" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_projectstatus" overlap="pre" Name="projectstatus" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>projectstatusid</Index>
+<DbTable>vtigercrm6.vtiger_projectstatus</DbTable>
+<Data>projectstatus,projectstatusid</Data>
+<Where>presence</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_startdate" Visible="false"><Ctrls>
+<Label Align="Right" Text="startdate" overlap="pre" Name="lb_startdate" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_startdate" overlap="pre" Name="startdate" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_actualenddate" Visible="false"><Ctrls>
+<Label Align="Right" Text="actualenddate" overlap="pre" Name="lb_actualenddate" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_actualenddate" overlap="pre" Name="actualenddate" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projectpriority"><Ctrls>
+<Label Align="Right" Text="projectpriority" onload="init" Name="lb_projectpriority" Size="60,20" selectedIndex="1"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_projectpriority" onload="init" Name="projectpriority" Size="170,100" selectedIndex="1">
+	<DbDetails>
+<Index>projectpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projectpriority</DbTable>
+<Data>projectpriority,projectpriorityid</Data>
+<Where>presence</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_project_no" Visible="false"><Ctrls>
+<Label Align="Right" Text="project_no" overlap="pre" Name="lb_project_no" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_project_no" overlap="pre" Name="project_no" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_responsible"><Ctrls>
+<Label Align="Right" Text="responsible" onload="init" Name="lb_responsible" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_responsible" onload="init" Name="responsible" Size="170,100">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.users_v</DbTable>
+<Data>fullname,id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_linktoaccountscontacts"><Ctrls>
+<Label Align="Right" Text="linktoaccountscontacts" onload="init" Name="lb_linktoaccountscontacts" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_linktoaccountscontacts" onload="init" Name="linktoaccountscontacts" Size="150,100">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="referid"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshlinktoaccountscontacts" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="linktoaccountscontacts"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_referid" Visible="false"><Ctrls>
+<Label Align="Right" Text="referid" overlap="pre" onload="init" Name="lb_referid" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_referid" overlap="pre" onload="init" Name="referid" readonly="true" Size="150,100" Visible="false">
+	<DbDetails>
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder</DbTable>
+<Data>subject,salesorderid</Data>
+<Where>sostatus in (1,2) and accountid='%{linktoaccountscontacts[accountid]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshreferid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="referid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4 lg3" Multiline="0" Name="GB_bAutoRelease"><Ctrls> <CheckBox Text="bAutoRelease" ToolTip="ttp_bAutoRelease" Name="bAutoRelease" Size="230,20" Checked="true"/> </Ctrls></GroupBox><GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projectid" Visible="false"><Ctrls>
+<Label Align="Right" Text="projectid" overlap="pre" Name="lb_projectid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projectid" overlap="pre" Name="projectid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{projectid}'"><SetVisible name="insertvtiger_project" Visible="0"/><SetVisible name="modifyvtiger_project" Visible="1"/><else/><SetVisible name="insertvtiger_project" Visible="1"/><SetVisible name="modifyvtiger_project" Visible="0"/></if><if cond="'%{projectid}'"><DbDetails><Where>projectid='%{projectid}'</Where></DbDetails><submit next="vtiger_projecttask_vLst" namelist="DbDetails"/><else/><submit next="vtiger_projecttask_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_release_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="release_by" overlap="pre" Name="lb_release_by" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_release_by" overlap="pre" Name="release_by" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_release_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="release_date" overlap="pre" Name="lb_release_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_release_date" overlap="pre" Name="release_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" autosizeable="0" Size="60,150"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_description" Name="description" autosizeable="0" Size="630,150"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_refertbl" Visible="false"><Ctrls>
+<Label Align="Right" Text="refertbl" overlap="pre" Name="lb_refertbl" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_refertbl" overlap="pre" Name="refertbl" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

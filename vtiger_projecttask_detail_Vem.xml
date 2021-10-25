@@ -1,0 +1,23 @@
+﻿<WndTap Name="vtiger_projecttask_detail" Text="vtiger_projecttask_detail" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="projecttaskid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_projecttask_detail.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_projecttask_detail" id="vtiger_projecttask_detail" Text="vtiger_projecttask_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_GBOPE.xml"/>
+	<BR /><Button Name="TakePhoto" Size="80,20" Text="拍照"><OnClick><assign name="tmpfile" expr=""/><assign name="tmpfile" expr="takephoto" function=""/></OnClick></Button><TAB/>
+	<Button Name="TakeVideo" Size="80,20" Text="拍视频"><OnClick><assign name="tmpfile" expr=""/><assign name="tmpfile" expr="takevideo" function=""/></OnClick></Button><TAB/>
+	<!--Button Name="attachment" Size="50,20" Text="attachment">
+			<OnClick><if cond="!%{projecttaskid}"><alert expr="上传附件前请先生成单据！"/><else/><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/%{user_id}/','file/%{user_id}/%{_upload_file_name}','vtiger_projecttask',%{projecttaskid}, '%{user_id}',now(),'%{user_id}',now())"/>
+			<submit next="DocList"/></if></OnClick></Button><TAB/--> ON DUPLICATE KEY UPDATE filename='%{_upload_file_name}',path='file/%{user_id}/',attachment='file/%{user_id}/%{_upload_file_name}', last_update_by='%{user_id}',last_update_date=now()
+	<!--Button Name="Download"  Size="50,20" Text="下载文件">
+			<OnClick><assign name="topmost" expr="GetFile:%{DocList[filenameany]},dir=%{DocList[path]},localdir="/></OnClick>
+			<OnFecthFileEnd><alert next="GroupBox" expr="xiazai"/></OnFecthFileEnd></Button-->
+	<TextBox Name="tmpfile" Size="10,20" Text="" tooltip="" visible="0"><onenchange><if cond="%{tmpfile}"><assign name="topmost" expr="SendFile:%{tmpfile},filter=*.*|*.*|,dir=file/prj/%{project_no}/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/prj/%{project_no}/%{user_id}/','file/prj/%{project_no}/%{user_id}/%{_upload_file_name}','vtiger_projecttask',%{projecttaskid}, '%{user_id}',now(),'%{user_id}',now())"/></if></onenchange></TextBox>
+	<Button Name="Signature" Size="50,20" Text="签名"><OnClick><if cond="%{project_no}"><assign name="tmpfile" expr=""/><assign name="tmpfile" expr="Signature:%{userid}_%{project_no}" function=""/></if></OnClick></Button><TAB/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_projecttask_detail" Visible="1"/><SetVisible name="modifyvtiger_projecttask_detail" Visible="0"/></OnActivate>
+</WndTap>

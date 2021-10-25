@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_purchaseorder"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_purchaseorder" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>purchaseorderid</Index>
+<DbTable>vtigercrm6.vtiger_purchaseorder v left join vtigercrm6.vtiger_postatus v0 on v.postatus=v0.postatusid left join vtigercrm6.vtiger_quotes v1 on v.quoteid=v1.quoteid left join vtigercrm6.vtiger_vendor v2 on v.vendorid=v2.vendorid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_carrier v3 on v.carrier=v3.carrierid left join vtigercrm6.vtiger_currencies v4 on v.currency_id=v4.currencyid left join vtigercrm6.vtiger_users v5 on v.created_by=v5.id left join vtigercrm6.vtiger_users v6 on v.last_update_by=v6.id</DbTable>
+<Data>count(*) records</Data>
+<Order>purchaseorderid</Order><Queryformat>select %{data} from (select v.purchaseorderid from %{dbtable} %{where} GROUP BY v.purchaseorderid  ORDER BY v.purchaseorderid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_purchaseorder" expr="js(Math.ceil(%{records_vtiger_purchaseorder}/%{vtiger_purchaseorder_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_purchaseorder" expr="js('1~'+Math.ceil(%{records_vtiger_purchaseorder}/%{vtiger_purchaseorder_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_purchaseorder" Size="60,20"><OnSelEndOK><submit next="vtiger_purchaseorder_vLst" function="GetPage(%{pgscb_vtiger_purchaseorder}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_purchaseorder" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_purchaseorder" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_purchaseorder_vLst" Size="50,20"><OnClick><submit next="vtiger_purchaseorder_vLst" function="GetPage(%{pgcur_vtiger_purchaseorder}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,15 @@
+﻿<GroupBox Name="GBDVvtiger_projecttask" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttask_vLst" ToolTip="ttp_vtiger_projecttask" Size="700,420" loadedclick="0" colsDisplay="9" >
+	<DbDetails >
+<DbTable>vtigercrm6.prj_ms_task_v v LEFT JOIN vtigercrm6.attachment a ON a.reftbl='vtiger_projecttask' AND a.refid=v.projecttaskid join vtiger_project p on p.projectid=v.projectid left join vtigercrm6.vtiger_salesorder_item soi on (p.refertbl='salesorder_item' and soi.salesorder_itemid=p.referid)
+</DbTable>
+<Index>projecttaskid</Index>
+<Data>projecttaskname,soi.itemcode,projectname,v.startdate,v.enddate,v.description,projecttasktype,v.responsible,v.projecttaskprogress,v.projecttaskhours,v.created_by,v.creation_date,v.last_update_by,v.last_update_date,v.projectid,v.projecttaskid,projecttaskstatusid,GROUP_CONCAT(location SEPARATOR ';') location</Data>
+<Order>projecttaskid</Order>
+<queryFormat>select %{data} from %{dbtable} where %{where} GROUP BY v.projecttaskid ORDER BY schedule_date limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="attachments"><if cond="!%{vtiger_projecttask_vLst[projecttaskid]}"><alert expr="projecttaskid is Empty!"/><else/><DbDetails><Where>reftbl='vtiger_projecttask' and refid='%{vtiger_projecttask_vLst[projecttaskid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.attachment_v.attachment_vLst"/></if></op>
+<op text="locationMap"><if cond="'%{vtiger_projecttask_vLst[location]}'"><assign name="$parent.popweb.wb" expr="http://map.3ucs.com/xmap.php?mark=%{vtiger_projecttask_vLst[location]}" function="Navigate"/><else/><info expr="无数据"/></if></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_leaddetails" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_leaddetailsLst" ToolTip="ttp_vtiger_leaddetails" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>leadid</Index>
+<DbTable>vtigercrm6.vtiger_leaddetails</DbTable>
+<Data>firstname,lastname,salutation,designation,lead_no,leadstatus,leadsource,campaign,interest,priority,rating,company,industry,noofemployees,annualrevenue,revenuetype,email,secondaryemail,space,demorequest,partnercontact,product,productversion,maildate,nextstepdate,transferdate,fundingsituation,purpose,evaluationstatus,assignleadchk,emailoptout,converted,comments,licencekeystatus,leadid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>leadid</Order></DbDetails>
+<OnClick><assign name="salutation[salutationid]" expr="%{vtiger_leaddetailsLst[salutation]}" function="SetSel"/><assign name="leadstatus[leadstatusid]" expr="%{vtiger_leaddetailsLst[leadstatus]}" function="SetSel"/><assign name="leadsource[leadsourceid]" expr="%{vtiger_leaddetailsLst[leadsource]}" function="SetSel"/><assign name="campaign[campaignid]" expr="%{vtiger_leaddetailsLst[campaign]}" function="SetSel"/><assign name="priority[priorityid]" expr="%{vtiger_leaddetailsLst[priority]}" function="SetSel"/><assign name="rating[rating_id]" expr="%{vtiger_leaddetailsLst[rating]}" function="SetSel"/><assign name="industry[industryid]" expr="%{vtiger_leaddetailsLst[industry]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_leaddetailsLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_leaddetailsLst[last_update_by]}" function="SetSel"/>
+<if cond="%{leadid}"><SetVisible name="insertvtiger_leaddetails" Visible="0"/><SetVisible name="modifyvtiger_leaddetails" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

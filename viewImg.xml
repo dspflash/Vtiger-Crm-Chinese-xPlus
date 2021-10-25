@@ -1,0 +1,9 @@
+<WndTap Name="viewImg" Text="viewImg" popup="1"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+	<GroupBox Name="viewImg" Text="viewImg" Size="700,500"><Ctrls>
+	<MagicCtrl Name="picture" ToolTip="ttp_userpicture" Size="520,360" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo">
+	<DbDetails fcsm="1"><queryFormat>0</queryFormat></DbDetails></MagicCtrl>
+			</Ctrls></GroupBox>
+	</Ctrls>
+	<OnActivate></OnActivate>
+</WndTap>

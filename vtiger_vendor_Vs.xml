@@ -1,0 +1,15 @@
+﻿<GroupBox Name="GBDEDITvtiger_vendor" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_vendorname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vendorname" Size="60,20" Text="vendorname" Align="Right"/>
+<TextBox Name="vendorname" Size="170,20" Text="" Weight="170" ToolTip="ttp_vendorname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_phone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_phone" Size="60,20" Text="phone" Align="Right"/>
+<TextBox Name="phone" Size="150,20" Text="" Weight="150" ToolTip="ttp_phone"></TextBox>
+<MagicCtrl Name="dialphone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{phone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_email" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_email" Size="60,20" Text="email" Align="Right"/>
+<TextBox Name="email" Size="170,20" Text="" Weight="170" ToolTip="ttp_email"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

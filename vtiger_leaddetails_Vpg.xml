@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_leaddetails"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_leaddetails" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>leadid</Index>
+<DbTable>vtigercrm6.vtiger_leaddetails v left join vtigercrm6.vtiger_salutationtype v0 on v.salutation=v0.salutationid left join vtigercrm6.vtiger_leadstatus v1 on v.leadstatus=v1.leadstatusid left join vtigercrm6.vtiger_leadsource v2 on v.leadsource=v2.leadsourceid left join vtigercrm6.vtiger_campaign v3 on v.campaign=v3.campaignid left join vtigercrm6.vtiger_priority v4 on v.priority=v4.priorityid left join vtigercrm6.vtiger_rating v5 on v.rating=v5.rating_id left join vtigercrm6.vtiger_industry v6 on v.industry=v6.industryid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>count(*) records</Data>
+<Order>leadid</Order><Queryformat>select %{data} from (select v.leadid from %{dbtable} %{where} GROUP BY v.leadid  ORDER BY v.leadid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_leaddetails" expr="js(Math.ceil(%{records_vtiger_leaddetails}/%{vtiger_leaddetails_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_leaddetails" expr="js('1~'+Math.ceil(%{records_vtiger_leaddetails}/%{vtiger_leaddetails_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_leaddetails" Size="60,20"><OnSelEndOK><submit next="vtiger_leaddetails_vLst" function="GetPage(%{pgscb_vtiger_leaddetails}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_leaddetails" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_leaddetails" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_leaddetails_vLst" Size="50,20"><OnClick><submit next="vtiger_leaddetails_vLst" function="GetPage(%{pgcur_vtiger_leaddetails}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

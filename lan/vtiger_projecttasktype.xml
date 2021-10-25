@@ -1,0 +1,30 @@
+﻿<Language name="vtiger_projecttasktype">
+<Lang name="vtiger_projecttasktype" value="任务类型"/>
+<Lang name="TabEditvtiger_projecttasktype" value="vtiger_projecttasktype Edit"/>
+<Lang name="TabViewvtiger_projecttasktype" value="vtiger_projecttasktype View"/>
+<Lang name="projecttasktype" value="任务类型"/>
+<Lang name="ttp_projecttasktype" value=""/>
+<Lang name="presence" value=""/>
+<Lang name="ttp_presence" value=""/>
+<Lang name="picklist_valueid" value=""/>
+<Lang name="ttp_picklist_valueid" value=""/>
+<Lang name="sortorderid" value=""/>
+<Lang name="ttp_sortorderid" value=""/>
+<Lang name="projecttasktypeid" value="ID"/>
+<Lang name="ttp_projecttasktypeid" value=""/>
+<Lang name="ttp_operationvtiger_projecttasktype" value=""/>
+<Lang name="ttp_createvtiger_projecttasktype" value=""/>
+<Lang name="ttp_modifyvtiger_projecttasktype" value=""/>
+<Lang name="ttp_resetvtiger_projecttasktype" value=""/>
+<Lang name="ttp_deletevtiger_projecttasktype" value=""/>
+<Lang name="ttp_refreshvtiger_projecttasktype" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

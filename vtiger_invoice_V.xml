@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_invoice_v" Text="vtiger_invoice">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><subject format="(v.subject like '%%{opvalue}%')"/><invoicedate format="(v.invoicedate between '%{invoicedate[datetime]}' and '%{invoicedate[datetime2]}')"/><invoice_no format="(v.invoice_no like '%%{opvalue}%')"/><invoicestatus format="v.invoicestatus='%{opvalue}'"/><salesorderid format="v.salesorderid='%{opvalue}'"/><customerno format="(v.customerno like '%%{opvalue}%')"/><duedate format="(v.duedate between '%{duedate[datetime]}' and '%{duedate[datetime2]}')"/><accountid format="v.accountid='%{opvalue}'"/><contactid format="v.contactid='%{opvalue}'"/><type format="(v.type like '%%{opvalue}%')"/><purchaseorder format="v.purchaseorder='%{opvalue}'"/><shipping format="(v.shipping like '%%{opvalue}%')"/><invoiceterms format="(v.invoiceterms like '%%{opvalue}%')"/><terms_conditions format="(v.terms_conditions like '%%{opvalue}%')"/><notes format="(v.notes like '%%{opvalue}%')"/><taxtype format="(v.taxtype like '%%{opvalue}%')"/><s_h_amount format="(v.s_h_amount like '%%{opvalue}%')"/><s_h_percent format="(v.s_h_percent like '%%{opvalue}%')"/><adjustment format="(v.adjustment like '%%{opvalue}%')"/><salescommission format="(v.salescommission like '%%{opvalue}%')"/><exciseduty format="(v.exciseduty like '%%{opvalue}%')"/><discount_percent format="(v.discount_percent like '%%{opvalue}%')"/><discount_amount format="(v.discount_amount like '%%{opvalue}%')"/><pre_tax_total format="(v.pre_tax_total like '%%{opvalue}%')"/><total format="(v.total like '%%{opvalue}%')"/><subtotal format="(v.subtotal like '%%{opvalue}%')"/><currency_id format="v.currency_id='%{opvalue}'"/><conversion_rate format="(v.conversion_rate like '%%{opvalue}%')"/><received format="(v.received like '%%{opvalue}%')"/><balance format="(v.balance like '%%{opvalue}%')"/><invoiceid format="(v.invoiceid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_invoice.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_invoice" id="vtiger_invoice" Text="vtiger_invoice" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_invoice" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_invoice.GBDEDITvtiger_invoice" function="reset"/><assign name="$this.vtiger_invoice.frmwndctrl" expr="%{$this.vtiger_invoice_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_invoice" Name="resetvtiger_invoice" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_invoice" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_invoice" Name="gsearchvtiger_invoice" Size="50,20">	<OnClick>	
+<search next="vtiger_invoice_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_invoice" namelist="search" function="search"/>	
+<search next="records_vtiger_invoice" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_invoice" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

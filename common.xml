@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302">
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
 	<webconfig theme="../biz/theme/delight-vtiger/theme.html"/>
 	<DbDetails>
 		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
@@ -6,7 +6,7 @@
 		<database>vtigercrm6</database>
 		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
 		<User>i3u</User>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="config/db.xml" xpointer="pass"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
 		</DbDetails>
 	<EventHandlers>
 		<EventHandler Event="ReceivedCall('%{callerid}')">
@@ -29,7 +29,7 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_quotes_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_vm.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_View.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_vm.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_vendor_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_purchaseorder_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_invoice_v.xml"/>
@@ -45,7 +45,7 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_v.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_vm.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_role_v.xml"/>
-	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="..\mylayout\mycorp.xml"/-->
+	
 	<WndTap Text="系统设置" Name="vSystem" id="vSystem">
 	<WndTaps>
 		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestonetype_v.xml"/>

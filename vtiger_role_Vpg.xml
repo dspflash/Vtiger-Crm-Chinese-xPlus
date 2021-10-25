@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_role"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_role" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>roleidx</Index>
+<DbTable>vtigercrm6.vtiger_role v</DbTable>
+<Data>count(*) records</Data>
+<Order>roleid,roleidx</Order><Queryformat>select %{data} from (select v.roleidx from %{dbtable} %{where} GROUP BY v.roleidx  ORDER BY v.roleidx) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_role" expr="js(Math.ceil(%{records_vtiger_role}/%{vtiger_role_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_role" expr="js('1~'+Math.ceil(%{records_vtiger_role}/%{vtiger_role_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_role" Size="60,20"><OnSelEndOK><submit next="vtiger_role_vLst" function="GetPage(%{pgscb_vtiger_role}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_role" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_role" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_role_vLst" Size="50,20"><OnClick><submit next="vtiger_role_vLst" function="GetPage(%{pgcur_vtiger_role}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+﻿<WndTap Name="vtiger_projectmilestone_review" Text="vtiger_projectmilestone_review" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="projectmilestonename"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_projectmilestone_review.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_projectmilestone" id="vtiger_projectmilestone" Text="vtiger_projectmilestone" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_review_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_review_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_review_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_projectmilestone" Visible="1"/><SetVisible name="modifyvtiger_projectmilestone" Visible="0"/></OnActivate>
+</WndTap>

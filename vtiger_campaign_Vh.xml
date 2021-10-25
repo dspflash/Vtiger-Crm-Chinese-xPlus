@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_campaign" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_campaignLst" ToolTip="ttp_vtiger_campaign" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>campaignid</Index>
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Data>campaign_no,campaignname,campaigntype,campaignstatus,product_id,closingdate,expectedrevenue,expectedresponse,budgetcost,actualcost,sponsor,numsent,targetaudience,targetsize,expectedresponsecount,expectedsalescount,expectedroi,actualresponsecount,actualsalescount,actualroi,campaignid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>campaignid</Order></DbDetails>
+<OnClick><assign name="campaigntype[campaigntypeid]" expr="%{vtiger_campaignLst[campaigntype]}" function="SetSel"/><assign name="campaignstatus[campaignstatusid]" expr="%{vtiger_campaignLst[campaignstatus]}" function="SetSel"/><assign name="product_id[productid]" expr="%{vtiger_campaignLst[product_id]}" function="SetSel"/><assign name="expectedresponse[expectedresponseid]" expr="%{vtiger_campaignLst[expectedresponse]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_campaignLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_campaignLst[last_update_by]}" function="SetSel"/>
+<if cond="%{campaignid}"><SetVisible name="insertvtiger_campaign" Visible="0"/><SetVisible name="modifyvtiger_campaign" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

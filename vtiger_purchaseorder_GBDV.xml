@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_purchaseorder"><Ctrls>
+<ListCtrl Heading="subject,250;requisition_no,250;purchaseorder_no,250;tracking_no,250;postatus,120;quoteid,120;vendorid,120;contactid,120;duedate,90;carrier,120;terms_conditions,20;adjustment,125;salescommission,125;exciseduty,125;pre_tax_total,125;total,125;subtotal,125;taxtype,120;discount_percent,125;discount_amount,125;s_h_amount,125;s_h_percent,55;currency_id,120;conversion_rate,50;paid,125;balance,125;type,20;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;purchaseorderid,95;" loadedclick="0" ToolTip="ttp_vtiger_purchaseorder" Name="vtiger_purchaseorderLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>purchaseorderid</Index>
+<DbTable>vtigercrm6.vtiger_purchaseorder v left join vtigercrm6.vtiger_postatus v0 on v.postatus=v0.postatusid left join vtigercrm6.vtiger_quotes v1 on v.quoteid=v1.quoteid left join vtigercrm6.vtiger_vendor v2 on v.vendorid=v2.vendorid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_carrier v3 on v.carrier=v3.carrierid left join vtigercrm6.vtiger_currencies v4 on v.currency_id=v4.currencyid left join vtigercrm6.vtiger_users v5 on v.created_by=v5.id left join vtigercrm6.vtiger_users v6 on v.last_update_by=v6.id</DbTable>
+<Data>v.subject,v.requisition_no,v.purchaseorder_no,v.tracking_no,v0.postatus postatus,v1.subject quoteid,v2.vendorname vendorid,c.fullname contactid,v.duedate,v3.carrier carrier,v.terms_conditions,v.adjustment,v.salescommission,v.exciseduty,v.pre_tax_total,v.total,v.subtotal,v.taxtype,v.discount_percent,v.discount_amount,v.s_h_amount,v.s_h_percent,v4.currency_code currency_id,v.conversion_rate,v.paid,v.balance,v.type,v5.user_name created_by,v.creation_date,v6.user_name last_update_by,v.last_update_date,v.purchaseorderid</Data>
+<Order>purchaseorderid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>purchaseorderid='%{vtiger_purchaseorder_vLst[purchaseorderid]}'</Where></DbDetails><submit next="$this.vtiger_purchaseorder.vtiger_purchaseorderLst" namelist="DbDetails"/><assign name="$this.vtiger_purchaseorder.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_purchaseorder</DbTable>
+<Where>purchaseorderid='%{vtiger_purchaseorder_vLst[purchaseorderid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

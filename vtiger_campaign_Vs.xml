@@ -1,0 +1,34 @@
+﻿<GroupBox Name="GBDEDITvtiger_campaign" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_campaignname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_campaignname" Size="60,20" Text="campaignname" Align="Right"/>
+<TextBox Name="campaignname" Size="170,20" Text="" Weight="170" ToolTip="ttp_campaignname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_campaigntype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_campaigntype" Size="60,20" Text="campaigntype" Align="Right" onload="init"/>
+<ComboBox Name="campaigntype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_campaigntype" onload="init">
+	<DbDetails>
+<Index>campaigntypeid</Index>
+<DbTable>vtigercrm6.vtiger_campaigntype</DbTable>
+<Data>campaigntype,campaigntypeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_product_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_id" Size="60,20" Text="product_id" Align="Right" onload="init"/>
+<ComboBox Name="product_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_product_id" onload="init">
+	<DbDetails>
+<Index>productid</Index>
+<DbTable>vtigercrm6.vtiger_products</DbTable>
+<Data>productname,productid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_closingdate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_closingdate" Size="60,20" Text="closingdate" Align="Right"/>
+<DateTime Name="closingdate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_closingdate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_sponsor" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_sponsor" Size="60,20" Text="sponsor" Align="Right"/>
+<TextBox Name="sponsor" Size="170,20" Text="" Weight="170" ToolTip="ttp_sponsor"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

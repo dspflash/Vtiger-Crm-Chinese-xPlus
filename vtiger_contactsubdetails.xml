@@ -1,0 +1,88 @@
+<WndTap Name="vtiger_contactsubdetails" Text="vtiger_contactsubdetails">
+<xi:include href="vtiger_contactsubdetails_lan.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_contactsubdetails" id="vtiger_contactsubdetails" Text="vtiger_contactsubdetails" Size="100,100"><Ctrls>
+<Label Name="lb_homephone" Size="60,20" Text="homephone" Align="Right"/>
+<TextBox Name="homephone" Size="100,20" ToolTip="ttp_homephone">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<Button Name="dialhomephone" Text="Dial" Size="30,20" OnClick="nis3ucs:%{homephone}"/>
+<Label Name="lb_otherphone" Size="60,20" Text="otherphone" Align="Right"/>
+<TextBox Name="otherphone" Size="100,20" ToolTip="ttp_otherphone">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<Button Name="dialotherphone" Text="Dial" Size="30,20" OnClick="nis3ucs:%{otherphone}"/>
+<Label Name="lb_assistant" Size="60,20" Text="assistant" Align="Right"/>
+<TextBox Name="assistant" Size="100,20" ToolTip="ttp_assistant">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<Label Name="lb_assistantphone" Size="60,20" Text="assistantphone" Align="Right"/>
+<TextBox Name="assistantphone" Size="100,20" ToolTip="ttp_assistantphone">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<Button Name="dialassistantphone" Text="Dial" Size="30,20" OnClick="nis3ucs:%{assistantphone}"/>
+<BR AutoHeight="1"/><Label Name="lb_birthday" Size="60,20" Text="birthday" Align="Right"/>
+<DateTime Name="birthday" Format="yyyy-MM-dd" Size="90,20"  ToolTip="ttp_birthday">
+	<OnChanged></OnChanged>
+	</DateTime>
+<Label Name="lb_laststayintouchrequest" Size="60,20" Text="laststayintouchrequest" Align="Right"/>
+<TextBox Name="laststayintouchrequest" Size="250,20" ToolTip="ttp_laststayintouchrequest">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<Label Name="lb_laststayintouchsavedate" Size="60,20" Text="laststayintouchsavedate" Align="Right"/>
+<DateTime Name="laststayintouchsavedate" Format="yyyy-MM-dd HH:mm:ss" Size="150,20" ToolTip="ttp_laststayintouchsavedate">
+	<OnChanged></OnChanged>
+	</DateTime>
+<BR AutoHeight="1"/><Label Name="lb_leadsource" Size="60,20" Text="leadsource" Align="Right"/>
+<ComboBox Name="leadsource" Size="120,100"  ToolTip="ttp_leadsource" SelectedIndex="0" OnLoad="init">
+	<DbDetails><DbTable>vtigercrm6.vtiger_leadsource</DbTable><Data>leadsource,leadsourceid</Data><Where></Where><queryFormat></queryFormat></DbDetails>
+	<OnEditChange></OnEditChange>
+	<OnSelChange></OnSelChange>
+	<OnSelEndOk></OnSelEndOk>
+	<OnDataChange></OnDataChange>
+	</ComboBox>
+<Label Name="lb_contactsubscriptionid" Size="60,20" Text="contactsubscriptionid" Align="Right"/>
+<TextBox Name="contactsubscriptionid" Size="95,20" ToolTip="ttp_contactsubscriptionid">
+	<OnEnChange></OnEnChange>
+	<onEnterKey></onEnterKey>
+	</TextBox>
+<BR AutoHeight="1"/><ListCtrl Name="vtiger_contactsubdetailsLst" ToolTip="ttp_vtiger_contactsubdetails" Size="500,300" PageSize="10" loadedclick="0" Heading="homephone,100;otherphone,100;assistant,100;assistantphone,100;birthday,90;laststayintouchrequest,250;laststayintouchsavedate,150;leadsource,120;contactsubscriptionid,95;">
+	<DbDetails fcsm="1"><DbTable>vtigercrm6.vtiger_contactsubdetails</DbTable><Index>contactsubscriptionid='%{vtiger_contactsubdetailsLst[contactsubscriptionid]}'</Index><Data>homephone,otherphone,assistant,assistantphone,birthday,laststayintouchrequest,laststayintouchsavedate,leadsource,contactsubscriptionid</Data></DbDetails>
+<OnClick><assign name="leadsource[leadsourceid]" expr="%{vtiger_contactsubdetailsLst[leadsource]}" function="SetSel"/></OnClick>
+</ListCtrl>
+<GroupBox  Name="GBOPvtiger_contactsubdetails" Text="operation" Size="100,100"><Ctrls>
+<Button Name="insertvtiger_contactsubdetails" Size="50,20" Text="create" ToolTip="ttp_insertvtiger_contactsubdetails">
+	<OnClick>
+	<DbDetails fcsm="1"><DbTable>vtigercrm6.vtiger_contactsubdetails</DbTable><Data>homephone,otherphone,assistant,assistantphone,birthday,laststayintouchrequest,laststayintouchsavedate,leadsource[leadsourceid],contactsubscriptionid</Data><queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_contactsubdetails" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="modifyvtiger_contactsubdetails" Size="50,20" Text="modify" ToolTip="ttp_modifyvtiger_contactsubdetails">
+	<OnClick>
+	<DbDetails fcsm="1"><DbTable>vtigercrm6.vtiger_contactsubdetails</DbTable><Data>homephone,otherphone,assistant,assistantphone,birthday,laststayintouchrequest,laststayintouchsavedate,leadsource[leadsourceid],contactsubscriptionid</Data><Where>contactsubscriptionid='%{vtiger_contactsubdetailsLst[contactsubscriptionid]}'</Where><queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_contactsubdetails" function="click"/>
+	</OnClick>
+	</Button><BR/>
+<Button Name="deletevtiger_contactsubdetails" Size="50,20" Text="delete" ToolTip="ttp_deletevtiger_contactsubdetails">
+	<OnClick>
+	<DbDetails fcsm="1"><DbTable>vtigercrm6.vtiger_contactsubdetails</DbTable><Where>contactsubscriptionid='%{vtiger_contactsubdetailsLst[contactsubscriptionid]}'</Where><queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchvtiger_contactsubdetails" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="searchvtiger_contactsubdetails" Size="50,20" Text="refresh" ToolTip="ttp_refreshvtiger_contactsubdetails">
+	<OnClick><submit next="vtiger_contactsubdetailsLst"/>	</OnClick>
+</Button>
+<BR/><Button Name="FPvtiger_contactsubdetailsLst" Size="40,20" Text="firstpage" OnClick="(vtiger_contactsubdetailsLst)GetPage(First)"></Button>
+<Button Name="PREvtiger_contactsubdetailsLst" Size="40,20" Text="prepage" OnClick="(vtiger_contactsubdetailsLst)GetPage(Pre)"></Button>
+<Button Name="NPvtiger_contactsubdetailsLst" Size="40,20" Text="nextpage" OnClick="(vtiger_contactsubdetailsLst)GetPage(Next)"></Button>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate></OnActivate>
+	</WndTap>

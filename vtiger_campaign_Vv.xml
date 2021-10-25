@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_campaign" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_campaign_vLst" ToolTip="ttp_vtiger_campaign_v" Size="700,450" OnLoad="init" Heading="campaign_no,100;campaignname,250;campaigntype,120;campaignstatus,120;product_id,120;closingdate,150;expectedrevenue,125;expectedresponse,120;budgetcost,125;actualcost,125;sponsor,640;numsent,55;targetaudience,640;targetsize,55;expectedresponsecount,55;expectedsalescount,55;expectedroi,125;actualresponsecount,55;actualsalescount,55;actualroi,125;campaignid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>campaignid</Index>
+<DbTable>vtigercrm6.vtiger_campaign v left join vtigercrm6.vtiger_campaigntype v0 on v.campaigntype=v0.campaigntypeid left join vtigercrm6.vtiger_campaignstatus v1 on v.campaignstatus=v1.campaignstatusid left join vtigercrm6.vtiger_products v2 on v.product_id=v2.productid left join vtigercrm6.vtiger_expectedresponse v3 on v.expectedresponse=v3.expectedresponseid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>v.campaign_no,v.campaignname,v0.campaigntype campaigntype,v1.campaignstatus campaignstatus,v2.productname product_id,v.closingdate,v.expectedrevenue,v3.expectedresponse expectedresponse,v.budgetcost,v.actualcost,v.sponsor,v.numsent,v.targetaudience,v.targetsize,v.expectedresponsecount,v.expectedsalescount,v.expectedroi,v.actualresponsecount,v.actualsalescount,v.actualroi,v.campaignid,v4.user_name created_by,v.creation_date,v5.user_name last_update_by,v.last_update_date</Data>
+<Order>campaignid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>campaignid='%{vtiger_campaign_vLst[campaignid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_campaign.vtiger_campaignLst"/><assign name="$this.vtiger_campaign.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Where>campaignid='%{vtiger_campaign_vLst[campaignid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_campaign" expr="js(%{vtiger_campaign_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_campaign" expr="js(%{vtiger_campaign_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

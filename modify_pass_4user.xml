@@ -19,8 +19,8 @@
 </Ctrls></GroupBox>
 </Ctrls></GroupBox>
 		<BR AutoHeight="1"/>
-<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
-		<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="50,20">
+<GroupBox cols="xs12 sm6 md4" Name="GBOPDVitem"><Ctrls>
+		<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="100,20">
 			<OnClick><if cond="%{password}!=%{passwordsec}"><alert expr="new passwords input does not match!"/><else/>
 			<DbDetails fcsm="1">
 		<DbTable>vtigercrm6.vtiger_users</DbTable>

@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVvtiger_projecttask_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttask_detail_vLst" ToolTip="ttp_vtiger_projecttask_detail" Size="300,180" loadedclick="0">
+	<DbDetails >
+<DbTable>vtigercrm6.vtiger_projecttask_detail v</DbTable>
+<Index>projecttask_detailid</Index>
+<Data>v.address,v.remark,v.startdate,v.enddate,v.created_by,v.creation_date,v.last_update_by,v.last_update_date,v.projecttask_detailid</Data>
+<Order>projecttask_detailid</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{projecttaskid}"><alert expr="projecttaskid is Empty!"/><else/><submit next="$parent.vtiger_projecttask_detail.GBDEDITvtiger_projecttask_detail" function="reset"/><assign name="$parent.vtiger_projecttask_detail.projecttaskid" expr="%{projecttaskid}"/></if></op>
+<op text="modify"><DbDetails><Where>projecttask_detailid='%{vtiger_projecttask_detail_vLst[projecttask_detailid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_projecttask_detail.vtiger_projecttask_detailLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttask_detail</DbTable>
+<Where>projecttask_detailid='%{vtiger_projecttask_detail_vLst[projecttask_detailid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

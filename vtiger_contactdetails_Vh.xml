@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_contactdetails" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_contactdetailsLst" ToolTip="ttp_vtiger_contactdetails" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>contactid</Index>
+<DbTable>vtigercrm6.vtiger_contactdetails</DbTable>
+<Data>contact_no,lastname,salutation,firstname,accountid,department,title,reportsto,phone,mobile,fax,email,otheremail,secondaryemail,imagename,donotcall,emailoptout,notify_owner,isconvertedfromlead,contactid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>contactid</Order></DbDetails>
+<OnClick><assign name="salutation[salutationid]" expr="%{vtiger_contactdetailsLst[salutation]}" function="SetSel"/><assign name="accountid[accountid]" expr="%{vtiger_contactdetailsLst[accountid]}" function="SetSel"/><assign name="reportsto[contactid]" expr="%{vtiger_contactdetailsLst[reportsto]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_contactdetailsLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_contactdetailsLst[last_update_by]}" function="SetSel"/>
+<if cond="%{contactid}"><SetVisible name="insertvtiger_contactdetails" Visible="0"/><SetVisible name="modifyvtiger_contactdetails" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

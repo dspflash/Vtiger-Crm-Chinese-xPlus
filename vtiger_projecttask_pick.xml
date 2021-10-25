@@ -1,0 +1,23 @@
+﻿<WndTap Name="vtiger_projecttask_pick" Text="vtiger_projecttask_Pick">
+<var name="searchtmpl"><projecttaskname format="(v.projecttaskname like '%%{opvalue}%')"/><contact format="(v.contact like '%%{opvalue}%')"/><telphone format="(v.telphone like '%%{opvalue}%')"/><projecttasktype format="v.projecttasktype='%{opvalue}'"/><schedule_date format="(v.schedule_date between '%{schedule_date[datetime]}' and '%{schedule_date[datetime2]}')"/><responsible format="v.responsible='%{opvalue}'"/><projecttaskpriority format="v.projecttaskpriority='%{opvalue}'"/><projecttaskstatus format="v.projecttaskstatus='%{opvalue}'"/><attachedfile format="v.attachedfile is %{opvalue}"/><startdate format="(v.startdate between '%{startdate[datetime]}' and '%{startdate[datetime2]}')"/><enddate format="(v.enddate between '%{enddate[datetime]}' and '%{enddate[datetime2]}')"/><address format="(v.address like '%%{opvalue}%')"/><description format="(v.description like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><projectid format="(v.projectid like '%%{opvalue}%')"/><projecttaskid format="(v.projecttaskid like '%%{opvalue}%')"/><addrlng format="(v.addrlng like '%%{opvalue}%')"/><addrlat format="(v.addrlat like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projecttask" id="vtiger_projecttask" Text="vtiger_projecttask" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projecttask" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttask" Name="resetvtiger_projecttask" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projecttask" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttask" Name="gsearchvtiger_projecttask" Size="50,20">	<OnClick>	
+<search next="vtiger_projecttask_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projecttask" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_projecttask" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttask_vLst" ToolTip="ttp_vtiger_projecttask_v" Size="700,450"      colsDisplay="9" Heading="projecttaskname,250;contact,100;telphone,100;projecttasktype,120;schedule_date,150;milestone,50;milestone_date,50;responsible,120;projecttaskpriority,120;projecttaskstatus,120;startdate,150;enddate,150;address,380;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projectid,55;projecttaskid,55;addrlng,20;addrlat,76;" loadedclick="0">
+	<DbDetails >
+<Index>projecttaskid</Index>
+<DbTable>vtigercrm6.prj_ms_task_v v</DbTable>
+<Data>v.projecttaskname,v.contact,v.telphone,v0.projecttasktype projecttasktype,DATE_FORMAT(schedule_date,'%Y-%m-%d') schedule_date,u.fullname responsible,v1.projecttaskpriority projecttaskpriority,v2.projecttaskstatus projecttaskstatus,v.attachedfile,v.startdate,v.enddate,v.address,v.description,v3.user_name created_by,v.creation_date,v4.user_name last_update_by,v.last_update_date,v.projectid,v.projecttaskid,v.addrlng,v.addrlat,projecttaskstatusid</Data>
+<Order>projecttaskid</Order></DbDetails>
+<DbDetails><Data>*</Data></DbDetails>
+<OnClick><if cond="%{vtiger_projecttask_vLst[projecttaskid]}"><DbDetails><Where>projecttaskid='%{vtiger_projecttask_vLst[projecttaskid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

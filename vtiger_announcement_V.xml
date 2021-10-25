@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_announcement_v" Text="vtiger_announcement">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><title format="(v.title like '%%{opvalue}%')"/><announcement format="(v.announcement like '%%{opvalue}%')"/><time format="(v.time between '%{time[datetime]}' and '%{time[datetime2]}')"/><creatorid format="(v.creatorid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_announcement.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_announcement" id="vtiger_announcement" Text="vtiger_announcement" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_announcement" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_announcement.GBDEDITvtiger_announcement" function="reset"/><assign name="$this.vtiger_announcement.frmwndctrl" expr="%{$this.vtiger_announcement_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_announcement" Name="resetvtiger_announcement" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_announcement" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_announcement" Name="gsearchvtiger_announcement" Size="50,20">	<OnClick>	
+<search next="vtiger_announcement_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_announcement" namelist="search" function="search"/>	
+<search next="records_vtiger_announcement" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_announcement" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_announcement_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

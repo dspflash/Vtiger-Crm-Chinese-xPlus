@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVvtiger_project_tpl_milestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_milestone_vLst" ToolTip="ttp_vtiger_project_tpl_milestone_v" Size="700,150" Heading="project_ms_idx,120;projecttplmilestonename,250;responsible,120;projectmilestonetype,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttplid,55;projecttplmilestoneid,55;"     colsDisplay="5" loadedclick="0">
+	<DbDetails >
+<Index>projecttplmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_milestone v left join vtigercrm6.users_v u on v.responsible=u.id left join vtigercrm6.vtiger_projectmilestonetype v0 on v.projectmilestonetype=v0.projectmilestonetypeid left join vtigercrm6.vtiger_users v1 on v.created_by=v1.id left join vtigercrm6.vtiger_users v2 on v.last_update_by=v2.id</DbTable>
+<Data>v.project_ms_idx,v.projecttplmilestonename,u.fullname responsible,v0.projectmilestonetype projectmilestonetype,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projecttplid,v.projecttplmilestoneid</Data>
+<Order>projecttplmilestoneid</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{projecttplid}"><alert expr="projecttplid is Empty!"/><else/><submit next="$parent.vtiger_project_tpl_milestone.GBDEDITvtiger_project_tpl_milestone" function="reset"/><assign name="$parent.vtiger_project_tpl_milestone.projecttplid" expr="%{projecttplid}"/><assign name="$parent.vtiger_project_tpl_milestone.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>projecttplmilestoneid='%{vtiger_project_tpl_milestone_vLst[projecttplmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_project_tpl_milestone.vtiger_project_tpl_milestoneLst"/><assign name="$parent.vtiger_project_tpl_milestone.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project_tpl_milestone</DbTable>
+<Where>projecttplmilestoneid='%{vtiger_project_tpl_milestone_vLst[projecttplmilestoneid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

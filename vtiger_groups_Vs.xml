@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDITvtiger_groups" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_groupname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_groupname" Size="60,20" Text="groupname" Align="Right"/>
+<TextBox Name="groupname" Size="170,20" Text="" Weight="170" ToolTip="ttp_groupname"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

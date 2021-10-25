@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_assets" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_assets_vLst" ToolTip="ttp_vtiger_assets_v" Size="700,450" OnLoad="init" Heading="assetname,100;assetstatus,120;product,120;asset_no,150;serialnumber,250;invoiceid,120;account,120;contact,120;tagnumber,250;datesold,90;dateinservice,90;shippingmethod,120;shippingtrackingnumber,100;assetsid,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>assetsid</Index>
+<DbTable>vtigercrm6.vtiger_assets v left join vtigercrm6.vtiger_assetstatus v0 on v.assetstatus=v0.assetstatusid left join vtigercrm6.vtiger_products v1 on v.product=v1.productid left join vtigercrm6.vtiger_invoice v2 on v.invoiceid=v2.invoiceid left join vtigercrm6.vtiger_account v3 on v.account=v3.accountid left join vtigercrm6.contacts_v c on v.contact=c.contactid left join vtigercrm6.vtiger_carrier v4 on v.shippingmethod=v4.carrierid left join vtigercrm6.vtiger_users v5 on v.created_by=v5.id left join vtigercrm6.vtiger_users v6 on v.last_update_by=v6.id</DbTable>
+<Data>v.assetname,v0.assetstatus assetstatus,v1.productname product,v.asset_no,v.serialnumber,v2.subject invoiceid,v3.accountname account,c.fullname contact,v.tagnumber,v.datesold,v.dateinservice,v4.carrier shippingmethod,v.shippingtrackingnumber,v.assetsid,v5.user_name created_by,v.creation_date,v6.user_name last_update_by,v.last_update_date</Data>
+<Order>assetsid</Order></DbDetails>
+<DbDetails><queryFormat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>assetsid='%{vtiger_assets_vLst[assetsid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_assets.vtiger_assetsLst"/><assign name="$this.vtiger_assets.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_assets</DbTable>
+<Where>assetsid='%{vtiger_assets_vLst[assetsid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_assets" expr="js(%{vtiger_assets_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_assets" expr="js(%{vtiger_assets_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

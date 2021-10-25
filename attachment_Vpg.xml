@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGattachment"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_attachment" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>attachment_id</Index>
+<DbTable>vtigercrm6.attachment a left join vtigercrm6.vtiger_users v on a.created_by=v.id left join vtigercrm6.vtiger_users v0 on a.last_update_by=v0.id</DbTable><Where>reftbl='vtiger_projecttask' and refid='%{projecttaskid}'</Where>
+<Data>count(*) records</Data>
+<Order>attachment_id</Order><Queryformat>select %{data} from (select a.attachment_id from %{dbtable} where %{where} GROUP BY a.attachment_id  ORDER BY a.attachment_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_attachment" expr="js(Math.ceil(%{records_attachment}/%{attachment_vLst[countsperpage]}))"/>
+<assign name="pgscb_attachment" expr="js('1~'+Math.ceil(%{records_attachment}/%{attachment_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_attachment" Size="60,20"><OnSelEndOK><submit next="attachment_vLst" function="GetPage(%{pgscb_attachment}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_attachment" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_attachment" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageattachment_vLst" Size="50,20"><OnClick><submit next="attachment_vLst" function="GetPage(%{pgcur_attachment}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_salesorder" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_salesorder_vLst" ToolTip="ttp_vtiger_salesorder_v" Size="700,450" OnLoad="init" Heading="subject,250;sostatus,120;salesorder_no,100;accountid,120;contactid,120;salesorderid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder v left join vtigercrm6.vtiger_sostatus v0 on v.sostatus=v0.sostatusid left join vtigercrm6.vtiger_account v1 on v.accountid=v1.accountid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>v.subject,v0.sostatus sostatus,v.salesorder_no,v1.accountname accountid,c.fullname contactid,v.salesorderid,v2.user_name created_by,v.creation_date,v3.user_name last_update_by,v.last_update_date</Data>
+<Order>salesorderid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>salesorderid='%{vtiger_salesorder_vLst[salesorderid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_salesorder.vtiger_salesorderLst"/><assign name="$this.vtiger_salesorder.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_salesorder</DbTable>
+<Where>salesorderid='%{vtiger_salesorder_vLst[salesorderid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_salesorder" expr="js(%{vtiger_salesorder_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_salesorder" expr="js(%{vtiger_salesorder_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

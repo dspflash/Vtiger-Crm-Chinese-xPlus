@@ -1,14 +1,20 @@
-﻿<WndTap Name="attachment_v" Text="attachment">
+﻿<WndTap Name="attachment_v" Text="attachment_v">
 <WndTaps>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Ve.xml" popup="1"/>
 </WndTaps>
+<var name="searchtmpl"><creation_date format="(a.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><typestr format="(a.typestr like '%%{opvalue}%')"/><description format="(a.description like '%%{opvalue}%')"/><created_by format="a.created_by='%{opvalue}'"/><filename format="(a.filename like '%%{opvalue}%')"/><location format="(a.location like '%%{opvalue}%')"/><path format="(a.path like '%%{opvalue}%')"/><attachment format="(a.attachment like '%%{opvalue}%')"/><reftbl format="(a.reftbl like '%%{opvalue}%')"/><refid format="(a.refid like '%%{opvalue}%')"/><type format="(a.type like '%%{opvalue}%')"/><last_update_by format="a.last_update_by='%{opvalue}'"/><last_update_date format="(a.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><attachment_id format="(a.attachment_id like '%%{opvalue}%')"/></var>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
 <Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vs.xml"/>
-<BR AutoHeight="1"/><GroupBox  Name="GBOPVattachment" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
-<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.attachment.GBDEDITattachment" function="reset"/></OnClick>	</Button><TAB/>	
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVattachment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.attachment.GBDEDITattachment" function="reset"/><assign name="$this.attachment.frmwndctrl" expr="%{$this.attachment_vLst}"/></OnClick>	</Button><TAB/>	
 <Button Text="reset" ToolTip="ttp_resetattachment" Name="resetattachment" Size="50,20">	<OnClick>	<submit next="GBDEDITattachment" function="reset"/>	</OnClick>	</Button><TAB/>	
-<Button Text="gsearch" ToolTip="ttp_gsearchattachment" Name="gsearchattachment" Size="50,20" visible="true">	<OnClick>	<search next="attachment_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITattachment" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<Button Text="Search" ToolTip="ttp_gsearchattachment" Name="gsearchattachment" Size="50,20">	<OnClick>	
+<search next="attachment_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITattachment" namelist="search" function="search"/>	
+<search next="records_attachment" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITattachment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vpgop.xml"/>
 <BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vv.xml"/>
 </Ctrls></GroupBox>
 </Ctrls></WndTap>

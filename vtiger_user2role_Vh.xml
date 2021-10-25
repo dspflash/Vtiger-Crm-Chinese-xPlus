@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_user2role" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_user2roleLst" ToolTip="ttp_vtiger_user2role" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>idx</Index>
+<DbTable>vtigercrm6.vtiger_user2role</DbTable>
+<Data>roleid,created_by,creation_date,last_update_by,last_update_date,idx</Data>
+<Order>userid,idx</Order></DbDetails>
+<OnClick><assign name="roleid[roleidx]" expr="%{vtiger_user2roleLst[roleid]}" function="SetSel"/>
+<if cond="%{idx}"><SetVisible name="insertvtiger_user2role" Visible="0"/><SetVisible name="modifyvtiger_user2role" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+﻿<WndTap Name="vtiger_users" Text="vtiger_users" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="user_name,last_name,user_password"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_users.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_users" id="vtiger_users" Text="vtiger_users" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_users" Visible="1"/><SetVisible name="modifyvtiger_users" Visible="0"/></OnActivate>
+</WndTap>

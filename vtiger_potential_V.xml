@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_potential_v" Text="vtiger_potential">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><potential_no format="(v.potential_no like '%%{opvalue}%')"/><potentialname format="(v.potentialname like '%%{opvalue}%')"/><potentialtype format="v.potentialtype='%{opvalue}'"/><probability format="(v.probability like '%%{opvalue}%')"/><contact_id format="v.contact_id='%{opvalue}'"/><related_to format="v.related_to='%{opvalue}'"/><campaignid format="v.campaignid='%{opvalue}'"/><forecast_amount format="(v.forecast_amount like '%%{opvalue}%')"/><sales_stage format="v.sales_stage='%{opvalue}'"/><amount format="(v.amount like '%%{opvalue}%')"/><nextstep format="(v.nextstep like '%%{opvalue}%')"/><typeofrevenue format="(v.typeofrevenue like '%%{opvalue}%')"/><private format="v.private is %{opvalue}"/><leadsource format="v.leadsource='%{opvalue}'"/><productid format="v.productid='%{opvalue}'"/><productversion format="(v.productversion like '%%{opvalue}%')"/><quotationref format="v.quotationref='%{opvalue}'"/><partnercontact format="(v.partnercontact like '%%{opvalue}%')"/><remarks format="(v.remarks like '%%{opvalue}%')"/><runtimefee format="(v.runtimefee like '%%{opvalue}%')"/><closingdate format="(v.closingdate between '%{closingdate[datetime]}' and '%{closingdate[datetime2]}')"/><followupdate format="(v.followupdate between '%{followupdate[datetime]}' and '%{followupdate[datetime2]}')"/><description format="(v.description like '%%{opvalue}%')"/><outcomeanalysis format="(v.outcomeanalysis like '%%{opvalue}%')"/><forecastcategory format="(v.forecastcategory like '%%{opvalue}%')"/><isconvertedfromlead format="v.isconvertedfromlead is %{opvalue}"/><evaluationstatus format="(v.evaluationstatus like '%%{opvalue}%')"/><currency format="(v.currency like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><potentialid format="(v.potentialid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_potential.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_potential" id="vtiger_potential" Text="vtiger_potential" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_potential" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_potential.GBDEDITvtiger_potential" function="reset"/><assign name="$this.vtiger_potential.frmwndctrl" expr="%{$this.vtiger_potential_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_potential" Name="resetvtiger_potential" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_potential" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_potential" Name="gsearchvtiger_potential" Size="50,20">	<OnClick>	
+<search next="vtiger_potential_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_potential" namelist="search" function="search"/>	
+<search next="records_vtiger_potential" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_potential" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_potential_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

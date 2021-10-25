@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_vendor" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_vendor_vLst" ToolTip="ttp_vtiger_vendor_v" Size="700,450" OnLoad="init" Heading="vendorname,500;phone,500;email,500;vendor_no,500;website,500;glacct,640;category,250;street,630;city,150;state,150;pobox,150;postalcode,500;country,500;description,630;vendorid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>vendorid</Index>
+<DbTable>vtigercrm6.vtiger_vendor v left join vtigercrm6.vtiger_users v0 on v.created_by=v0.id left join vtigercrm6.vtiger_users v1 on v.last_update_by=v1.id</DbTable>
+<Data>v.vendorname,v.phone,v.email,v.vendor_no,v.website,v.glacct,v.category,v.street,v.city,v.state,v.pobox,v.postalcode,v.country,v.description,v.vendorid,v0.user_name created_by,v.creation_date,v1.user_name last_update_by,v.last_update_date</Data>
+<Order>vendorid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>vendorid='%{vtiger_vendor_vLst[vendorid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_vendor.vtiger_vendorLst"/><assign name="$this.vtiger_vendor.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_vendor</DbTable>
+<Where>vendorid='%{vtiger_vendor_vLst[vendorid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_vendor" expr="js(%{vtiger_vendor_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_vendor" expr="js(%{vtiger_vendor_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

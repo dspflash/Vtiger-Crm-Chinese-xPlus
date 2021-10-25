@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVvtiger_projectmilestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestone_vLst" ToolTip="ttp_vtiger_projectmilestone_v" Size="700,450" OnLoad="init"   colsDisplay="7" Heading="projectmilestonename,250;projectmilestonetype,120;projectmilestonedate,90;progress_memo,100;reviewed,60;review_memo,630;project_ms_idx,20;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projectid,55;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;" loadedclick="0">
+	<DbDetails >
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone v left join vtigercrm6.vtiger_projectmilestonetype v0 on v.projectmilestonetype=v0.projectmilestonetypeid left join vtigercrm6.vtiger_users v1 on v.created_by=v1.id left join vtigercrm6.vtiger_users v2 on v.last_update_by=v2.id</DbTable>
+<Data>v.projectmilestonename,v0.projectmilestonetype projectmilestonetype,v.projectmilestonedate,v.project_ms_idx,v.reviewed,v.review_memo,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projectid,v.projectmilestoneid,v.reviewed_date,v.reviewed_by</Data>
+<Order>projectmilestoneid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">SELECT v.projectmilestonename,v0.projectmilestonetype projectmilestonetype,v.projectmilestonedate,GROUP_CONCAT(a.description SEPARATOR ';') progress_memo,v.reviewed,v.review_memo,v.project_ms_idx,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projectid,v.projectmilestoneid,vm.projectmilestoneid vmxid,v.reviewed_date,v.reviewed_by 
+FROM vtigercrm6.vtiger_projectmilestone v 
+LEFT JOIN vtigercrm6.vtiger_projectmilestonetype v0 ON v.projectmilestonetype=v0.projectmilestonetypeid 
+LEFT JOIN vtigercrm6.vtiger_users v1 ON v.created_by=v1.id 
+LEFT JOIN vtigercrm6.vtiger_users v2 ON v.last_update_by=v2.id 
+LEFT JOIN vtigercrm6.attachment a ON a.reftbl='vtiger_projectmilestone' AND a.refid=v.projectmilestoneid 
+LEFT JOIN vtigercrm6.vtiger_projectmilestone vm ON vm.projectid=v.projectid AND vm.project_ms_idx&lt;v.project_ms_idx AND !vm.reviewed %{where} GROUP BY v.projectmilestoneid limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_vtiger_projectmilestone" expr="js(%{vtiger_projectmilestone_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_projectmilestone" expr="js(%{vtiger_projectmilestone_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDEDITvtiger_projectstatus" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projectstatus" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectstatus" Size="60,20" Text="projectstatus" Align="Right"/>
+<TextBox Name="projectstatus" Size="170,20" Text="" Weight="170" ToolTip="ttp_projectstatus"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_presence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_presence" Size="60,20" Text="presence" Align="Right"/>
+<TextBox Name="presence" Size="170,20" Text="" Weight="170" ToolTip="ttp_presence"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_picklist_valueid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_picklist_valueid" Size="60,20" Text="picklist_valueid" Align="Right"/>
+<TextBox Name="picklist_valueid" Size="170,20" Text="" Weight="170" ToolTip="ttp_picklist_valueid"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_sortorderid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_sortorderid" Size="60,20" Text="sortorderid" Align="Right"/>
+<TextBox Name="sortorderid" Size="170,20" Text="" Weight="170" ToolTip="ttp_sortorderid"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

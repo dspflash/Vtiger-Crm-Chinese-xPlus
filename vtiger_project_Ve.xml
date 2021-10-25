@@ -1,0 +1,16 @@
+﻿<WndTap Name="vtiger_project" Text="vtiger_project" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="projectname"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_project.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask.xml"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_project" id="vtiger_project" Text="vtiger_project" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_project" Visible="1"/><SetVisible name="modifyvtiger_project" Visible="0"/></OnActivate>
+</WndTap>

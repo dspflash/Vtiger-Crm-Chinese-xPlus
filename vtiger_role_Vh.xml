@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_role" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_roleLst" ToolTip="ttp_vtiger_role" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>roleidx</Index>
+<DbTable>vtigercrm6.vtiger_role</DbTable>
+<Data>roleid,rolename,rolelayout,parentrole,depth,allowassignedrecordsto,roleidx</Data>
+<Order>roleid,roleidx</Order></DbDetails>
+<OnClick>
+<if cond="%{roleidx}"><SetVisible name="insertvtiger_role" Visible="0"/><SetVisible name="modifyvtiger_role" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_projectmilestone"><Ctrls>
+<ListCtrl Heading="projectmilestonename,250;projectmilestonetype,120;projectmilestonedate,90;progress_memo,100;reviewed,60;review_memo,630;project_ms_idx,20;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projectid,55;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;" loadedclick="0" ToolTip="ttp_vtiger_projectmilestone" Name="vtiger_projectmilestoneLst" Size="700,450" colsDisplay="7">
+	<DbDetails fcsm="1">
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone v left join vtigercrm6.vtiger_projectmilestonetype v0 on v.projectmilestonetype=v0.projectmilestonetypeid left join vtigercrm6.vtiger_users v1 on v.created_by=v1.id left join vtigercrm6.vtiger_users v2 on v.last_update_by=v2.id</DbTable>
+<Data>v.projectmilestonename,v0.projectmilestonetype projectmilestonetype,v.projectmilestonedate,v.project_ms_idx,v.reviewed,v.review_memo,v1.user_name created_by,v.creation_date,v2.user_name last_update_by,v.last_update_date,v.projectid,v.projectmilestoneid,v.reviewed_date,v.reviewed_by</Data>
+<Order>projectmilestoneid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

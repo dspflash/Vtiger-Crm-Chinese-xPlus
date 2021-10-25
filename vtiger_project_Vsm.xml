@@ -1,0 +1,44 @@
+﻿<GroupBox Name="GBDEDITvtiger_project" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projectname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectname" Size="60,20" Text="projectname" Align="Right"/>
+<TextBox Name="projectname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projectname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_project_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_no" Size="60,20" Text="project_no" Align="Right"/>
+<TextBox Name="project_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_projecttype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttype" Size="60,20" Text="projecttype" Align="Right" onload="init"/>
+<ComboBox Name="projecttype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttype" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Index>projecttypeid</Index>
+<Data>projecttype,projecttypeid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_release_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_release_date" Size="60,20" Text="release_date" Align="Right"/>
+<DateTime Name="release_date" Format="yyyy-MM-dd" Size="170,20" Text="1 week ago" Weight="170" Text2="a week" ToolTip="ttp_release_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_projectstatus" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectstatus" Size="60,20" Text="projectstatus" Align="Right"/>
+<ComboBox Name="projectstatus" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projectstatus" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_projectstatus</DbTable>
+<Index>projectstatusid</Index>
+<Data>projectstatus,projectstatusid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_salesorder" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_salesorderid" Size="60,20" Text="salesorderid" Align="Right"  onload="init"/>
+<ComboBox Name="salesorderid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_salesorderid"  onload="init">
+	<DbDetails>
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder</DbTable>
+<Data>subject,salesorderid</Data>
+<Where>sostatus in (1,2)</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshsalesorder" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="referid"/></OnClick></MagicCtrl>
+</Ctrls></GroupBox></Ctrls></GroupBox>

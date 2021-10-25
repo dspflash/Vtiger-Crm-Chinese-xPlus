@@ -1,0 +1,62 @@
+﻿<GroupBox Name="GBDEDITvtiger_invoice" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_invoicedate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_invoicedate" Size="60,20" Text="invoicedate" Align="Right"/>
+<DateTime Name="invoicedate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_invoicedate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_salesorderid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_salesorderid" Size="60,20" Text="salesorderid" Align="Right" onload="init"/>
+<ComboBox Name="salesorderid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_salesorderid" onload="init">
+	<DbDetails>
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder</DbTable>
+<Data>subject,salesorderid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshsalesorderid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="salesorderid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_customerno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_customerno" Size="60,20" Text="customerno" Align="Right"/>
+<TextBox Name="customerno" Size="170,20" Text="" Weight="170" ToolTip="ttp_customerno"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_duedate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_duedate" Size="60,20" Text="duedate" Align="Right"/>
+<DateTime Name="duedate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_duedate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accountid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_accountid" Size="60,20" Text="accountid" Align="Right" onload="init"/>
+<ComboBox Name="accountid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_accountid" onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshaccountid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="accountid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_contactid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contactid" Size="60,20" Text="contactid" Align="Right" onload="init"/>
+<ComboBox Name="contactid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_contactid" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshcontactid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="contactid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right"/>
+<TextBox Name="type" Size="170,20" Text="" Weight="170" ToolTip="ttp_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_purchaseorder" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_purchaseorder" Size="60,20" Text="purchaseorder" Align="Right" onload="init"/>
+<ComboBox Name="purchaseorder" Size="150,100" Text="" Weight="150"  ToolTip="ttp_purchaseorder" onload="init">
+	<DbDetails>
+<Index>purchaseorderid</Index>
+<DbTable>vtigercrm6.vtiger_purchaseorder</DbTable>
+<Data>subject,purchaseorderid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshpurchaseorder" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="purchaseorder"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

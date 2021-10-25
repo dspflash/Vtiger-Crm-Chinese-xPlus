@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_projectpriority"><Ctrls>
+<ListCtrl Heading="projectpriority,640;presence,20;picklist_valueid,55;sortorderid,55;projectpriorityid,55;" loadedclick="0" ToolTip="ttp_vtiger_projectpriority" Name="vtiger_projectpriorityLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>projectpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projectpriority</DbTable>
+<Data>projectpriority,presence,picklist_valueid,sortorderid,projectpriorityid</Data>
+<Order>projectpriorityid</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>projectpriorityid='%{vtiger_projectpriority_vLst[projectpriorityid]}'</Where></DbDetails><submit next="$this.vtiger_projectpriority.vtiger_projectpriorityLst" namelist="DbDetails"/><assign name="$this.vtiger_projectpriority.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projectpriority</DbTable>
+<Where>projectpriorityid='%{vtiger_projectpriority_vLst[projectpriorityid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

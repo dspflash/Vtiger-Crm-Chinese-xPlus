@@ -1,0 +1,2 @@
+Thu, 17 Oct 2019 16:03:08 +0800	MODIFYCTRL	documents.SharedList[][]	
+Thu, 17 Oct 2019 16:03:08 +0800	QEVT	documents.SharedList	sql:select (case when type=0 then (select user_name from userlogin where user_code=shared2) else (select dep_name_cn from bizdep where dep_id=shared2) end) as s,(select user_name from userlogin where user_code=sharedby) as sharedby,FROM_UNIXTIME(dt2share,'%Y-%m-%d %H:%i:%S') as dt2share,type,idx from docsharel where doc_id='1' limit %{StartRow},%{PgSize}	StartRow=0	PgSize=10

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_potential"><Ctrls>
+<ListCtrl Heading="potential_no,100;potentialname,250;potentialtype,120;probability,35;contact_id,120;related_to,120;campaignid,120;forecast_amount,125;sales_stage,120;amount,125;nextstep,100;typeofrevenue,100;private,60;leadsource,120;productid,120;productversion,100;quotationref,120;partnercontact,250;remarks,250;runtimefee,95;closingdate,90;followupdate,90;description,20;outcomeanalysis,95;forecastcategory,95;isconvertedfromlead,60;evaluationstatus,100;currency,100;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;potentialid,95;" loadedclick="0" ToolTip="ttp_vtiger_potential" Name="vtiger_potentialLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>potentialid</Index>
+<DbTable>vtigercrm6.vtiger_potential v left join vtigercrm6.vtiger_opportunity_type v0 on v.potentialtype=v0.opptypeid left join vtigercrm6.contacts_v c on v.contact_id=c.contactid left join vtigercrm6.vtiger_account v1 on v.related_to=v1.accountid left join vtigercrm6.vtiger_campaign v2 on v.campaignid=v2.campaignid left join vtigercrm6.vtiger_sales_stage v3 on v.sales_stage=v3.sales_stage_id left join vtigercrm6.vtiger_leadsource v4 on v.leadsource=v4.leadsourceid left join vtigercrm6.vtiger_products v5 on v.productid=v5.productid left join vtigercrm6.vtiger_quotes v6 on v.quotationref=v6.quoteid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>v.potential_no,v.potentialname,v0.opportunity_type potentialtype,v.probability,c.fullname contact_id,v1.accountname related_to,v2.campaignname campaignid,v.forecast_amount,v3.sales_stage sales_stage,v.amount,v.nextstep,v.typeofrevenue,v.private,v4.leadsource leadsource,v5.productname productid,v.productversion,v6.subject quotationref,v.partnercontact,v.remarks,v.runtimefee,v.closingdate,v.followupdate,v.description,v.outcomeanalysis,v.forecastcategory,v.isconvertedfromlead,v.evaluationstatus,v.currency,v7.user_name created_by,v.creation_date,v8.user_name last_update_by,v.last_update_date,v.potentialid</Data>
+<Order>potentialid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>potentialid='%{vtiger_potential_vLst[potentialid]}'</Where></DbDetails><submit next="$this.vtiger_potential.vtiger_potentialLst" namelist="DbDetails"/><assign name="$this.vtiger_potential.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_potential</DbTable>
+<Where>potentialid='%{vtiger_potential_vLst[potentialid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

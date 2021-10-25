@@ -1,0 +1,30 @@
+﻿<Language name="vtiger_projectmilestonetype">
+<Lang name="vtiger_projectmilestonetype" value="里程碑类型"/>
+<Lang name="TabEditvtiger_projectmilestonetype" value="vtiger_projectmilestonetype Edit"/>
+<Lang name="TabViewvtiger_projectmilestonetype" value="vtiger_projectmilestonetype View"/>
+<Lang name="projectmilestonetype" value="里程碑类型"/>
+<Lang name="ttp_projectmilestonetype" value=""/>
+<Lang name="presence" value=""/>
+<Lang name="ttp_presence" value=""/>
+<Lang name="picklist_valueid" value=""/>
+<Lang name="ttp_picklist_valueid" value=""/>
+<Lang name="sortorderid" value=""/>
+<Lang name="ttp_sortorderid" value=""/>
+<Lang name="projectmilestonetypeid" value="ID"/>
+<Lang name="ttp_projectmilestonetypeid" value=""/>
+<Lang name="ttp_operationvtiger_projectmilestonetype" value=""/>
+<Lang name="ttp_createvtiger_projectmilestonetype" value=""/>
+<Lang name="ttp_modifyvtiger_projectmilestonetype" value=""/>
+<Lang name="ttp_resetvtiger_projectmilestonetype" value=""/>
+<Lang name="ttp_deletevtiger_projectmilestonetype" value=""/>
+<Lang name="ttp_refreshvtiger_projectmilestonetype" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

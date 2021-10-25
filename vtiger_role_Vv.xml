@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_role" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_role_vLst" ToolTip="ttp_vtiger_role_v" Size="700,450" OnLoad="init" Heading="roleid,640;rolename,640;rolelayout,640;parentrole,640;depth,95;allowassignedrecordsto,60;roleidx,55;" loadedclick="0">
+	<DbDetails >
+<Index>roleidx</Index>
+<DbTable>vtigercrm6.vtiger_role v</DbTable>
+<Data>v.roleid,v.rolename,v.rolelayout,v.parentrole,v.depth,v.allowassignedrecordsto,v.roleidx</Data>
+<Order>roleid,roleidx</Order></DbDetails>
+<DbDetails><queryFormat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>roleidx='%{vtiger_role_vLst[roleidx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_role.vtiger_roleLst"/><assign name="$this.vtiger_role.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_role</DbTable>
+<Where>roleidx='%{vtiger_role_vLst[roleidx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_role" expr="js(%{vtiger_role_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_role" expr="js(%{vtiger_role_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

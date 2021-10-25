@@ -1,0 +1,34 @@
+﻿<Language name="vtiger_user2role">
+<Lang name="vtiger_user2role" value="角色"/>
+<Lang name="TabEditvtiger_user2role" value="vtiger_user2role Edit"/>
+<Lang name="TabViewvtiger_user2role" value="vtiger_user2role View"/>
+<Lang name="roleid" value="角色"/>
+<Lang name="ttp_roleid" value=""/>
+<Lang name="userid" value=""/>
+<Lang name="ttp_userid" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="idx" value=""/>
+<Lang name="ttp_idx" value=""/>
+<Lang name="ttp_operationvtiger_user2role" value=""/>
+<Lang name="ttp_createvtiger_user2role" value=""/>
+<Lang name="ttp_modifyvtiger_user2role" value=""/>
+<Lang name="ttp_resetvtiger_user2role" value=""/>
+<Lang name="ttp_deletevtiger_user2role" value=""/>
+<Lang name="ttp_refreshvtiger_user2role" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,19 @@
+﻿<WndTap Name="vtiger_project_tpl" Text="vtiger_project_tpl" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="projecttplname"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_project_tpl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl_milestone.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl_task.xml"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_project_tpl" id="vtiger_project_tpl" Text="vtiger_project_tpl" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_milestone_Vv.xml"/>
+
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_project_tpl" Visible="1"/><SetVisible name="modifyvtiger_project_tpl" Visible="0"/></OnActivate>
+</WndTap>

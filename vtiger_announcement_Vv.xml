@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_announcement" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_announcement_vLst" ToolTip="ttp_vtiger_announcement_v" Size="700,450" OnLoad="init" Heading="title,640;announcement,630;time,150;creatorid,95;" loadedclick="0">
+	<DbDetails >
+<Index>creatorid</Index>
+<DbTable>vtigercrm6.vtiger_announcement v</DbTable>
+<Data>v.title,v.announcement,v.time,v.creatorid</Data>
+<Order>creatorid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>creatorid='%{vtiger_announcement_vLst[creatorid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_announcement.vtiger_announcementLst"/><assign name="$this.vtiger_announcement.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Where>creatorid='%{vtiger_announcement_vLst[creatorid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_announcement" expr="js(%{vtiger_announcement_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_announcement" expr="js(%{vtiger_announcement_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

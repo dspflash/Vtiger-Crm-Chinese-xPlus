@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_quotes"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_quotes" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>quoteid</Index>
+<DbTable>vtigercrm6.vtiger_quotes v left join vtigercrm6.vtiger_potential v0 on v.potentialid=v0.potentialid left join vtigercrm6.vtiger_quotestage v1 on v.quotestage=v1.quotestageid left join vtigercrm6.vtiger_users v2 on v.inventorymanager=v2.id left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_account v3 on v.accountid=v3.accountid left join vtigercrm6.vtiger_taxclass v4 on v.taxtype=v4.taxclassid left join vtigercrm6.vtiger_currencies v5 on v.currency_id=v5.currencyid left join vtigercrm6.vtiger_users v6 on v.created_by=v6.id left join vtigercrm6.vtiger_users v7 on v.last_update_by=v7.id</DbTable>
+<Data>count(*) records</Data>
+<Order>quoteid</Order><Queryformat>select %{data} from (select v.quoteid from %{dbtable} %{where} GROUP BY v.quoteid  ORDER BY v.quoteid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_quotes" expr="js(Math.ceil(%{records_vtiger_quotes}/%{vtiger_quotes_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_quotes" expr="js('1~'+Math.ceil(%{records_vtiger_quotes}/%{vtiger_quotes_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_quotes" Size="60,20"><OnSelEndOK><submit next="vtiger_quotes_vLst" function="GetPage(%{pgscb_vtiger_quotes}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_quotes" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_quotes" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_quotes_vLst" Size="50,20"><OnClick><submit next="vtiger_quotes_vLst" function="GetPage(%{pgcur_vtiger_quotes}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

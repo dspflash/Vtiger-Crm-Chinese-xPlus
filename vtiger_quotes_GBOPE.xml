@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_quotes" Size="100,100"><Ctrls>
+<Button sqlpkinsert="quoteid" Text="create" ToolTip="ttp_createvtiger_quotes" Name="insertvtiger_quotes" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,potentialid[potentialid],inventorymanager[id],validtill,contactid[contactid],accountid[accountid],carrier,shipping,pre_tax_total,total,subtotal,taxtype[taxclassid],discount_percent,discount_amount,adjustment,s_h_amount,s_h_percent,terms_conditions,currency_id[currencyid],conversion_rate,type</Data>
+<DataEx>quotestage,quote_no,created_by,creation_date,last_update_by,last_update_date;1,@odn,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(quote_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_quotes WHERE DATE(creation_date)=CURDATE() ORDER BY quote_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='quote'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_quotes[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_quotesLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_quotes_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_quotes" Name="modifyvtiger_quotes" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,potentialid[potentialid],inventorymanager[id],validtill,contactid[contactid],accountid[accountid],carrier,shipping,pre_tax_total,total,subtotal,taxtype[taxclassid],discount_percent,discount_amount,adjustment,s_h_amount,s_h_percent,terms_conditions,currency_id[currencyid],conversion_rate,type</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>quoteid='%{quoteid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_quotes[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_quotesLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_quotes_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_quotes" Name="resetvtiger_quotes" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_quotes" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_quotes" Name="gsearchvtiger_quotes" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_quotesLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_quotes" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

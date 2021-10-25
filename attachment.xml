@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="attachment" Name="attachment" Ver="2">
-<var name="refreshAfterEdit" expr="0"/>
-<var name="dataRequired" expr="invokes"/>
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="description,reftbl,refid"/>
 <var name="dataRequireless" expr=""/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
 <Ctrls>

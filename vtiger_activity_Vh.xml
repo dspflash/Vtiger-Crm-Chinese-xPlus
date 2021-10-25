@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_activity" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_activityLst" ToolTip="ttp_vtiger_activity" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>activityid</Index>
+<DbTable>vtigercrm6.vtiger_activity</DbTable>
+<Data>subject,semodule,activitytype,date_start,due_date,time_start,time_end,sendnotification,duration_hours,duration_minutes,status,eventstatus,priority,location,notime,visibility,recurringtype,activityid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>activityid</Order></DbDetails>
+<OnClick><assign name="activitytype[activitytypeid]" expr="%{vtiger_activityLst[activitytype]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_activityLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_activityLst[last_update_by]}" function="SetSel"/>
+<if cond="%{activityid}"><SetVisible name="insertvtiger_activity" Visible="0"/><SetVisible name="modifyvtiger_activity" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,22 @@
+﻿<GroupBox Name="GBDEDITvtiger_projecttasktype"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projecttasktype"><Ctrls>
+<Label Align="Right" Text="projecttasktype" Name="lb_projecttasktype" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projecttasktype" Name="projecttasktype" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_presence"><Ctrls>
+<Label Align="Right" Text="presence" Name="lb_presence" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_presence" Name="presence" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_picklist_valueid"><Ctrls>
+<Label Align="Right" Text="picklist_valueid" Name="lb_picklist_valueid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_picklist_valueid" Name="picklist_valueid" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sortorderid"><Ctrls>
+<Label Align="Right" Text="sortorderid" Name="lb_sortorderid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sortorderid" Name="sortorderid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projecttasktypeid" Visible="false"><Ctrls>
+<Label Align="Right" Text="projecttasktypeid" overlap="pre" Name="lb_projecttasktypeid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_projecttasktypeid" overlap="pre" Name="projecttasktypeid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{projecttasktypeid}'"><SetVisible name="insertvtiger_projecttasktype" Visible="0"/><SetVisible name="modifyvtiger_projecttasktype" Visible="1"/><else/><SetVisible name="insertvtiger_projecttasktype" Visible="1"/><SetVisible name="modifyvtiger_projecttasktype" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

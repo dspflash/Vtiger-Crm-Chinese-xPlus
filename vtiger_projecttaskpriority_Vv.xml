@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVvtiger_projecttaskpriority" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projecttaskpriority_vLst" ToolTip="ttp_vtiger_projecttaskpriority_v" Size="700,450" OnLoad="init" Heading="projecttaskpriority,640;presence,20;picklist_valueid,55;sortorderid,55;projecttaskpriorityid,55;" loadedclick="0">
+	<DbDetails >
+<Index>projecttaskpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority v</DbTable>
+<Data>v.projecttaskpriority,v.presence,v.picklist_valueid,v.sortorderid,v.projecttaskpriorityid</Data>
+<Order>projecttaskpriorityid</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>projecttaskpriorityid='%{vtiger_projecttaskpriority_vLst[projecttaskpriorityid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_projecttaskpriority.vtiger_projecttaskpriorityLst"/><assign name="$this.vtiger_projecttaskpriority.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Where>projecttaskpriorityid='%{vtiger_projecttaskpriority_vLst[projecttaskpriorityid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_projecttaskpriority" expr="js(%{vtiger_projecttaskpriority_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_projecttaskpriority" expr="js(%{vtiger_projecttaskpriority_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

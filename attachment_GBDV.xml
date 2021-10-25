@@ -1,11 +1,10 @@
 ﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVattachment"><Ctrls>
-<ListCtrl Heading="subject,50;invokes,50;creation_date,80;typeStr,50;description,150;" loadedclick="0" ToolTip="ttp_attachment" Name="attachmentLst" Size="700,450">
+<ListCtrl Heading="creation_date,80;typeStr,50;description,150;created_by,50;filename,50;" loadedclick="0" ToolTip="ttp_attachment" Name="attachmentLst" Size="700,450">
 	<DbDetails fcsm="1">
 <Index>attachment_id</Index>
 <DbTable>vtigercrm6.attachment a left join vtigercrm6.vtiger_users v on a.created_by=v.id left join vtigercrm6.vtiger_users v0 on a.last_update_by=v0.id</DbTable>
-<Data>a.subject,a.invokes,a.creation_date,a.typestr,a.description,v.user_name created_by,a.filename,a.location,a.path,a.attachment,a.reftbl,a.refid,a.type,v0.user_name last_update_by,a.last_update_date,a.attachment_id</Data>
-<Order>attachment_id</Order></DbDetails>
-<DbDetails><Where>reftbl='vtiger_projecttask' and refid='%{projecttaskid}'</Where><queryFormat>select %{data} from %{dbtable} where %{where} order by attachment_id desc limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><Where>reftbl='vtiger_projecttask' and refid='%{projecttaskid}'</Where><queryFormat>select %{data} from %{dbtable} where %{where} order by attachment_id desc limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<Data>a.creation_date,a.typestr,a.description,v.user_name created_by,a.filename,a.location,a.path,a.attachment,a.reftbl,a.refid,a.type,v0.user_name last_update_by,a.last_update_date,a.attachment_id</Data>
+<Order>attachment_id</Order></DbDetails>%{}
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_ops.xml"/>
 </ListCtrl>
 </Ctrls></GroupBox>

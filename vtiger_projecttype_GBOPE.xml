@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_projecttype" Size="100,100"><Ctrls>
+<Button sqlpkinsert="projecttypeid" Text="create" ToolTip="ttp_createvtiger_projecttype" Name="insertvtiger_projecttype" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttype,presence,picklist_valueid,sortorderid</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_projecttype[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttypeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttype_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_projecttype" Name="modifyvtiger_projecttype" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttype</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttype,presence,picklist_valueid,sortorderid</Data>
+<DataEx/>
+<Where>projecttypeid='%{projecttypeid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_projecttype[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttypeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttype_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttype" Name="resetvtiger_projecttype" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_projecttype" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttype" Name="gsearchvtiger_projecttype" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_projecttypeLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_projecttype" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

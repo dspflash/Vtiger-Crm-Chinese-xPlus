@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_salesorder" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_salesorderLst" ToolTip="ttp_vtiger_salesorder" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder</DbTable>
+<Data>subject,sostatus,salesorder_no,accountid,contactid,salesorderid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>salesorderid</Order></DbDetails>
+<OnClick><assign name="sostatus[sostatusid]" expr="%{vtiger_salesorderLst[sostatus]}" function="SetSel"/><assign name="accountid[accountid]" expr="%{vtiger_salesorderLst[accountid]}" function="SetSel"/><assign name="contactid[contactid]" expr="%{vtiger_salesorderLst[contactid]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_salesorderLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_salesorderLst[last_update_by]}" function="SetSel"/>
+<if cond="'%{salesorderid}'"><SetVisible name="insertvtiger_salesorder" Visible="0"/><SetVisible name="modifyvtiger_salesorder" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

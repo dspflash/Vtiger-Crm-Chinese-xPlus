@@ -1,37 +1,37 @@
 ﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEattachment" Size="100,100"><Ctrls>
 <Button sqlpkinsert="attachment_id" Text="create" ToolTip="ttp_createattachment" Name="insertattachment" Size="50,20">
-	<OnClick>
-	<DbDetails mode="insert" fcsm="1">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
 <DbTable>vtigercrm6.attachment</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>subject,invokes,typestr,description,filename,location,path,attachment,reftbl,refid,type</Data>
+<Data>typestr,description,filename,location,path,attachment,reftbl,refid,type</Data>
 <DataEx>creation_date,created_by,last_update_by,last_update_date;now(),'%{user_id}','%{user_id}',now()</DataEx>
 <queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
-	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}==1"><submit next="attachmentLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><submit next="$parent.attachment_vLst" delay="1000"/></if>
+<submit namelist="DbDetails"/><if cond="!%{insertattachment[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="attachmentLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.attachment_vLst" delay="1000"/></if></if></if></if>
 	</OnClick>
 	</Button><TAB/>
 <Button Text="modify" ToolTip="ttp_modifyattachment" Name="modifyattachment" Size="50,20">
-	<OnClick>
-	<DbDetails mode="update" fcsm="1">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
 <DbTable>vtigercrm6.attachment</DbTable>
 <Required>%{dataRequired}</Required>
 <Requireless>%{dataRequireless}</Requireless>
-<Data>subject,invokes,description</Data>
+<Data>description</Data>
 <DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
 <Where>attachment_id='%{attachment_id}'</Where>
 <queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
-	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}==1"><submit next="attachmentLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><submit next="$parent.attachment_vLst" delay="1000"/></if>
+<submit namelist="DbDetails"/><if cond="!%{modifyattachment[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="attachmentLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.attachment_vLst" delay="1000"/></if></if></if>
 	</OnClick>
-	</Button><TAB/>
+</Button><TAB/>
 <Button Text="reset" ToolTip="ttp_resetattachment" Name="resetattachment" Size="50,20">
-	<OnClick>
-	<submit next="GBDEDITattachment" function="reset"/>
+<OnClick>
+<submit next="GBDEDITattachment" function="reset"/>
 	</OnClick>
-	</Button><TAB/>
-<Button Text="gsearch" ToolTip="ttp_gsearchattachment" Name="gsearchattachment" Size="50,20" visible="false">
-	<OnClick>
-	<search next="attachmentLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITattachment" namelist="search" function="search"/>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchattachment" Name="gsearchattachment" Size="50,20" visible="false">
+<OnClick>
+<search next="attachmentLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITattachment" namelist="search" function="search"/>
 	</OnClick>
-	</Button><TAB/>
+</Button><TAB/>
 </Ctrls></GroupBox>

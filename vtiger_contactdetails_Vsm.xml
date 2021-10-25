@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITvtiger_contactdetails"><Ctrls>
+<GroupBox Name="GB_firstname" Multiline="0" cols="xs12 sm6 md4 lg3"><Ctrls>
+<Label Name="lb_firstname" Size="60,20" Text="firstname" Align="Right"/>
+<TextBox Name="firstname" Size="170,20" Text="" Weight="170" ToolTip="ttp_firstname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lastname" Multiline="0" cols="xs12 sm6 md4 lg3"><Ctrls>
+<Label Name="lb_lastname" Size="60,20" Text="lastname" Align="Right"/>
+<TextBox Name="lastname" Size="170,20" Text="" Weight="170" ToolTip="ttp_lastname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accountid" Multiline="0" cols="xs12 sm6 md4 lg3"><Ctrls>
+<Label Name="lb_accountid" Size="60,20" Text="accountid" Align="Right" onload="init"/>
+<ComboBox Name="accountid" Size="150,100" Text="" Weight="150"  ToolTip="ttp_accountid" onload="init">
+	<DbDetails>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Index>accountid</Index>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshaccountid" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="accountid"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

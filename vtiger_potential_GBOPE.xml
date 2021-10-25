@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_potential" Size="100,100"><Ctrls>
+<Button sqlpkinsert="potentialid" Text="create" ToolTip="ttp_createvtiger_potential" Name="insertvtiger_potential" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_potential</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>potentialname,potentialtype[opptypeid],probability,contact_id[contactid],related_to[accountid],campaignid[campaignid],forecast_amount,amount,nextstep,typeofrevenue,private,leadsource[leadsourceid],productid[productid],productversion,partnercontact,remarks,runtimefee,closingdate,followupdate,description,outcomeanalysis,forecastcategory,isconvertedfromlead,evaluationstatus,currency</Data>
+<DataEx>potential_no,sales_stage,created_by,creation_date,last_update_by,last_update_date;@odn,1,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(potential_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_potential WHERE DATE(creation_date)=CURDATE() ORDER BY potential_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='potential'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_potential[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_potentialLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_potential_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_potential" Name="modifyvtiger_potential" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_potential</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>potentialname,potentialtype[opptypeid],probability,contact_id[contactid],related_to[accountid],campaignid[campaignid],forecast_amount,amount,nextstep,typeofrevenue,private,leadsource[leadsourceid],productid[productid],productversion,partnercontact,remarks,runtimefee,closingdate,followupdate,description,outcomeanalysis,forecastcategory,isconvertedfromlead,evaluationstatus,currency</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>potentialid='%{potentialid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_potential[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_potentialLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_potential_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_potential" Name="resetvtiger_potential" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_potential" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_potential" Name="gsearchvtiger_potential" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_potentialLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_potential" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

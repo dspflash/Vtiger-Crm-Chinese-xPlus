@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_service"><Ctrls>
+<ListCtrl Heading="servicename,250;servicecategory,120;service_no,100;discontinued,60;service_usageunit,120;qty_per_unit,55;unit_price,125;currency_id,120;taxclass,120;commissionrate,35;sales_start_date,150;sales_end_date,90;start_date,90;expiry_date,90;website,500;serviceid,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0" ToolTip="ttp_vtiger_service" Name="vtiger_serviceLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>serviceid</Index>
+<DbTable>vtigercrm6.vtiger_service v left join vtigercrm6.vtiger_servicecategory v0 on v.servicecategory=v0.servicecategoryid left join vtigercrm6.vtiger_service_usageunit v1 on v.service_usageunit=v1.service_usageunitid left join vtigercrm6.vtiger_currencies v2 on v.currency_id=v2.currencyid left join vtigercrm6.vtiger_taxclass v3 on v.taxclass=v3.taxclassid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>v.servicename,v0.servicecategory servicecategory,v.service_no,v.discontinued,v1.service_usageunit service_usageunit,v.qty_per_unit,v.unit_price,v2.currency_code currency_id,v3.taxclass taxclass,v.commissionrate,v.sales_start_date,v.sales_end_date,v.start_date,v.expiry_date,v.website,v.serviceid,v4.user_name created_by,v.creation_date,v5.user_name last_update_by,v.last_update_date</Data>
+<Order>serviceid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>serviceid='%{vtiger_service_vLst[serviceid]}'</Where></DbDetails><submit next="$this.vtiger_service.vtiger_serviceLst" namelist="DbDetails"/><assign name="$this.vtiger_service.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_service</DbTable>
+<Where>serviceid='%{vtiger_service_vLst[serviceid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

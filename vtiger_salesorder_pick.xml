@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_salesorder_pick" Text="vtiger_salesorder_Pick">
+<var name="searchtmpl"><subject format="(v.subject like '%%{opvalue}%')"/><sostatus format="v.sostatus='%{opvalue}'"/><salesorder_no format="(v.salesorder_no like '%%{opvalue}%')"/><accountid format="v.accountid='%{opvalue}'"/><contactid format="v.contactid='%{opvalue}'"/><salesorderid format="(v.salesorderid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_salesorder" id="vtiger_salesorder" Text="vtiger_salesorder" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_salesorder" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetvtiger_salesorder" Name="resetvtiger_salesorder" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_salesorder" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_salesorder" Name="gsearchvtiger_salesorder" Size="50,20">	<OnClick>	
+<search next="vtiger_salesorder_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_salesorder" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVvtiger_salesorder" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_salesorder_vLst" ToolTip="ttp_vtiger_salesorder_v" Size="700,450" Heading="subject,250;sostatus,120;salesorder_no,100;accountid,120;contactid,120;salesorderid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder v left join vtigercrm6.vtiger_sostatus v0 on v.sostatus=v0.sostatusid left join vtigercrm6.vtiger_account v1 on v.accountid=v1.accountid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>v.subject,v0.sostatus sostatus,v.salesorder_no,v1.accountname accountid,c.fullname contactid,v.salesorderid,v2.user_name created_by,v.creation_date,v3.user_name last_update_by,v.last_update_date</Data>
+<Order>salesorderid</Order></DbDetails>
+<OnClick><if cond="%{vtiger_salesorder_vLst[salesorderid]}"><DbDetails><Where>salesorderid='%{vtiger_salesorder_vLst[salesorderid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_project" Size="100,100"><Ctrls>
+<Button sqlpkinsert="projectid" Text="create" ToolTip="ttp_createvtiger_project" Name="insertvtiger_project" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projectname,projecttype[projecttypeid],projectpriority[projectpriorityid],responsible[id],linktoaccountscontacts[accountid],referid[salesorderid],description,refertbl</Data>
+<DataEx>projectstatus,project_no,release_by,release_date,created_by,creation_date,last_update_by,last_update_date;if(%{bAutoRelease},3,2),@odn,if(%{bAutoRelease},'%{user_id}',null),if(%{bAutoRelease},now(),null),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0;SELECT SUBSTR(project_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_project WHERE DATE(creation_date)=CURDATE() ORDER BY project_no DESC LIMIT 0,1;SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='prj';insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_project[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projectLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="0"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_project_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_project" Name="modifyvtiger_project" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projectname,projecttype[projecttypeid],projectpriority[projectpriorityid],responsible[id],linktoaccountscontacts[accountid],description,refertbl</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>projectid='%{projectid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_project[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projectLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_project_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_project" Name="resetvtiger_project" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_project" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_project" Name="gsearchvtiger_project" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_projectLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_project" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

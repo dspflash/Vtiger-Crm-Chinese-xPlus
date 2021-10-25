@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_project" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_projectLst" ToolTip="ttp_vtiger_project" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>projectid</Index>
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Data>projectname,projecttype,projectstatus,startdate,actualenddate,projectpriority,project_no,responsible,linktoaccountscontacts,referid,projectid,release_by,release_date,description,created_by,creation_date,last_update_by,last_update_date,refertbl</Data>
+<Order>projectid</Order></DbDetails>
+<OnClick><assign name="projecttype[projecttypeid]" expr="%{vtiger_projectLst[projecttype]}" function="SetSel"/><assign name="projectstatus[projectstatusid]" expr="%{vtiger_projectLst[projectstatus]}" function="SetSel"/><assign name="projectpriority[projectpriorityid]" expr="%{vtiger_projectLst[projectpriority]}" function="SetSel"/><assign name="responsible[id]" expr="%{vtiger_projectLst[responsible]}" function="SetSel"/><assign name="linktoaccountscontacts[accountid]" expr="%{vtiger_projectLst[linktoaccountscontacts]}" function="SetSel"/><assign name="referid[salesorderid]" expr="%{vtiger_projectLst[referid]}" function="SetSel"/><assign name="release_by[id]" expr="%{vtiger_projectLst[release_by]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_projectLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_projectLst[last_update_by]}" function="SetSel"/>
+<if cond="'%{projectid}'"><SetVisible name="insertvtiger_project" Visible="0"/><SetVisible name="modifyvtiger_project" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

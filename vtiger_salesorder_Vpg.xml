@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_salesorder"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_salesorder" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>salesorderid</Index>
+<DbTable>vtigercrm6.vtiger_salesorder v left join vtigercrm6.vtiger_sostatus v0 on v.sostatus=v0.sostatusid left join vtigercrm6.vtiger_account v1 on v.accountid=v1.accountid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>count(*) records</Data>
+<Order>salesorderid</Order><Queryformat>select %{data} from (select v.salesorderid from %{dbtable} %{where} GROUP BY v.salesorderid  ORDER BY v.salesorderid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_salesorder" expr="js(Math.ceil(%{records_vtiger_salesorder}/%{vtiger_salesorder_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_salesorder" expr="js('1~'+Math.ceil(%{records_vtiger_salesorder}/%{vtiger_salesorder_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_salesorder" Size="60,20"><OnSelEndOK><submit next="vtiger_salesorder_vLst" function="GetPage(%{pgscb_vtiger_salesorder}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_salesorder" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_salesorder" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_salesorder_vLst" Size="50,20"><OnClick><submit next="vtiger_salesorder_vLst" function="GetPage(%{pgcur_vtiger_salesorder}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

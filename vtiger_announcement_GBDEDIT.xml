@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDEDITvtiger_announcement"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_title"><Ctrls>
+<Label Align="Right" Text="title" Name="lb_title" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_title" Name="title" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md6 lg4" Multiline="0" Name="GB_announcement"><Ctrls>
+<Label Align="Right" Text="announcement" Name="lb_announcement" Size="60,50"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_announcement" Name="announcement" Size="630,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_time" Visible="false"><Ctrls>
+<Label Align="Right" Text="time" overlap="pre" Name="lb_time" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_time" overlap="pre" Name="time" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creatorid" Visible="false"><Ctrls>
+<Label Align="Right" Text="creatorid" overlap="pre" Name="lb_creatorid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_creatorid" overlap="pre" Name="creatorid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{creatorid}'"><SetVisible name="insertvtiger_announcement" Visible="0"/><SetVisible name="modifyvtiger_announcement" Visible="1"/><else/><SetVisible name="insertvtiger_announcement" Visible="1"/><SetVisible name="modifyvtiger_announcement" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,109 @@
+﻿<WndTap Name="vtiger_project_v" Text="vtiger_project">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_Viewa.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_review_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_Va.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vm.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vem1.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_prjtask_View.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpicView.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="viewImg.xml" popup="1"/>
+<WndTap Name="popweb" Text="三优地图" popup="1"><Ctrls>
+<GroupBox  Name="gbwb" id="gbwb" Text="wb" Size="100,100"><Ctrls>	<WebBrowser Name="wb" Studio="0" Size="700,600"></WebBrowser></Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="address_pick" Text="地址选取" popup="1"><Ctrls>
+	<WebBrowser Name="map" url="http://map.3ucs.com/xmap4picker" Studio="0" Size="700,600"><OnBiz><if cond="!'%{map[biz_error]}'"><assign name="$parent.%{frmwndctrl}.address" expr="%{map[addr]}"/><assign name="$parent.%{frmwndctrl}.addrlng" expr="%{map[lng]}"/><assign name="$parent.%{frmwndctrl}.addrlat" expr="%{map[lat]}"/><submit function="onok"/><else/><info expr="%{map[biz_error]}"/></if></OnBiz></WebBrowser>
+</Ctrls></WndTap>
+<WndTap Name="SetResponsible" Text="SetResponsible" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+	<Ctrls><GroupBox Name="GBDEDITvtiger_project_"><Ctrls>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_responsible"><Ctrls>
+		<Label Align="Right" Text="responsible" onload="init" Name="lb_responsible" Size="60,20"/>
+		<ComboBox Weight="170" Text="" ToolTip="ttp_responsible" onload="init" selectedIndex="0" Name="responsible" Size="170,100">
+			<DbDetails>
+		<Index>id</Index>
+		<DbTable>vtigercrm6.users_v</DbTable>
+		<Data>fullname,id</Data>
+		<Where/>
+		<queryFormat/></DbDetails></ComboBox>
+		</Ctrls></GroupBox>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projectid" Visible="false"><Ctrls>
+		<Label Align="Right" Text="projectid" overlap="pre" Name="lb_projectid" readonly="true" Size="60,20" Visible="false"/>
+		<TextBox Weight="170" Text="" ToolTip="ttp_projectid" overlap="pre" Name="projectid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{projecttaskid}'"><SetVisible name="SetResponsible" Visible="1"/><else/><SetVisible name="SetResponsible" Visible="0"/><SetVisible name="SetResponsibleMT" Visible="0"/></if></OnEnChange></TextBox>
+		</Ctrls></GroupBox>
+		<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_project_tpl_task" Size="100,100"><Ctrls>
+		<Button Text="SetResponsible" ToolTip="ttp_SetResponsible" Name="SetResponsibleBtn" Size="100,20">
+		<OnClick>
+		<DbDetails><queryFormat>update vtiger_projecttask t join vtiger_project p on t.projectid=p.projectid set p.responsible='%{responsible[id]}',t.responsible='%{responsible[id]}' where p.projectid='%{projectid}' and p.projectstatus=2;</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></OnClick>
+			</Button><TAB/>
+		</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="SetResponsibleMT" Text="SetResponsible" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+	<Ctrls><GroupBox Name="GBDEDITvtiger_project_"><Ctrls>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_responsible"><Ctrls>
+		<Label Align="Right" Text="responsible" onload="init" Name="lb_responsible" Size="60,20"/>
+		<ComboBox Weight="170" Text="" ToolTip="ttp_responsible" onload="init" selectedIndex="0" Name="responsible" Size="170,100">
+			<DbDetails>
+		<Index>id</Index>
+		<DbTable>vtigercrm6.users_v</DbTable>
+		<Data>fullname,id</Data>
+		<Where/>
+		<queryFormat/></DbDetails></ComboBox>
+		</Ctrls></GroupBox>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_projectid" Visible="false"><Ctrls>
+		<Label Align="Right" Text="projectid" overlap="pre" Name="lb_projectid" readonly="true" Size="60,20" Visible="false"/>
+		<TextBox Weight="170" Text="" ToolTip="ttp_projectid" overlap="pre" Name="projectid" readonly="true" Size="170,20" Visible="false"></TextBox>
+		</Ctrls></GroupBox>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_project_ms_idx" Visible="false"><Ctrls>
+		<Label Align="Right" Text="project_ms_idx" Name="lb_project_ms_idx" Size="60,20"/>
+		<TextBox Weight="170" Text="" ToolTip="ttp_project_ms_idx" Name="project_ms_idx" Size="170,20"><OnEnChange><if cond="'%{project_ms_idx}'"><SetVisible name="SetResponsibleMT" Visible="1"/><else/><SetVisible name="SetResponsibleMT" Visible="0"/></if></OnEnChange></TextBox>
+		</Ctrls></GroupBox>
+		<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_project_tpl_task" Size="100,100"><Ctrls>
+		<Button Text="SetResponsible" ToolTip="ttp_SetResponsibleMT" Name="SetResponsibleBtnMT" Size="100,20">
+		<OnClick>
+		<DbDetails><queryFormat>update vtiger_projecttask t join vtiger_project p on t.projectid=p.projectid join vtiger_projectmilestone m on t.projectid=m.projectid and t.project_ms_idx=m.project_ms_idx set m.responsible='%{responsible[id]}',t.responsible='%{responsible[id]}' where p.projectid='%{projectid}' and m.project_ms_idx='%{project_ms_idx}' and p.projectstatus=2;</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></OnClick>
+			</Button><TAB/>
+		</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+</Ctrls></WndTap></WndTaps>
+<var name="searchtmpl"><projectname format="(projectname like '%%{opvalue}%')"/><project_no format="(project_no like '%%{opvalue}%')"/><projecttype format="v.projecttype='%{opvalue}'"/><projectstatus format="v.projectstatus='%{opvalue}'"/><release_date format="(release_date is null or release_date between '%{release_date[datetime]}' and '%{release_date[datetime2]}')"/><salesorderid format="so.salesorderid='%{opvalue}'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_salesorder_item.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_project" id="vtiger_project" Text="vtiger_project" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_project" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<!--Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_project.GBDEDITvtiger_project" function="reset"/></OnClick>	</Button><TAB/-->	
+<Button Text="reset" ToolTip="ttp_resetvtiger_project" Name="resetvtiger_project" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_project" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="search" ToolTip="ttp_gsearchvtiger_project" Name="gsearchvtiger_project" Size="50,20" visible="true">	<OnClick>	<search next="vtiger_project_vLst" listed="0" prefixwhere="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_project" namelist="search" function="search"/><search next="pages" listed="0" prefixwhere="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_project" namelist="search" function="search"/>	</OnClick>	</Button><TAB/><Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected_="1" columns="1,2,3,4,5,6,7,8,9"></Save><submit next="vtiger_project_vLst" namelist="Save" function="savetofile"/></OnClick></Button><TAB/>
+<!--TextBox Name="excelfn" Size="30,20" Weight="30" Text="C:\Users\sardine\Desktop\test.xlsx"/>
+<Button Name="xexcelbtn" Text="输出Excel" Size="100,20" tooltip="write List to xexcel"><OnClick>
+<if cond="!'%{excelfn}'"><assign name="excelfn" expr="browsefile" function=""/></if>
+<if cond="'%{excelfn}'"><ExchangeData name="xExcel" visible="true" DataSect="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" function="write" OptionMode="0" remark="read default0,write default2;0,mustexist;1,createifnotexist;2truncate if exist" explicit="0" 
+filename="%{excelfn}"/><submit next="vtiger_project_vLst" namelist="ExchangeData" function="ExchangeData"/></if></OnClick></Button>
+<MagicCtrl Name="xExcel" link="tip:read excel to list" text="xExcel" Size="60,20" OnLoad="init"><interface id="xExcelA" type="IBizInterface" codebase="xexcel.dll" dir="layout/ucin/iotpower/" classid="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" version="1.1"/><OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1><info next="tst" expr="%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.statmsg]}"/></OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1></MagicCtrl-->
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pages"><Ctrls>
+<Label Align="Right" Text="页数" Name="lb_pages" Size="60,20"/>
+<TextBox Weight="30" Text="" ToolTip="ttp_pages" Name="pages" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails >
+<Index>projectid</Index>
+<DbTable>vtigercrm6.vtiger_project v LEFT JOIN vtigercrm6.vtiger_projecttype v0 ON v.projecttype=v0.projecttypeid LEFT JOIN vtigercrm6.vtiger_projectstatus v1 ON v.projectstatus=v1.projectstatusid LEFT JOIN vtigercrm6.vtiger_projectpriority v2 ON v.projectpriority=v2.projectpriorityid LEFT JOIN vtigercrm6.vtiger_users v3 ON v.release_by=v3.id LEFT JOIN vtigercrm6.vtiger_users v4 ON v.created_by=v4.id LEFT JOIN vtigercrm6.vtiger_users v5 ON v.last_update_by=v5.id left join vtigercrm6.vtiger_account ac on v.linktoaccountscontacts=ac.accountid  left join vtigercrm6.users_v u on v.responsible=u.id LEFT JOIN vtigercrm6.vtiger_salesorder_item soi ON v.refertbl='salesorder_item' AND v.referid=soi.salesorder_itemid LEFT JOIN vtigercrm6.vtiger_products p ON p.productid=soi.productid LEFT JOIN vtigercrm6.vtiger_salesorder so ON soi.salesorderid=so.salesorderid LEFT JOIN vtigercrm6.vtiger_projectmilestone pm ON v.projectid=pm.projectid AND !pm.reviewed LEFT JOIN (vtigercrm6.attachment a JOIN vtigercrm6.vtiger_projecttask pt ON a.reftbl='vtiger_projecttask' AND a.refid=pt.projecttaskid) ON pt.projectid=v.projectid AND pt.project_ms_idx=pm.project_ms_idx</DbTable>
+<Data>ceil(count(*)/%{vtiger_project_vLst[countsperpage]}) pages</Data><Where>v.projectstatus&lt;6</Where>
+<Queryformat>select %{data} from (select v.projectid from %{dbtable} where if(%{role_id}&gt;3,v.created_by='%{user_id}' or v.responsible='%{user_id}',1) and %{where} GROUP BY projectid  ORDER BY projectid) t</Queryformat></DbDetails>
+</TextBox>
+<TextBox Weight="30" Text="" ToolTip="ttp_pagecur" Name="pagecur" Size="30,20"/><Button Text="go2Page" Name="go2pagevtiger_projectLst" Size="50,20"><OnClick><submit next="vtiger_project_vLst" function="GetPage(%{pagecur}-1)"/></OnClick></Button>
+</Ctrls></GroupBox><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_GBOPVm.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+</WndTap>

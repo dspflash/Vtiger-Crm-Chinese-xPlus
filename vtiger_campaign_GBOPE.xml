@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_campaign" Size="100,100"><Ctrls>
+<Button sqlpkinsert="campaignid" Text="create" ToolTip="ttp_createvtiger_campaign" Name="insertvtiger_campaign" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>campaignname,campaigntype[campaigntypeid],product_id[productid],closingdate,expectedrevenue,expectedresponse[expectedresponseid],budgetcost,actualcost,sponsor,numsent,targetaudience,targetsize,expectedresponsecount,expectedsalescount,expectedroi,actualresponsecount,actualsalescount,actualroi</Data>
+<DataEx>campaign_no,campaignstatus,created_by,creation_date,last_update_by,last_update_date;@odn,2,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(campaign_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_campaign WHERE DATE(creation_date)=CURDATE() ORDER BY campaign_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='campaign'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_campaign[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_campaignLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_campaign_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_campaign" Name="modifyvtiger_campaign" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_campaign</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>campaignname,campaigntype[campaigntypeid],product_id[productid],closingdate,expectedrevenue,expectedresponse[expectedresponseid],budgetcost,actualcost,sponsor,numsent,targetaudience,targetsize,expectedresponsecount,expectedsalescount,expectedroi,actualresponsecount,actualsalescount,actualroi</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>campaignid='%{campaignid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_campaign[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_campaignLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_campaign_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_campaign" Name="resetvtiger_campaign" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_campaign" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_campaign" Name="gsearchvtiger_campaign" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_campaignLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_campaign" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" title="武铁站段管理系统" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302">
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" title="三优项目管理系统" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
 	<EventHandlers>
 		<EventHandler Event="ReceivedCall('%{callerid}')">
 		<assign name="contact.base_mobile" expr="%{callerid}"/>
@@ -12,21 +12,7 @@
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
 	<WndTaps>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_vm.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_account_vm.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_vm.xml"/>
-	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_vm.xml"/>
-	<WndTap Text="系统设置" Name="vSystem" id="vSystem">
-	<WndTaps>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestonetype_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttype_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectpriority_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectstatus_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttasktype_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskstatus_v.xml"/>
-		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_subject_v.xml"/>
-	</WndTaps>
-	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_View.xml"/>
 	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
 	</WndTaps>
 </XI3uWnd>

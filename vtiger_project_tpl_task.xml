@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="vtiger_project_tpl_task" Name="vtiger_project_tpl_task" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="projecttpltaskname,project_ms_idx[project_ms_idx],projecttasktype[projecttasktypeid],description,projecttplid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_project_tpl_task.xml"/>
+<Ctrls>
+<GroupBox Text="vtiger_project_tpl_task" Name="GBvtiger_project_tpl_task" id="vtiger_project_tpl_task" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_task_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

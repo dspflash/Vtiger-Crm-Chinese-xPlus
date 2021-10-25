@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_leaddetails" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_leaddetails_vLst" ToolTip="ttp_vtiger_leaddetails_v" Size="700,450" OnLoad="init" Heading="firstname,100;lastname,100;salutation,76;designation,100;lead_no,100;leadstatus,120;leadsource,120;campaign,120;interest,250;priority,120;rating,120;company,250;industry,120;noofemployees,55;annualrevenue,125;revenuetype,250;email,250;secondaryemail,250;space,100;demorequest,250;partnercontact,250;product,250;productversion,100;maildate,90;nextstepdate,90;transferdate,90;fundingsituation,250;purpose,250;evaluationstatus,250;assignleadchk,60;emailoptout,60;converted,60;comments,20;licencekeystatus,20;leadid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>leadid</Index>
+<DbTable>vtigercrm6.vtiger_leaddetails v left join vtigercrm6.vtiger_salutationtype v0 on v.salutation=v0.salutationid left join vtigercrm6.vtiger_leadstatus v1 on v.leadstatus=v1.leadstatusid left join vtigercrm6.vtiger_leadsource v2 on v.leadsource=v2.leadsourceid left join vtigercrm6.vtiger_campaign v3 on v.campaign=v3.campaignid left join vtigercrm6.vtiger_priority v4 on v.priority=v4.priorityid left join vtigercrm6.vtiger_rating v5 on v.rating=v5.rating_id left join vtigercrm6.vtiger_industry v6 on v.industry=v6.industryid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>v.firstname,v.lastname,v0.salutationtype salutation,v.designation,v.lead_no,v1.leadstatus leadstatus,v2.leadsource leadsource,v3.campaignname campaign,v.interest,v4.priority priority,v5.rating rating,v.company,v6.industry industry,v.noofemployees,v.annualrevenue,v.revenuetype,v.email,v.secondaryemail,v.space,v.demorequest,v.partnercontact,v.product,v.productversion,v.maildate,v.nextstepdate,v.transferdate,v.fundingsituation,v.purpose,v.evaluationstatus,v.assignleadchk,v.emailoptout,v.converted,v.comments,v.licencekeystatus,v.leadid,v7.user_name created_by,v.creation_date,v8.user_name last_update_by,v.last_update_date</Data>
+<Order>leadid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>leadid='%{vtiger_leaddetails_vLst[leadid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_leaddetails.vtiger_leaddetailsLst"/><assign name="$this.vtiger_leaddetails.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_leaddetails</DbTable>
+<Where>leadid='%{vtiger_leaddetails_vLst[leadid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_leaddetails" expr="js(%{vtiger_leaddetails_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_leaddetails" expr="js(%{vtiger_leaddetails_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,42 @@
+﻿<Language name="vtiger_projecttask_detail">
+<Lang name="vtiger_projecttask_detail" value="项目详情"/>
+<Lang name="TabEditvtiger_projecttask_detail" value="vtiger_projecttask_detail Edit"/>
+<Lang name="TabViewvtiger_projecttask_detail" value="vtiger_projecttask_detail View"/>
+<Lang name="address" value="地址"/>
+<Lang name="ttp_address" value=""/>
+<Lang name="remark" value="说明"/>
+<Lang name="ttp_remark" value=""/>
+<Lang name="startdate" value=""/>
+<Lang name="ttp_startdate" value=""/>
+<Lang name="enddate" value=""/>
+<Lang name="ttp_enddate" value=""/>
+<Lang name="projectid" value=""/>
+<Lang name="ttp_projectid" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="projecttaskid" value=""/>
+<Lang name="ttp_projecttaskid" value=""/>
+<Lang name="projecttask_detailid" value=""/>
+<Lang name="ttp_projecttask_detailid" value=""/>
+<Lang name="ttp_operationvtiger_projecttask_detail" value=""/>
+<Lang name="ttp_createvtiger_projecttask_detail" value=""/>
+<Lang name="ttp_modifyvtiger_projecttask_detail" value=""/>
+<Lang name="ttp_resetvtiger_projecttask_detail" value=""/>
+<Lang name="ttp_deletevtiger_projecttask_detail" value=""/>
+<Lang name="ttp_refreshvtiger_projecttask_detail" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

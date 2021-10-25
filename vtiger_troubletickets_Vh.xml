@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_troubletickets" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_troubleticketsLst" ToolTip="ttp_vtiger_troubletickets" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>ticketid</Index>
+<DbTable>vtigercrm6.vtiger_troubletickets</DbTable>
+<Data>title,category,days,ticket_no,hours,contact_id,parent_id,priority,severity,status,groupname,product_id,version_id,update_log,solution,ticketid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>ticketid</Order></DbDetails>
+<OnClick><assign name="category[ticketcategories_id]" expr="%{vtiger_troubleticketsLst[category]}" function="SetSel"/><assign name="contact_id[contactid]" expr="%{vtiger_troubleticketsLst[contact_id]}" function="SetSel"/><assign name="parent_id[ticketid]" expr="%{vtiger_troubleticketsLst[parent_id]}" function="SetSel"/><assign name="priority[ticketpriorities_id]" expr="%{vtiger_troubleticketsLst[priority]}" function="SetSel"/><assign name="severity[ticketseverities_id]" expr="%{vtiger_troubleticketsLst[severity]}" function="SetSel"/><assign name="status[ticketstatus_id]" expr="%{vtiger_troubleticketsLst[status]}" function="SetSel"/><assign name="groupname[groupid]" expr="%{vtiger_troubleticketsLst[groupname]}" function="SetSel"/><assign name="product_id[productid]" expr="%{vtiger_troubleticketsLst[product_id]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_troubleticketsLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_troubleticketsLst[last_update_by]}" function="SetSel"/>
+<if cond="%{ticketid}"><SetVisible name="insertvtiger_troubletickets" Visible="0"/><SetVisible name="modifyvtiger_troubletickets" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

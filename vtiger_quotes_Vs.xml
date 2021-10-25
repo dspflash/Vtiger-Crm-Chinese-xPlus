@@ -1,0 +1,50 @@
+﻿<GroupBox Name="GBDEDITvtiger_quotes" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_potentialid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_potentialid" Size="60,20" Text="potentialid" Align="Right" onload="init"/>
+<ComboBox Name="potentialid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_potentialid" onload="init">
+	<DbDetails>
+<Index>potentialid</Index>
+<DbTable>vtigercrm6.vtiger_potential</DbTable>
+<Data>potentialname,potentialid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inventorymanager" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inventorymanager" Size="60,20" Text="inventorymanager" Align="Right" onload="init"/>
+<ComboBox Name="inventorymanager" Size="170,100" Text="" Weight="170"  ToolTip="ttp_inventorymanager" onload="init">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Data>user_name,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_validtill" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_validtill" Size="60,20" Text="validtill" Align="Right"/>
+<DateTime Name="validtill" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_validtill"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contactid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contactid" Size="60,20" Text="contactid" Align="Right" onload="init"/>
+<ComboBox Name="contactid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_contactid" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accountid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_accountid" Size="60,20" Text="accountid" Align="Right" onload="init"/>
+<ComboBox Name="accountid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_accountid" onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

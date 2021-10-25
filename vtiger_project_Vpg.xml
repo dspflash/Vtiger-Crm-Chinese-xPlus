@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_project"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_project" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>projectid</Index>
+<DbTable>vtigercrm6.vtiger_project v LEFT JOIN vtigercrm6.vtiger_projecttype v0 ON v.projecttype=v0.projecttypeid LEFT JOIN vtigercrm6.vtiger_projectstatus v1 ON v.projectstatus=v1.projectstatusid LEFT JOIN vtigercrm6.vtiger_projectpriority v2 ON v.projectpriority=v2.projectpriorityid LEFT JOIN vtigercrm6.vtiger_users v3 ON v.release_by=v3.id LEFT JOIN vtigercrm6.vtiger_users v4 ON v.created_by=v4.id LEFT JOIN vtigercrm6.vtiger_users v5 ON v.last_update_by=v5.id left join vtigercrm6.vtiger_account ac on v.linktoaccountscontacts=ac.accountid  left join vtigercrm6.users_v u on v.responsible=u.id LEFT JOIN vtigercrm6.vtiger_salesorder_item soi ON v.refertbl='salesorder_item' AND v.referid=soi.salesorder_itemid LEFT JOIN vtigercrm6.vtiger_salesorder so ON soi.salesorderid=so.salesorderid LEFT JOIN vtigercrm6.vtiger_projectmilestone pm ON v.projectid=pm.projectid AND !pm.reviewed LEFT JOIN (vtigercrm6.attachment a JOIN vtigercrm6.vtiger_projecttask pt ON a.reftbl='vtiger_projecttask' AND a.refid=pt.projecttaskid) ON pt.projectid=v.projectid AND pt.project_ms_idx=pm.project_ms_idx </DbTable><Where>v.projectstatus&lt;6</Where>
+<Data>count(*) records</Data>
+<Order>projectid</Order><Queryformat>select %{data} from (select v.projectid from %{dbtable} where if(%{role_id}&gt;3,v.created_by='%{user_id}' or v.responsible='%{user_id}',1) and  %{where} GROUP BY v.projectid  ORDER BY v.projectid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_project" expr="js(Math.ceil(%{records_vtiger_project}/%{vtiger_project_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_project" expr="js('1~'+Math.ceil(%{records_vtiger_project}/%{vtiger_project_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_project" Size="60,20"><OnSelEndOK><submit next="vtiger_project_vLst" function="GetPage(%{pgscb_vtiger_project}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_project" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_project" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_project_vLst" Size="50,20"><OnClick><submit next="vtiger_project_vLst" function="GetPage(%{pgcur_vtiger_project}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

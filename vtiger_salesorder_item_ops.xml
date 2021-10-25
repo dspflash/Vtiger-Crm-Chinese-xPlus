@@ -1,0 +1,11 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{salesorderid}"><alert expr="salesorderid is Empty!"/><else/><submit next="$parent.vtiger_salesorder_item.GBDEDITvtiger_salesorder_item" function="reset"/><assign name="$parent.vtiger_salesorder_item.salesorderid" expr="%{salesorderid}"/><assign name="$parent.vtiger_salesorder_item.frmwndctrl" expr="%{this}"/></if></op>
+<op text="uploadimg"><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/vtiger/soitemimg,localdir=,query=update vtigercrm6.vtiger_salesorder_item set itemimg='%{_upload_file_name}' where salesorder_itemid='%{vtiger_salesorder_item_vLst[salesorder_itemid]}'"/></op>
+<op text="viewimg"><DbDetails><queryFormat>select concat('file/vtiger/soitemimg,','%{vtiger_salesorder_item_vLst[itemimg]}')as images</queryFormat></DbDetails><submit namelist="DbDetails" next="vtiger_project_v.viewImg.picture"/></op>
+<op text="modify"><DbDetails><Where>salesorder_itemid='%{vtiger_salesorder_item_vLst[salesorder_itemid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_salesorder_item.vtiger_salesorder_itemLst"/><assign name="$parent.vtiger_salesorder_item.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_salesorder_item</DbTable>
+<Where>salesorder_itemid='%{vtiger_salesorder_item_vLst[salesorder_itemid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

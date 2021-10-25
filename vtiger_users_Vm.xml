@@ -1,0 +1,22 @@
+﻿<WndTap Name="vtiger_users_v" Text="vtiger_users">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modify_pass_4admin.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><user_name format="(v.user_name like '%%{opvalue}%')"/><first_name format="(v.first_name like '%%{opvalue}%')"/><last_name format="(v.last_name like '%%{opvalue}%')"/><title format="(v.title like '%%{opvalue}%')"/><phone_home format="(v.phone_home like '%%{opvalue}%')"/><phone_mobile format="(v.phone_mobile like '%%{opvalue}%')"/><phone_work format="(v.phone_work like '%%{opvalue}%')"/><phone_other format="(v.phone_other like '%%{opvalue}%')"/><phone_fax format="(v.phone_fax like '%%{opvalue}%')"/><email1 format="(v.email1 like '%%{opvalue}%')"/><email2 format="(v.email2 like '%%{opvalue}%')"/><secondaryemail format="(v.secondaryemail like '%%{opvalue}%')"/><description format="(v.description like '%%{opvalue}%')"/><status format="v.status is %{opvalue}"/><id format="(v.id like '%%{opvalue}%')"/><is_admin format="(v.is_admin like '%%{opvalue}%')"/><is_owner format="(v.is_owner like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_users.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_users" id="vtiger_users" Text="vtiger_users" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_users" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_users.GBDEDITvtiger_users" function="reset"/><assign name="$this.vtiger_users.frmwndctrl" expr="%{$this.vtiger_users_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_users" Name="resetvtiger_users" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_users" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_users" Name="gsearchvtiger_users" Size="50,20">	<OnClick>	
+<search next="vtiger_users_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_users" namelist="search" function="search"/>	
+<search next="records_vtiger_users" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_users" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_users_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

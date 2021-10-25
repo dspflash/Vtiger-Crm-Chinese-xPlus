@@ -1,4 +1,4 @@
-<WndTap Name="attachment_v" Text="attachment">
+<WndTap Name="attachment_v" Text="attachment_v">
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
 <Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
 <GroupBox Name="GB_description" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>

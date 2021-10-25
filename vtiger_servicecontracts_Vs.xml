@@ -1,0 +1,48 @@
+﻿<GroupBox Name="GBDEDITvtiger_servicecontracts" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contract_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contract_type" Size="60,20" Text="contract_type" Align="Right" onload="init"/>
+<ComboBox Name="contract_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_contract_type" onload="init">
+	<DbDetails>
+<Index>contract_typeid</Index>
+<DbTable>vtigercrm6.vtiger_contract_type</DbTable>
+<Data>contract_type,contract_typeid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_priority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_priority" Size="60,20" Text="priority" Align="Right" onload="init"/>
+<ComboBox Name="priority" Size="170,100" Text="" Weight="170"  ToolTip="ttp_priority" onload="init">
+	<DbDetails>
+<Index>contract_priorityid</Index>
+<DbTable>vtigercrm6.vtiger_contract_priority</DbTable>
+<Data>contract_priority,contract_priorityid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_end_date" Size="60,20" Text="end_date" Align="Right"/>
+<DateTime Name="end_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_due_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_due_date" Size="60,20" Text="due_date" Align="Right"/>
+<DateTime Name="due_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_due_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_sc_related_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_sc_related_to" Size="60,20" Text="sc_related_to" Align="Right" onload="init"/>
+<ComboBox Name="sc_related_to" Size="170,100" Text="" Weight="170"  ToolTip="ttp_sc_related_to" onload="init">
+	<DbDetails>
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>accountname,accountid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_quotes"><Ctrls>
+<ListCtrl Heading="subject,250;potentialid,120;quotestage,120;inventorymanager,120;validtill,90;quote_no,100;contactid,120;accountid,120;carrier,120;shipping,250;pre_tax_total,125;total,125;subtotal,125;taxtype,120;discount_percent,125;discount_amount,125;adjustment,125;s_h_amount,125;s_h_percent,55;terms_conditions,20;currency_id,120;conversion_rate,50;type,100;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;quoteid,95;" loadedclick="0" ToolTip="ttp_vtiger_quotes" Name="vtiger_quotesLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>quoteid</Index>
+<DbTable>vtigercrm6.vtiger_quotes v left join vtigercrm6.vtiger_potential v0 on v.potentialid=v0.potentialid left join vtigercrm6.vtiger_quotestage v1 on v.quotestage=v1.quotestageid left join vtigercrm6.vtiger_users v2 on v.inventorymanager=v2.id left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_account v3 on v.accountid=v3.accountid left join vtigercrm6.vtiger_taxclass v4 on v.taxtype=v4.taxclassid left join vtigercrm6.vtiger_currencies v5 on v.currency_id=v5.currencyid left join vtigercrm6.vtiger_users v6 on v.created_by=v6.id left join vtigercrm6.vtiger_users v7 on v.last_update_by=v7.id</DbTable>
+<Data>v.subject,v0.potentialname potentialid,v1.quotestage quotestage,v2.user_name inventorymanager,v.validtill,v.quote_no,c.fullname contactid,v3.accountname accountid,v.carrier,v.shipping,v.pre_tax_total,v.total,v.subtotal,v4.taxclass taxtype,v.discount_percent,v.discount_amount,v.adjustment,v.s_h_amount,v.s_h_percent,v.terms_conditions,v5.currency_code currency_id,v.conversion_rate,v.type,v6.user_name created_by,v.creation_date,v7.user_name last_update_by,v.last_update_date,v.quoteid</Data>
+<Order>quoteid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>quoteid='%{vtiger_quotes_vLst[quoteid]}'</Where></DbDetails><submit next="$this.vtiger_quotes.vtiger_quotesLst" namelist="DbDetails"/><assign name="$this.vtiger_quotes.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Where>quoteid='%{vtiger_quotes_vLst[quoteid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

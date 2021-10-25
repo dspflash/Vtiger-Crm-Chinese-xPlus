@@ -1,0 +1,14 @@
+﻿<WndTap Name="vtiger_contactdetails_v" Text="vtiger_contactdetails">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_contactdetails.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_contactdetails" id="vtiger_contactdetails" Text="vtiger_contactdetails" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_contactdetails" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_contactdetails.GBDEDITvtiger_contactdetails" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_contactdetails" Name="resetvtiger_contactdetails" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_contactdetails" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchvtiger_contactdetails" Name="gsearchvtiger_contactdetails" Size="50,20" visible="true">	<OnClick>	<search next="vtiger_contactdetails_vLst" listed="0" prefixwhere="0" inputed="1"><firstname format="(v.firstname like '%%{opvalue}%')"/><lastname format="(v.lastname like '%%{opvalue}%')"/><accountid format="v.accountid='%{opvalue}'"/></search><submit next="GBDEDITvtiger_contactdetails" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_contactdetails_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

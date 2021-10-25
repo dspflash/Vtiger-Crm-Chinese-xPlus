@@ -1,0 +1,44 @@
+﻿<Language name="xdoc_code">
+<Lang name="xdoc_code" value="单号编码"/>
+<Lang name="TabEditxdoc_code" value="xdoc_code Edit"/>
+<Lang name="TabViewxdoc_code" value="xdoc_code View"/>
+<Lang name="doctype" value="文档类型"/>
+<Lang name="ttp_doctype" value=""/>
+<Lang name="docname" value="文档名"/>
+<Lang name="ttp_docname" value=""/>
+<Lang name="code_prefix" value="编码前缀"/>
+<Lang name="ttp_code_prefix" value=""/>
+<Lang name="dt_mode" value="日期长度"/>
+<Lang name="ttp_dt_mode" value=""/>
+<Lang name="seq_len" value="流水号长度"/>
+<Lang name="ttp_seq_len" value=""/>
+<Lang name="code_sample" value="单号示例"/>
+<Lang name="ttp_code_sample" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="idx" value=""/>
+<Lang name="ttp_idx" value=""/>
+<Lang name="code_sequence" value=""/>
+<Lang name="ttp_code_sequence" value=""/>
+<Lang name="ttp_operationxdoc_code" value=""/>
+<Lang name="ttp_createxdoc_code" value=""/>
+<Lang name="ttp_modifyxdoc_code" value=""/>
+<Lang name="ttp_resetxdoc_code" value=""/>
+<Lang name="ttp_deletexdoc_code" value=""/>
+<Lang name="ttp_refreshxdoc_code" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

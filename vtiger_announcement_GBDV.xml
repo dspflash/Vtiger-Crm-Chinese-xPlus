@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_announcement"><Ctrls>
+<ListCtrl Heading="title,640;announcement,630;time,150;creatorid,95;" loadedclick="0" ToolTip="ttp_vtiger_announcement" Name="vtiger_announcementLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>creatorid</Index>
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Data>title,announcement,time,creatorid</Data>
+<Order>creatorid</Order></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>creatorid='%{vtiger_announcement_vLst[creatorid]}'</Where></DbDetails><submit next="$this.vtiger_announcement.vtiger_announcementLst" namelist="DbDetails"/><assign name="$this.vtiger_announcement.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_announcement</DbTable>
+<Where>creatorid='%{vtiger_announcement_vLst[creatorid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

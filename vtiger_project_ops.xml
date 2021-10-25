@@ -1,0 +1,39 @@
+﻿<operator>
+<EvalTbl rules="" table="project_ops">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/project_ops.xml"/></rules>
+<inputs prjstatus="%{vtiger_project_vLst[projectstatusid]}" location="%{vtiger_project_vLst[location]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="prj_admin"><DbDetails><Where>projectid='%{vtiger_project_vLst[projectid]}' and projectstatus!=9</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_project.vtiger_projectLst"/></op>
+<op text="SetResponsible"><assign name="$this.SetResponsible.projectid" expr="%{vtiger_project_vLst[projectid]}"/><assign name="$parent.SetResponsible.project_ms_idx" expr=""/></op>
+<op text="projecttask"><DbDetails><Where>v.projectid='%{vtiger_project_vLst[projectid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_projecttask_v.vtiger_projecttask_vLst"/></op>
+<op text="projectmilestone"><DbDetails><Where>where v.projectid='%{vtiger_project_vLst[projectid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_projectmilestone_v.vtiger_projectmilestone_vLst"/></op>
+<op text="prj_attachments"><DbDetails><Where>projectid='%{vtiger_project_vLst[projectid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.attachment_prjtask_v.attachment_vLst"/></op>
+<op text="locationMap"><if cond="'%{vtiger_project_vLst[location]}'"><assign name="$this.popweb.wb" expr="http://map.3ucs.com/xmap.php?mark=%{vtiger_project_vLst[location]}" function="Navigate"/><else/><info expr="无数据"/></if></op>
+<op text="viewimg"><DbDetails><queryFormat>select concat('file/vtiger/soitemimg,','%{vtiger_project_vLst[itemimg]}') as images</queryFormat></DbDetails><submit namelist="DbDetails" next="$this.viewImg.picture"/></op>
+<op text="initiate" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project p join vtigercrm6.vtiger_projecttask pt on p.projectid=pt.projectid</DbTable>
+<Where>p.projectid='%{vtiger_project_vLst[projectid]}' and projectstatus=2</Where>
+<queryFormat>update %{table} set projectstatus=3,release_by='%{user_id}',release_date=now() where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<!--op text="progress_memo"><if cond="!%{vtiger_project_vLst[projectid]}"><alert expr="projectid is Empty!"/><else/><assign name="$this.attachment.reftbl" expr="vtiger_project"/><assign name="$this.attachment.refid" expr="%{vtiger_project_vLst[projectid]}"/></if></op-->
+<op text="cancel" needconfirm="1" confirmMsg="是否删除该项目"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Where>projectid='%{vtiger_project_vLst[projectid]}' and (projectstatus&lt;7)</Where>
+<queryFormat>update %{table} set projectstatus=10,last_update_by='%{user_id}',last_update_date=now() where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="complete" needconfirm="1" confirmMsg="确定该项目完成"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project p JOIN vtigercrm6.vtiger_projecttask pt ON p.projectid=pt.projectid LEFT JOIN vtigercrm6.vtiger_projecttask pts ON (p.projectid=pts.projectid AND pts.projecttaskstatus NOT IN(4,6))</DbTable>
+<Where>p.projectid='%{vtiger_project_vLst[projectid]}' and projectstatus not in (2,9) and pts.projecttaskid is null</Where>
+<queryFormat>update %{table} set projectstatus=7,actualenddate=now() where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="archive" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Where>projectid='%{vtiger_project_vLst[projectid]}' and projectstatus=7</Where>
+<queryFormat>update %{table} set projectstatus=9 where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project</DbTable>
+<Where>projectid='%{vtiger_project_vLst[projectid]}' and projectstatus=2</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

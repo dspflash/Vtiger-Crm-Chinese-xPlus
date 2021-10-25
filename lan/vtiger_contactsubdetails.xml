@@ -1,0 +1,34 @@
+<Language name="vtiger_contactsubdetails">
+<Lang name="vtiger_contactsubdetails" value="vtiger_contactsubdetails"/>
+<Lang name="homephone" value="homephone"/>
+<Lang name="ttp_homephone" value=""/>
+<Lang name="otherphone" value="otherphone"/>
+<Lang name="ttp_otherphone" value=""/>
+<Lang name="assistant" value="assistant"/>
+<Lang name="ttp_assistant" value=""/>
+<Lang name="assistantphone" value="assistantphone"/>
+<Lang name="ttp_assistantphone" value=""/>
+<Lang name="birthday" value="birthday"/>
+<Lang name="ttp_birthday" value=""/>
+<Lang name="laststayintouchrequest" value="laststayintouchrequest"/>
+<Lang name="ttp_laststayintouchrequest" value=""/>
+<Lang name="laststayintouchsavedate" value="laststayintouchsavedate"/>
+<Lang name="ttp_laststayintouchsavedate" value=""/>
+<Lang name="leadsource" value="leadsource"/>
+<Lang name="ttp_leadsource" value=""/>
+<Lang name="contactsubscriptionid" value="contactsubscriptionid"/>
+<Lang name="ttp_contactsubscriptionid" value=""/>
+<Lang name="ttp_operationvtiger_contactsubdetails" value="操作"/>
+<Lang name="ttp_createvtiger_contactsubdetails" value="新增"/>
+<Lang name="ttp_modifyvtiger_contactsubdetails" value="修改"/>
+<Lang name="ttp_deletevtiger_contactsubdetails" value="删除"/>
+<Lang name="ttp_refreshvtiger_contactsubdetails" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

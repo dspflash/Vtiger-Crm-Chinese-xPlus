@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_purchaseorder" Size="100,100"><Ctrls>
+<Button sqlpkinsert="purchaseorderid" Text="create" ToolTip="ttp_createvtiger_purchaseorder" Name="insertvtiger_purchaseorder" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_purchaseorder</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,requisition_no,tracking_no,quoteid[quoteid],vendorid[vendorid],contactid[contactid],duedate,carrier[carrierid],terms_conditions,adjustment,salescommission,exciseduty,pre_tax_total,total,subtotal,taxtype,discount_percent,discount_amount,s_h_amount,s_h_percent,currency_id[currencyid],conversion_rate,paid,balance,type</Data>
+<DataEx>purchaseorder_no,postatus,created_by,creation_date,last_update_by,last_update_date;@odn,1,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(purchaseorder_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_purchaseorder WHERE DATE(creation_date)=CURDATE() ORDER BY purchaseorder_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='po'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_purchaseorder[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_purchaseorderLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_purchaseorder_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_purchaseorder" Name="modifyvtiger_purchaseorder" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_purchaseorder</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subject,requisition_no,tracking_no,quoteid[quoteid],vendorid[vendorid],contactid[contactid],duedate,carrier[carrierid],terms_conditions,adjustment,salescommission,exciseduty,pre_tax_total,total,subtotal,taxtype,discount_percent,discount_amount,s_h_amount,s_h_percent,currency_id[currencyid],conversion_rate,paid,balance,type</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>purchaseorderid='%{purchaseorderid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_purchaseorder[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_purchaseorderLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_purchaseorder_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_purchaseorder" Name="resetvtiger_purchaseorder" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_purchaseorder" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_purchaseorder" Name="gsearchvtiger_purchaseorder" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_purchaseorderLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_purchaseorder" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

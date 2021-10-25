@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITvtiger_assets" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_assetname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assetname" Size="60,20" Text="assetname" Align="Right"/>
+<TextBox Name="assetname" Size="170,20" Text="" Weight="170" ToolTip="ttp_assetname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_assetstatus" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assetstatus" Size="60,20" Text="assetstatus" Align="Right"  onload="init"/>
+<ComboBox Name="assetstatus" Size="170,100" Text="" Weight="170"  ToolTip="ttp_assetstatus"  onload="init">
+	<DbDetails>
+<Index>assetstatusid</Index>
+<DbTable>vtigercrm6.vtiger_assetstatus</DbTable>
+<Data>assetstatus,assetstatusid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_product" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product" Size="60,20" Text="product" Align="Right" onload="init"/>
+<ComboBox Name="product" Size="170,100" Text="" Weight="170"  ToolTip="ttp_product" onload="init">
+	<DbDetails>
+<Index>productid</Index>
+<DbTable>vtigercrm6.vtiger_products</DbTable>
+<Data>productname,productid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_servicecontracts" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_servicecontractsLst" ToolTip="ttp_vtiger_servicecontracts" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>servicecontractsid</Index>
+<DbTable>vtigercrm6.vtiger_servicecontracts</DbTable>
+<Data>subject,contract_type,priority,contract_no,start_date,end_date,due_date,sc_related_to,tracking_unit,total_units,used_units,planned_duration,actual_duration,contract_status,progress,servicecontractsid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>servicecontractsid</Order></DbDetails>
+<OnClick><assign name="contract_type[contract_typeid]" expr="%{vtiger_servicecontractsLst[contract_type]}" function="SetSel"/><assign name="priority[contract_priorityid]" expr="%{vtiger_servicecontractsLst[priority]}" function="SetSel"/><assign name="sc_related_to[accountid]" expr="%{vtiger_servicecontractsLst[sc_related_to]}" function="SetSel"/><assign name="tracking_unit[service_usageunitid]" expr="%{vtiger_servicecontractsLst[tracking_unit]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_servicecontractsLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_servicecontractsLst[last_update_by]}" function="SetSel"/>
+<if cond="%{servicecontractsid}"><SetVisible name="insertvtiger_servicecontracts" Visible="0"/><SetVisible name="modifyvtiger_servicecontracts" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

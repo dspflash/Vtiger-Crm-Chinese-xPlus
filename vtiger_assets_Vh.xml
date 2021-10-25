@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_assets" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_assetsLst" ToolTip="ttp_vtiger_assets" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>assetsid</Index>
+<DbTable>vtigercrm6.vtiger_assets</DbTable>
+<Data>assetname,assetstatus,product,asset_no,serialnumber,invoiceid,account,contact,tagnumber,datesold,dateinservice,shippingmethod,shippingtrackingnumber,assetsid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>assetsid</Order></DbDetails>
+<OnClick><assign name="assetstatus[assetstatusid]" expr="%{vtiger_assetsLst[assetstatus]}" function="SetSel"/><assign name="product[productid]" expr="%{vtiger_assetsLst[product]}" function="SetSel"/><assign name="invoiceid[invoiceid]" expr="%{vtiger_assetsLst[invoiceid]}" function="SetSel"/><assign name="account[accountid]" expr="%{vtiger_assetsLst[account]}" function="SetSel"/><assign name="contact[contactid]" expr="%{vtiger_assetsLst[contact]}" function="SetSel"/><assign name="shippingmethod[carrierid]" expr="%{vtiger_assetsLst[shippingmethod]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_assetsLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_assetsLst[last_update_by]}" function="SetSel"/>
+<if cond="%{assetsid}"><SetVisible name="insertvtiger_assets" Visible="0"/><SetVisible name="modifyvtiger_assets" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

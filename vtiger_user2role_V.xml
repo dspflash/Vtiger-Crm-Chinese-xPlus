@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_user2role_v" Text="vtiger_user2role">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><roleid format="v.roleid='%{opvalue}'"/><created_by format="(v.created_by like '%%{opvalue}%')"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(v.last_update_by like '%%{opvalue}%')"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><idx format="(v.idx like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_user2role.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_user2role" id="vtiger_user2role" Text="vtiger_user2role" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_user2role" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_user2role.GBDEDITvtiger_user2role" function="reset"/><assign name="$this.vtiger_user2role.frmwndctrl" expr="%{$this.vtiger_user2role_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_user2role" Name="resetvtiger_user2role" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_user2role" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_user2role" Name="gsearchvtiger_user2role" Size="50,20">	<OnClick>	
+<search next="vtiger_user2role_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_user2role" namelist="search" function="search"/>	
+<search next="records_vtiger_user2role" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_user2role" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_user2role_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

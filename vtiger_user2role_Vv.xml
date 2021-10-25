@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVvtiger_user2role" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_user2role_vLst" ToolTip="ttp_vtiger_user2role_v" Size="700,450" OnLoad="init" Heading="roleid,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;idx,55;" loadedclick="0">
+	<DbDetails >
+<Index>idx</Index>
+<DbTable>vtigercrm6.vtiger_user2role v left join vtigercrm6.vtiger_role v0 on v.roleid=v0.roleidx</DbTable>
+<Data>v0.rolename roleid,v.created_by,v.creation_date,v.last_update_by,v.last_update_date,v.idx</Data>
+<Order>userid,idx</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>idx='%{vtiger_user2role_vLst[idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_user2role.vtiger_user2roleLst"/><assign name="$this.vtiger_user2role.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_user2role</DbTable>
+<Where>idx='%{vtiger_user2role_vLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_user2role" expr="js(%{vtiger_user2role_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_user2role" expr="js(%{vtiger_user2role_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

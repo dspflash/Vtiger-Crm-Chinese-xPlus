@@ -1,0 +1,25 @@
+﻿<GroupBox Name="GBDEDITvtiger_role" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_roleid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_roleid" Size="60,20" Text="roleid" Align="Right"/>
+<TextBox Name="roleid" Size="170,20" Text="" Weight="170" ToolTip="ttp_roleid"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_rolename" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rolename" Size="60,20" Text="rolename" Align="Right"/>
+<TextBox Name="rolename" Size="170,20" Text="" Weight="170" ToolTip="ttp_rolename"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_rolelayout" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rolelayout" Size="60,20" Text="rolelayout" Align="Right"/>
+<TextBox Name="rolelayout" Size="170,20" Text="" Weight="170" ToolTip="ttp_rolelayout"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_parentrole" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_parentrole" Size="60,20" Text="parentrole" Align="Right"/>
+<TextBox Name="parentrole" Size="170,20" Text="" Weight="170" ToolTip="ttp_parentrole"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_depth" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_depth" Size="60,20" Text="depth" Align="Right"/>
+<TextBox Name="depth" Size="170,20" Text="" Weight="170" ToolTip="ttp_depth"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_allowassignedrecordsto" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allowassignedrecordsto" Size="230,20" Text="allowassignedrecordsto" ToolTip="ttp_allowassignedrecordsto"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

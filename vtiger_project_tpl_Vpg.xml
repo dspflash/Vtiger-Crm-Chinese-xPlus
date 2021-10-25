@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_project_tpl"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_project_tpl" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>projecttplid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl v left join vtigercrm6.users_v u on v.responsible=u.id left join vtigercrm6.vtiger_projecttype v0 on v.projecttype=v0.projecttypeid left join vtigercrm6.vtiger_projectpriority v1 on v.projectpriority=v1.projectpriorityid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>count(*) records</Data>
+<Order>projecttplid</Order><Queryformat>select %{data} from (select v.projecttplid from %{dbtable} %{where} GROUP BY v.projecttplid  ORDER BY v.projecttplid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_project_tpl" expr="js(Math.ceil(%{records_vtiger_project_tpl}/%{vtiger_project_tpl_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_project_tpl" expr="js('1~'+Math.ceil(%{records_vtiger_project_tpl}/%{vtiger_project_tpl_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_project_tpl" Size="60,20"><OnSelEndOK><submit next="vtiger_project_tpl_vLst" function="GetPage(%{pgscb_vtiger_project_tpl}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_project_tpl" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_project_tpl" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_project_tpl_vLst" Size="50,20"><OnClick><submit next="vtiger_project_tpl_vLst" function="GetPage(%{pgcur_vtiger_project_tpl}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

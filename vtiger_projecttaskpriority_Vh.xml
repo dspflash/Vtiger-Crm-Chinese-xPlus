@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_projecttaskpriority" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_projecttaskpriorityLst" ToolTip="ttp_vtiger_projecttaskpriority" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>projecttaskpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Data>projecttaskpriority,presence,picklist_valueid,sortorderid,projecttaskpriorityid</Data>
+<Order>projecttaskpriorityid</Order></DbDetails>
+<OnClick>
+<if cond="%{projecttaskpriorityid}"><SetVisible name="insertvtiger_projecttaskpriority" Visible="0"/><SetVisible name="modifyvtiger_projecttaskpriority" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

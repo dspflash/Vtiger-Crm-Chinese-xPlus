@@ -1,0 +1,38 @@
+﻿<Language name="vtiger_project_tpl_milestone">
+<Lang name="vtiger_project_tpl_milestone" value="模板(阶段)"/>
+<Lang name="TabEditvtiger_project_tpl_milestone" value="vtiger_project_tpl_milestone Edit"/>
+<Lang name="TabViewvtiger_project_tpl_milestone" value="vtiger_project_tpl_milestone View"/>
+<Lang name="project_ms_idx" value="序号"/>
+<Lang name="ttp_project_ms_idx" value=""/>
+<Lang name="projecttplmilestonename" value="阶段名称"/>
+<Lang name="ttp_projecttplmilestonename" value=""/>
+<Lang name="projectmilestonetype" value="类型"/>
+<Lang name="ttp_projectmilestonetype" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="projecttplid" value=""/>
+<Lang name="ttp_projecttplid" value=""/>
+<Lang name="projecttplmilestoneid" value=""/>
+<Lang name="ttp_projecttplmilestoneid" value=""/>
+<Lang name="ttp_operationvtiger_project_tpl_milestone" value=""/>
+<Lang name="ttp_createvtiger_project_tpl_milestone" value=""/>
+<Lang name="ttp_modifyvtiger_project_tpl_milestone" value=""/>
+<Lang name="ttp_resetvtiger_project_tpl_milestone" value=""/>
+<Lang name="ttp_deletevtiger_project_tpl_milestone" value=""/>
+<Lang name="ttp_refreshvtiger_project_tpl_milestone" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

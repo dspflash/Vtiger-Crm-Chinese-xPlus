@@ -1,0 +1,66 @@
+﻿<GroupBox Name="GBDEDITvtiger_troubletickets" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_title" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_title" Size="60,20" Text="title" Align="Right"/>
+<TextBox Name="title" Size="170,20" Text="" Weight="170" ToolTip="ttp_title"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_category" Size="60,20" Text="category" Align="Right" onload="init"/>
+<ComboBox Name="category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_category" onload="init">
+	<DbDetails>
+<Index>ticketcategories_id</Index>
+<DbTable>vtigercrm6.vtiger_ticketcategories</DbTable>
+<Data>ticketcategories,ticketcategories_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contact_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contact_id" Size="60,20" Text="contact_id" Align="Right" onload="init"/>
+<ComboBox Name="contact_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_contact_id" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_parent_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_parent_id" Size="60,20" Text="parent_id" Align="Right" onload="init"/>
+<ComboBox Name="parent_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_parent_id" onload="init">
+	<DbDetails>
+<Index>ticketid</Index>
+<DbTable>vtigercrm6.vtiger_troubletickets</DbTable>
+<Data>ticket_no,ticketid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_priority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_priority" Size="60,20" Text="priority" Align="Right" onload="init"/>
+<ComboBox Name="priority" Size="170,100" Text="" Weight="170"  ToolTip="ttp_priority" onload="init">
+	<DbDetails>
+<Index>ticketpriorities_id</Index>
+<DbTable>vtigercrm6.vtiger_ticketpriorities</DbTable>
+<Data>ticketpriorities,ticketpriorities_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_severity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_severity" Size="60,20" Text="severity" Align="Right" onload="init"/>
+<ComboBox Name="severity" Size="170,100" Text="" Weight="170"  ToolTip="ttp_severity" onload="init">
+	<DbDetails>
+<Index>ticketseverities_id</Index>
+<DbTable>vtigercrm6.vtiger_ticketseverities</DbTable>
+<Data>ticketseverities,ticketseverities_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_groupname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_groupname" Size="60,20" Text="groupname" Align="Right" onload="init"/>
+<ComboBox Name="groupname" Size="170,100" Text="" Weight="170"  ToolTip="ttp_groupname" onload="init">
+	<DbDetails>
+<Index>groupid</Index>
+<DbTable>vtigercrm6.vtiger_groups</DbTable>
+<Data>groupname,groupid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

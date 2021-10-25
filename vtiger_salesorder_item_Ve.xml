@@ -1,0 +1,13 @@
+﻿<WndTap Name="vtiger_salesorder_item" Text="vtiger_salesorder_item" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="itemcode,customitem,itemname,salesorderid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\vtiger_salesorder_item.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBvtiger_salesorder_item" id="vtiger_salesorder_item" Text="vtiger_salesorder_item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_item_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_item_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_salesorder_item_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertvtiger_salesorder_item" Visible="1"/><SetVisible name="modifyvtiger_salesorder_item" Visible="0"/></OnActivate>
+</WndTap>

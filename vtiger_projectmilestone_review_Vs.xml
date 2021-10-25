@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITvtiger_projectmilestone" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projectmilestonename" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectmilestonename" Size="60,20" Text="projectmilestonename" Align="Right"/>
+<TextBox Name="projectmilestonename" Size="170,20" Text="" Weight="170" ToolTip="ttp_projectmilestonename"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_projectmilestonedate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projectmilestonedate" Size="60,20" Text="projectmilestonedate" Align="Right"/>
+<DateTime Name="projectmilestonedate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_projectmilestonedate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_review_memo" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_review_memo" Size="60,20" Text="review_memo" Align="Right"/>
+<TextBox Name="review_memo" Size="170,20" Text="" Weight="170" ToolTip="ttp_review_memo"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

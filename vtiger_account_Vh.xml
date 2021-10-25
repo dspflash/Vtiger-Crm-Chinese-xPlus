@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_account" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_accountLst" ToolTip="ttp_vtiger_account" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>accountid</Index>
+<DbTable>vtigercrm6.vtiger_account</DbTable>
+<Data>account_no,accountname,parentid,rating,industry,account_type,annualrevenue,employees,website,phone,otherphone,fax,email1,email2,emailoptout,ownership,notify_owner,isconvertedfromlead,accountid,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>accountid</Order></DbDetails>
+<OnClick><assign name="parentid[accountid]" expr="%{vtiger_accountLst[parentid]}" function="SetSel"/><assign name="rating[rating_id]" expr="%{vtiger_accountLst[rating]}" function="SetSel"/><assign name="industry[industryid]" expr="%{vtiger_accountLst[industry]}" function="SetSel"/><assign name="account_type[accounttypeid]" expr="%{vtiger_accountLst[account_type]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_accountLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_accountLst[last_update_by]}" function="SetSel"/>
+<if cond="%{accountid}"><SetVisible name="insertvtiger_account" Visible="0"/><SetVisible name="modifyvtiger_account" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

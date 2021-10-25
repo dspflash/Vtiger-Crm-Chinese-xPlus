@@ -1,0 +1,19 @@
+﻿TRUNCATE TABLE `vtigercrm6`.`vtiger_projectmilestonetype`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projectpriority`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projectstatus`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttaskpriority`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttaskstatus`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttasktype`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttype`;
+INSERT INTO `vtigercrm6`.`vtiger_projectmilestonetype` VALUES (2,'管理',1,238,2),(3,'操作',1,239,3),(4,'其它',1,240,4);
+INSERT INTO `vtigercrm6`.`vtiger_projectpriority` VALUES (2,'低',1,274,2),(3,'正常',1,275,3),(4,'高',1,276,4);
+INSERT INTO `vtigercrm6`.`vtiger_projectstatus` VALUES (2,'准备中',1,261,2),(3,'启动',1,262,3),(4,'进行中',1,263,4),(5,'等待反馈',1,264,5),(6,'挂起',1,265,6),(7,'完成',1,266,7),(8,'已交付',1,267,8),(9,'存档',1,268,9);
+INSERT INTO `vtigercrm6`.`vtiger_projecttaskpriority` VALUES (2,'低',1,246,2),(3,'正常',1,247,3),(4,'紧急',1,248,4);
+INSERT INTO `vtigercrm6`.`vtiger_projecttaskstatus` VALUES (2,'未启动',0,290,2),(3,'进行中',0,291,3),(4,'已完成',0,292,4),(5,'延期',0,293,5),(6,'中止/取消 ',0,294,6);
+INSERT INTO `vtigercrm6`.`vtiger_projecttasktype` VALUES (2,'管理',1,242,2),(3,'操作',1,243,3),(4,'其它',1,244,4);
+INSERT INTO `vtigercrm6`.`vtiger_projecttype` VALUES (2,'管理',1,270,2),(3,'操作',1,271,3),(4,'其它',1,272,4);
+
+TRUNCATE TABLE `vtigercrm6`.`vtiger_project`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttask`;
+TRUNCATE TABLE `vtigercrm6`.`vtiger_projecttask_detail`;
+TRUNCATE TABLE `vtigercrm6`.`attachment`;

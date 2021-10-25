@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_potential"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_potential" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>potentialid</Index>
+<DbTable>vtigercrm6.vtiger_potential v left join vtigercrm6.vtiger_opportunity_type v0 on v.potentialtype=v0.opptypeid left join vtigercrm6.contacts_v c on v.contact_id=c.contactid left join vtigercrm6.vtiger_account v1 on v.related_to=v1.accountid left join vtigercrm6.vtiger_campaign v2 on v.campaignid=v2.campaignid left join vtigercrm6.vtiger_sales_stage v3 on v.sales_stage=v3.sales_stage_id left join vtigercrm6.vtiger_leadsource v4 on v.leadsource=v4.leadsourceid left join vtigercrm6.vtiger_products v5 on v.productid=v5.productid left join vtigercrm6.vtiger_quotes v6 on v.quotationref=v6.quoteid left join vtigercrm6.vtiger_users v7 on v.created_by=v7.id left join vtigercrm6.vtiger_users v8 on v.last_update_by=v8.id</DbTable>
+<Data>count(*) records</Data>
+<Order>potentialid</Order><Queryformat>select %{data} from (select v.potentialid from %{dbtable} %{where} GROUP BY v.potentialid  ORDER BY v.potentialid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_potential" expr="js(Math.ceil(%{records_vtiger_potential}/%{vtiger_potential_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_potential" expr="js('1~'+Math.ceil(%{records_vtiger_potential}/%{vtiger_potential_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_potential" Size="60,20"><OnSelEndOK><submit next="vtiger_potential_vLst" function="GetPage(%{pgscb_vtiger_potential}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_potential" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_potential" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_potential_vLst" Size="50,20"><OnClick><submit next="vtiger_potential_vLst" function="GetPage(%{pgcur_vtiger_potential}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

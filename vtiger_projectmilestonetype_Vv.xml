@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVvtiger_projectmilestonetype" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestonetype_vLst" ToolTip="ttp_vtiger_projectmilestonetype_v" Size="700,450" OnLoad="init" Heading="projectmilestonetype,640;presence,20;picklist_valueid,55;sortorderid,55;projectmilestonetypeid,55;" loadedclick="0">
+	<DbDetails >
+<Index>projectmilestonetypeid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestonetype v</DbTable>
+<Data>v.projectmilestonetype,v.presence,v.picklist_valueid,v.sortorderid,v.projectmilestonetypeid</Data>
+<Order>projectmilestonetypeid</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>projectmilestonetypeid='%{vtiger_projectmilestonetype_vLst[projectmilestonetypeid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_projectmilestonetype.vtiger_projectmilestonetypeLst"/><assign name="$this.vtiger_projectmilestonetype.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projectmilestonetype</DbTable>
+<Where>projectmilestonetypeid='%{vtiger_projectmilestonetype_vLst[projectmilestonetypeid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_projectmilestonetype" expr="js(%{vtiger_projectmilestonetype_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_projectmilestonetype" expr="js(%{vtiger_projectmilestonetype_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

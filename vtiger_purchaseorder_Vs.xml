@@ -1,0 +1,52 @@
+﻿<GroupBox Name="GBDEDITvtiger_purchaseorder" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requisition_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_requisition_no" Size="60,20" Text="requisition_no" Align="Right"/>
+<TextBox Name="requisition_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_requisition_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_tracking_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tracking_no" Size="60,20" Text="tracking_no" Align="Right"/>
+<TextBox Name="tracking_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_tracking_no"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_quoteid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_quoteid" Size="60,20" Text="quoteid" Align="Right" onload="init"/>
+<ComboBox Name="quoteid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_quoteid" onload="init">
+	<DbDetails>
+<Index>quoteid</Index>
+<DbTable>vtigercrm6.vtiger_quotes</DbTable>
+<Data>subject,quoteid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_vendorid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vendorid" Size="60,20" Text="vendorid" Align="Right" onload="init"/>
+<ComboBox Name="vendorid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_vendorid" onload="init">
+	<DbDetails>
+<Index>vendorid</Index>
+<DbTable>vtigercrm6.vtiger_vendor</DbTable>
+<Data>vendorname,vendorid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contactid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contactid" Size="60,20" Text="contactid" Align="Right" onload="init"/>
+<ComboBox Name="contactid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_contactid" onload="init">
+	<DbDetails>
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname,contactid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_duedate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_duedate" Size="60,20" Text="duedate" Align="Right"/>
+<DateTime Name="duedate" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_duedate"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right"/>
+<TextBox Name="type" Size="170,20" Text="" Weight="170" ToolTip="ttp_type"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

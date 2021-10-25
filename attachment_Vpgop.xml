@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVattachment"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialattachment" Size="50,20">
+<OnClick><submit next="attachment_vLst" function="initial"/><submit next="records_attachment" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPattachment_vLst" Size="50,20">
+<OnClick><submit next="attachment_vLst" function="GetPage(first)"/><submit next="records_attachment"/></OnClick></Button>
+<Button Text="prepage" Name="PREattachment_vLst" Size="50,20">
+<OnClick><submit next="attachment_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPattachment_vLst" Size="50,20">
+<OnClick><submit next="attachment_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

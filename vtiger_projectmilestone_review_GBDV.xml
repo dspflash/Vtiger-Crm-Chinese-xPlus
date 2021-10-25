@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_projectmilestone"><Ctrls>
+<ListCtrl Heading="projectmilestonename,250;reviewed,60;projectmilestonedate,90;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;review_memo,630;" loadedclick="0" ToolTip="ttp_vtiger_projectmilestone" Name="vtiger_projectmilestoneLst" Size="500,450" colsDisplay="5">
+	<DbDetails fcsm="1">
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone</DbTable>
+<Data>projectmilestonename,reviewed,projectmilestonedate,projectmilestoneid,reviewed_date,reviewed_by,review_memo</Data>
+<Order>projectmilestoneid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

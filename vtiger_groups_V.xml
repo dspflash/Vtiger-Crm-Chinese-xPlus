@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_groups_v" Text="vtiger_groups">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><groupname format="(v.groupname like '%%{opvalue}%')"/><description format="(v.description like '%%{opvalue}%')"/><groupid format="(v.groupid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_groups.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_groups" id="vtiger_groups" Text="vtiger_groups" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_groups" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_groups.GBDEDITvtiger_groups" function="reset"/><assign name="$this.vtiger_groups.frmwndctrl" expr="%{$this.vtiger_groups_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_groups" Name="resetvtiger_groups" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_groups" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_groups" Name="gsearchvtiger_groups" Size="50,20">	<OnClick>	
+<search next="vtiger_groups_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_groups" namelist="search" function="search"/>	
+<search next="records_vtiger_groups" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_groups" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_groups_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,19 @@
+﻿<GroupBox Name="GBDEDITvtiger_service" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_servicename" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_servicename" Size="60,20" Text="servicename" Align="Right"/>
+<TextBox Name="servicename" Size="170,20" Text="" Weight="170" ToolTip="ttp_servicename"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_servicecategory" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_servicecategory" Size="60,20" Text="servicecategory" Align="Right" onload="init"/>
+<ComboBox Name="servicecategory" Size="170,100" Text="" Weight="170"  ToolTip="ttp_servicecategory" onload="init">
+	<DbDetails>
+<Index>servicecategoryid</Index>
+<DbTable>vtigercrm6.vtiger_servicecategory</DbTable>
+<Data>servicecategory,servicecategoryid</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_discontinued" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="discontinued" Size="230,20" Text="discontinued" ToolTip="ttp_discontinued"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

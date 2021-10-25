@@ -1,0 +1,7 @@
+﻿INSERT INTO `vtiger_projectmilestonetype` VALUES (2,'administrative',1,238,2),(3,'operative',1,239,3),(4,'other',1,240,4);
+INSERT INTO `vtiger_projectpriority` VALUES (2,'low',1,274,2),(3,'normal',1,275,3),(4,'high',1,276,4);
+INSERT INTO `vtiger_projectstatus` VALUES (2,'prospecting',1,261,2),(3,'initiated',1,262,3),(4,'in progress',1,263,4),(5,'waiting for feedback',1,264,5),(6,'on hold',1,265,6),(7,'completed',1,266,7),(8,'delivered',1,267,8),(9,'archived',1,268,9);
+INSERT INTO `vtiger_projecttaskpriority` VALUES (2,'low',1,246,2),(3,'normal',1,247,3),(4,'high',1,248,4);
+INSERT INTO `vtiger_projecttaskstatus` VALUES (2,'Open',0,290,2),(3,'In Progress',0,291,3),(4,'Completed',0,292,4),(5,'Deferred',0,293,5),(6,'Canceled ',0,294,6);
+INSERT INTO `vtiger_projecttasktype` VALUES (2,'administrative',1,242,2),(3,'operative',1,243,3),(4,'other',1,244,4);
+INSERT INTO `vtiger_projecttype` VALUES (2,'administrative',1,270,2),(3,'operative',1,271,3),(4,'other',1,272,4);

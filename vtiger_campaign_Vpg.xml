@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGvtiger_campaign"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_vtiger_campaign" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>campaignid</Index>
+<DbTable>vtigercrm6.vtiger_campaign v left join vtigercrm6.vtiger_campaigntype v0 on v.campaigntype=v0.campaigntypeid left join vtigercrm6.vtiger_campaignstatus v1 on v.campaignstatus=v1.campaignstatusid left join vtigercrm6.vtiger_products v2 on v.product_id=v2.productid left join vtigercrm6.vtiger_expectedresponse v3 on v.expectedresponse=v3.expectedresponseid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>count(*) records</Data>
+<Order>campaignid</Order><Queryformat>select %{data} from (select v.campaignid from %{dbtable} %{where} GROUP BY v.campaignid  ORDER BY v.campaignid) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_vtiger_campaign" expr="js(Math.ceil(%{records_vtiger_campaign}/%{vtiger_campaign_vLst[countsperpage]}))"/>
+<assign name="pgscb_vtiger_campaign" expr="js('1~'+Math.ceil(%{records_vtiger_campaign}/%{vtiger_campaign_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_vtiger_campaign" Size="60,20"><OnSelEndOK><submit next="vtiger_campaign_vLst" function="GetPage(%{pgscb_vtiger_campaign}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_vtiger_campaign" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_vtiger_campaign" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagevtiger_campaign_vLst" Size="50,20"><OnClick><submit next="vtiger_campaign_vLst" function="GetPage(%{pgcur_vtiger_campaign}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

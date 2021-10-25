@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_potential" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_potentialLst" ToolTip="ttp_vtiger_potential" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>potentialid</Index>
+<DbTable>vtigercrm6.vtiger_potential</DbTable>
+<Data>potential_no,potentialname,potentialtype,probability,contact_id,related_to,campaignid,forecast_amount,sales_stage,amount,nextstep,typeofrevenue,private,leadsource,productid,productversion,quotationref,partnercontact,remarks,runtimefee,closingdate,followupdate,description,outcomeanalysis,forecastcategory,isconvertedfromlead,evaluationstatus,currency,created_by,creation_date,last_update_by,last_update_date,potentialid</Data>
+<Order>potentialid</Order></DbDetails>
+<OnClick><assign name="potentialtype[opptypeid]" expr="%{vtiger_potentialLst[potentialtype]}" function="SetSel"/><assign name="contact_id[contactid]" expr="%{vtiger_potentialLst[contact_id]}" function="SetSel"/><assign name="related_to[accountid]" expr="%{vtiger_potentialLst[related_to]}" function="SetSel"/><assign name="campaignid[campaignid]" expr="%{vtiger_potentialLst[campaignid]}" function="SetSel"/><assign name="sales_stage[sales_stage_id]" expr="%{vtiger_potentialLst[sales_stage]}" function="SetSel"/><assign name="leadsource[leadsourceid]" expr="%{vtiger_potentialLst[leadsource]}" function="SetSel"/><assign name="productid[productid]" expr="%{vtiger_potentialLst[productid]}" function="SetSel"/><assign name="quotationref[quoteid]" expr="%{vtiger_potentialLst[quotationref]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_potentialLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_potentialLst[last_update_by]}" function="SetSel"/>
+<if cond="%{potentialid}"><SetVisible name="insertvtiger_potential" Visible="0"/><SetVisible name="modifyvtiger_potential" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

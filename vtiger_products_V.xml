@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_products_v" Text="vtiger_products_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><product_no format="(v.product_no like '%%{opvalue}%')"/><productcode format="(v.productcode like '%%{opvalue}%')"/><productname format="(v.productname like '%%{opvalue}%')"/><imagename format="(v.imagename like '%%{opvalue}%')"/><productid format="(v.productid like '%%{opvalue}%')"/><created_by format="v.created_by='%{opvalue}'"/><creation_date format="(v.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="v.last_update_by='%{opvalue}'"/><last_update_date format="(v.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_products.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_products" id="vtiger_products" Text="vtiger_products" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_products" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_products.GBDEDITvtiger_products" function="reset"/><assign name="$this.vtiger_products.frmwndctrl" expr="%{$this.vtiger_products_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_products" Name="resetvtiger_products" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_products" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_products" Name="gsearchvtiger_products" Size="50,20">	<OnClick>	
+<search next="vtiger_products_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_products" namelist="search" function="search"/>	
+<search next="records_vtiger_products" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_products" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

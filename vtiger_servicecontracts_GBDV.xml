@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_servicecontracts"><Ctrls>
+<ListCtrl Heading="subject,250;contract_type,120;priority,120;contract_no,100;start_date,90;end_date,150;due_date,90;sc_related_to,120;tracking_unit,20;total_units,25;used_units,25;planned_duration,55;actual_duration,55;contract_status,20;progress,25;servicecontractsid,100;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0" ToolTip="ttp_vtiger_servicecontracts" Name="vtiger_servicecontractsLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>servicecontractsid</Index>
+<DbTable>vtigercrm6.vtiger_servicecontracts v left join vtigercrm6.vtiger_contract_type v0 on v.contract_type=v0.contract_typeid left join vtigercrm6.vtiger_contract_priority v1 on v.priority=v1.contract_priorityid left join vtigercrm6.vtiger_account v2 on v.sc_related_to=v2.accountid left join vtigercrm6.vtiger_service_usageunit v3 on v.tracking_unit=v3.service_usageunitid left join vtigercrm6.vtiger_users v4 on v.created_by=v4.id left join vtigercrm6.vtiger_users v5 on v.last_update_by=v5.id</DbTable>
+<Data>v.subject,v0.contract_type contract_type,v1.contract_priority priority,v.contract_no,v.start_date,v.end_date,v.due_date,v2.accountname sc_related_to,v3.service_usageunit tracking_unit,v.total_units,v.used_units,v.planned_duration,v.actual_duration,v.contract_status,v.progress,v.servicecontractsid,v4.user_name created_by,v.creation_date,v5.user_name last_update_by,v.last_update_date</Data>
+<Order>servicecontractsid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>servicecontractsid='%{vtiger_servicecontracts_vLst[servicecontractsid]}'</Where></DbDetails><submit next="$this.vtiger_servicecontracts.vtiger_servicecontractsLst" namelist="DbDetails"/><assign name="$this.vtiger_servicecontracts.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_servicecontracts</DbTable>
+<Where>servicecontractsid='%{vtiger_servicecontracts_vLst[servicecontractsid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

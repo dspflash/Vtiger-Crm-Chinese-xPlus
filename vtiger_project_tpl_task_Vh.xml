@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVvtiger_project_tpl_task" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_taskLst" ToolTip="ttp_vtiger_project_tpl_task" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>projecttpltaskid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_task</DbTable>
+<Data>projecttpltaskname,project_ms_idx,responsible,projecttasktype,projecttaskpriority,attachedfile,description,created_by,creation_date,last_update_by,last_update_date,projecttpltaskid,projecttplid</Data>
+<Order>projecttpltaskid</Order></DbDetails>
+<OnClick><assign name="project_ms_idx[project_ms_idx]" expr="%{vtiger_project_tpl_taskLst[project_ms_idx]}" function="SetSel"/><assign name="responsible[id]" expr="%{vtiger_project_tpl_taskLst[responsible]}" function="SetSel"/><assign name="projecttasktype[projecttasktypeid]" expr="%{vtiger_project_tpl_taskLst[projecttasktype]}" function="SetSel"/><assign name="projecttaskpriority[projecttaskpriorityid]" expr="%{vtiger_project_tpl_taskLst[projecttaskpriority]}" function="SetSel"/><assign name="created_by[id]" expr="%{vtiger_project_tpl_taskLst[created_by]}" function="SetSel"/><assign name="last_update_by[id]" expr="%{vtiger_project_tpl_taskLst[last_update_by]}" function="SetSel"/>
+<if cond="'%{projecttpltaskid}'"><SetVisible name="insertvtiger_project_tpl_task" Visible="0"/><SetVisible name="modifyvtiger_project_tpl_task" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

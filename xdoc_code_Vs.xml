@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITxdoc_code" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_doctype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_doctype" Size="60,20" Text="doctype" Align="Right"/>
+<TextBox Name="doctype" Size="170,20" Text="" Weight="170" ToolTip="ttp_doctype"><OnEnChange><if cond="!%{docName}"><assign name="docName" expr="%{docType}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_docname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_docname" Size="60,20" Text="docname" Align="Right"/>
+<TextBox Name="docname" Size="170,20" Text="" Weight="170" ToolTip="ttp_docname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dt_mode" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dt_mode" Size="60,20" Text="dt_mode" Align="Right"/>
+<ComboBox Name="dt_mode" Size="170,100" Text="" Weight="170" Items="6|8|14" ToolTip="ttp_dt_mode"></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

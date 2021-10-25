@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_leaddetails" Size="100,100"><Ctrls>
+<Button sqlpkinsert="leadid" Text="create" ToolTip="ttp_createvtiger_leaddetails" Name="insertvtiger_leaddetails" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_leaddetails</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>firstname,lastname,salutation[salutationid],designation,leadsource[leadsourceid],campaign[campaignid],interest,priority[priorityid],rating[rating_id],company,industry[industryid],noofemployees,annualrevenue,revenuetype,email,secondaryemail,space,demorequest,partnercontact,product,productversion,maildate,nextstepdate,fundingsituation,purpose,evaluationstatus,assignleadchk,emailoptout,converted,comments,licencekeystatus</Data>
+<DataEx>lead_no,leadstatus,created_by,creation_date,last_update_by,last_update_date;@odn,9,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>  SET @seq=0; SELECT SUBSTR(lead_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_leaddetails WHERE DATE(creation_date)=CURDATE() ORDER BY lead_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='lead'; INSERT INTO %{TABLE} %{DATA};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_leaddetails[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_leaddetailsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_leaddetails_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_leaddetails" Name="modifyvtiger_leaddetails" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_leaddetails</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>firstname,lastname,salutation[salutationid],designation,leadsource[leadsourceid],campaign[campaignid],interest,priority[priorityid],rating[rating_id],company,industry[industryid],noofemployees,annualrevenue,revenuetype,email,secondaryemail,space,demorequest,partnercontact,product,productversion,maildate,nextstepdate,fundingsituation,purpose,evaluationstatus,assignleadchk,emailoptout,converted,comments,licencekeystatus</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>leadid='%{leadid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_leaddetails[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_leaddetailsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_leaddetails_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_leaddetails" Name="resetvtiger_leaddetails" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_leaddetails" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_leaddetails" Name="gsearchvtiger_leaddetails" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_leaddetailsLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_leaddetails" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

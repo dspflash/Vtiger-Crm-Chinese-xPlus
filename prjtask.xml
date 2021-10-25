@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302">
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" title="三优项目管理系统" _signinbguri="http://localhost/markers.png" bgx="bg_gfcolors:2|4|2,0x7dafff|0x0,0xccbadb|0x64,0xccaadb|0x6464,ccaadb|0x6400,0x102,302" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+	<var name="css" expr="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css"/>
 	<EventHandlers>
 		<EventHandler Event="ReceivedCall('%{callerid}')">
 		<assign name="contact.base_mobile" expr="%{callerid}"/>

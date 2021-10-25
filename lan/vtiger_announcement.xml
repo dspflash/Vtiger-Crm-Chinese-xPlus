@@ -1,0 +1,28 @@
+﻿<Language name="vtiger_announcement">
+<Lang name="vtiger_announcement" value="布告"/>
+<Lang name="TabEditvtiger_announcement" value="vtiger_announcement Edit"/>
+<Lang name="TabViewvtiger_announcement" value="vtiger_announcement View"/>
+<Lang name="title" value="主题"/>
+<Lang name="ttp_title" value=""/>
+<Lang name="announcement" value="内容"/>
+<Lang name="ttp_announcement" value=""/>
+<Lang name="time" value=""/>
+<Lang name="ttp_time" value=""/>
+<Lang name="creatorid" value=""/>
+<Lang name="ttp_creatorid" value=""/>
+<Lang name="ttp_operationvtiger_announcement" value=""/>
+<Lang name="ttp_createvtiger_announcement" value=""/>
+<Lang name="ttp_modifyvtiger_announcement" value=""/>
+<Lang name="ttp_resetvtiger_announcement" value=""/>
+<Lang name="ttp_deletevtiger_announcement" value=""/>
+<Lang name="ttp_refreshvtiger_announcement" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

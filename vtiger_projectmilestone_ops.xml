@@ -1,0 +1,13 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}' and !reviewed</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_projectmilestone.vtiger_projectmilestoneLst"/><assign name="$parent.vtiger_projectmilestone.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_projectmilestone</DbTable>
+<Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}' and !reviewed</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="projecttask"><DbDetails><Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vtiger_projecttask_v.vtiger_projecttask_vLst"/></op>
+<!--op text="review" needconfirm="1"><DbDetails><Where>projectmilestoneid='%{vtiger_projectmilestone_vLst[projectmilestoneid]}' and !reviewed</Where><queryFormat>update vtigercrm6.vtiger_projectmilestone set reviewed=1,reviewed_date=now(),reviewed_by='%{user_id}' where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+<op text="progress_memo"><if cond="(!'%{vtiger_projectmilestone_vLst[projectmilestoneid]}'||%{vtiger_projectmilestone_vLst[reviewed]}||'%{vtiger_projectmilestone_vLst[vmxid]}')"><alert expr="不可操作!"/><else/><assign name="$parent.attachment.reftbl" expr="vtiger_projectmilestone"/><assign name="$parent.attachment.refid" expr="%{vtiger_projectmilestone_vLst[projectmilestoneid]}"/><assign name="$parent.attachment.frmwndctrl" expr="%{this}"/></if></op>
+<op text="review"><if cond="(!'%{vtiger_projectmilestone_vLst[projectmilestoneid]}'||%{vtiger_projectmilestone_vLst[reviewed]}||'%{vtiger_projectmilestone_vLst[vmxid]}')"><alert expr="不可操作!"/><else/><assign name="$parent.vtiger_projectmilestone_review.projectmilestonename" expr="%{vtiger_projectmilestone_vLst[projectmilestonename]}"/><assign name="$parent.vtiger_projectmilestone_review.projectmilestoneid" expr="%{vtiger_projectmilestone_vLst[projectmilestoneid]}"/></if></op>
+</operator>

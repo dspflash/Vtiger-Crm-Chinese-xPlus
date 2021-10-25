@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVvtiger_project_tpl" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_project_tpl_vLst" ToolTip="ttp_vtiger_project_tpl_v" Size="700,450" OnLoad="init" Heading="projecttplname,250;projectdays,55;responsible,120;projecttype,120;projectpriority,120;description,630;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;projecttplid,55;"      colsDisplay="11" AutoSizeCol="0"  loadedclick="0">
+	<DbDetails >
+<Index>projecttplid</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl v left join vtigercrm6.users_v u on v.responsible=u.id left join vtigercrm6.vtiger_projecttype v0 on v.projecttype=v0.projecttypeid left join vtigercrm6.vtiger_projectpriority v1 on v.projectpriority=v1.projectpriorityid left join vtigercrm6.vtiger_users v2 on v.created_by=v2.id left join vtigercrm6.vtiger_users v3 on v.last_update_by=v3.id</DbTable>
+<Data>v.projecttplname,v.projectdays,u.fullname responsible,v0.projecttype projecttype,v1.projectpriority projectpriority,v.description,v2.user_name created_by,v.creation_date,v3.user_name last_update_by,v.last_update_date,v.projecttplid</Data>
+<Order>projecttplid</Order></DbDetails>
+<DbDetails><queryFormat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_project_tpl_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_vtiger_project_tpl" expr="js(%{vtiger_project_tpl_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_project_tpl" expr="js(%{vtiger_project_tpl_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

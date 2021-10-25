@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVvtiger_invoice" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_invoice_vLst" ToolTip="ttp_vtiger_invoice_v" Size="700,450" OnLoad="init" Heading="subject,250;invoicedate,150;invoice_no,100;invoicestatus,120;salesorderid,120;customerno,100;duedate,150;accountid,120;contactid,120;type,100;purchaseorder,120;shipping,500;invoiceterms,500;terms_conditions,20;notes,500;taxtype,120;s_h_amount,125;s_h_percent,55;adjustment,125;salescommission,125;exciseduty,125;discount_percent,125;discount_amount,125;pre_tax_total,125;total,125;subtotal,125;currency_id,120;conversion_rate,50;received,125;balance,125;invoiceid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>invoiceid</Index>
+<DbTable>vtigercrm6.vtiger_invoice v left join vtigercrm6.vtiger_invoicestatus v0 on v.invoicestatus=v0.invoicestatusid left join vtigercrm6.vtiger_salesorder v1 on v.salesorderid=v1.salesorderid left join vtigercrm6.vtiger_account v2 on v.accountid=v2.accountid left join vtigercrm6.contacts_v c on v.contactid=c.contactid left join vtigercrm6.vtiger_purchaseorder v3 on v.purchaseorder=v3.purchaseorderid left join vtigercrm6.vtiger_currencies v4 on v.currency_id=v4.currencyid left join vtigercrm6.vtiger_users v5 on v.created_by=v5.id left join vtigercrm6.vtiger_users v6 on v.last_update_by=v6.id</DbTable>
+<Data>v.subject,v.invoicedate,v.invoice_no,v0.invoicestatus invoicestatus,v1.subject salesorderid,v.customerno,v.duedate,v2.accountname accountid,c.fullname contactid,v.type,v3.subject purchaseorder,v.shipping,v.invoiceterms,v.terms_conditions,v.notes,v.taxtype,v.s_h_amount,v.s_h_percent,v.adjustment,v.salescommission,v.exciseduty,v.discount_percent,v.discount_amount,v.pre_tax_total,v.total,v.subtotal,v4.currency_code currency_id,v.conversion_rate,v.received,v.balance,v.invoiceid,v5.user_name created_by,v.creation_date,v6.user_name last_update_by,v.last_update_date</Data>
+<Order>invoiceid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>invoiceid='%{vtiger_invoice_vLst[invoiceid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_invoice.vtiger_invoiceLst"/><assign name="$this.vtiger_invoice.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_invoice</DbTable>
+<Where>invoiceid='%{vtiger_invoice_vLst[invoiceid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_vtiger_invoice" expr="js(%{vtiger_invoice_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_invoice" expr="js(%{vtiger_invoice_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

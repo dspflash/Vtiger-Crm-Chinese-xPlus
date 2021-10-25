@@ -1,0 +1,46 @@
+﻿<Language name="vtiger_salesorder_item">
+<Lang name="vtiger_salesorder_item" value="货品"/>
+<Lang name="TabEditvtiger_salesorder_item" value="vtiger_salesorder_item Edit"/>
+<Lang name="TabViewvtiger_salesorder_item" value="vtiger_salesorder_item View"/>
+<Lang name="productid" value="产品"/>
+<Lang name="ttp_productid" value=""/>
+<Lang name="quantity" value="数量"/>
+<Lang name="ttp_quantity" value=""/>
+<Lang name="productcode" value="模具编号"/>
+<Lang name="productname" value="产品名称"/>
+<Lang name="itemcode" value="模具编号"/>
+<Lang name="itemname" value="产品名称"/>
+<Lang name="itemimg" value="图片"/>
+<Lang name="uploadimg" value="上传图片"/>
+<Lang name="customitem" value="客户料号"/>
+<Lang name="ttp_customitem" value=""/>
+<Lang name="statuscode" value=""/>
+<Lang name="ttp_statuscode" value=""/>
+<Lang name="salesorderid" value=""/>
+<Lang name="ttp_salesorderid" value=""/>
+<Lang name="salesorder_itemid" value=""/>
+<Lang name="ttp_salesorder_itemid" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ttp_operationvtiger_salesorder_item" value=""/>
+<Lang name="ttp_createvtiger_salesorder_item" value=""/>
+<Lang name="ttp_modifyvtiger_salesorder_item" value=""/>
+<Lang name="ttp_resetvtiger_salesorder_item" value=""/>
+<Lang name="ttp_deletevtiger_salesorder_item" value=""/>
+<Lang name="ttp_refreshvtiger_salesorder_item" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

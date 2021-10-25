@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVxdoc_code" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletexdoc_code" Name="deletexdoc_code" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>vtigercrm6.xdoc_code</DbTable>
+<Where>idx='%{xdoc_codeLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchxdoc_code" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshxdoc_code" Name="searchxdoc_code" Size="50,20">
+			  <OnClick><submit next="xdoc_codeLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPxdoc_codeLst" OnClick="(xdoc_codeLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PRExdoc_codeLst" OnClick="(xdoc_codeLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPxdoc_codeLst" OnClick="(xdoc_codeLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

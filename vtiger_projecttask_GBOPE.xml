@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_projecttask" Size="100,100"><Ctrls>
+<Button sqlpkinsert="projecttaskid" Text="create" ToolTip="ttp_createvtiger_projecttask" Name="insertvtiger_projecttask" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttask</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttaskname,linkcontact[contactid],contact,telphone,projecttasktype[projecttasktypeid],schedule_date,responsible[id],projecttaskpriority[projecttaskpriorityid],attachedfile,address,description,projectid,addrlng,addrlat</Data>
+<DataEx>projecttaskstatus,created_by,creation_date,last_update_by,last_update_date;2,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_projecttask[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttaskLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttask_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_projecttask" Name="modifyvtiger_projecttask" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_projecttask</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>projecttaskname,linkcontact[contactid],contact,telphone,projecttasktype[projecttasktypeid],schedule_date,responsible[id],attachedfile,address,description,addrlng,addrlat</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>projecttaskid='%{projecttaskid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_projecttask[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_projecttaskLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_projecttask_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttask" Name="resetvtiger_projecttask" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_projecttask" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttask" Name="gsearchvtiger_projecttask" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_projecttaskLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_projecttask" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

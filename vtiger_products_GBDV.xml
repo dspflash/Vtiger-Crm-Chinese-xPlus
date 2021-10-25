@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvtiger_products"><Ctrls>
+<ListCtrl Heading="product_no,100;productcode,100;productname,250;imagename,500;productid,95;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0" ToolTip="ttp_vtiger_products" Name="vtiger_productsLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>productid</Index>
+<DbTable>vtigercrm6.vtiger_products v left join vtigercrm6.vtiger_users v0 on v.created_by=v0.id left join vtigercrm6.vtiger_users v1 on v.last_update_by=v1.id</DbTable>
+<Data>v.product_no,v.productcode,v.productname,v.imagename,v.productid,v0.user_name created_by,v.creation_date,v1.user_name last_update_by,v.last_update_date</Data>
+<Order>productid</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_products_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

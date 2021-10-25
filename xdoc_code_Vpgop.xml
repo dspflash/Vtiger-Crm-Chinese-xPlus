@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVxdoc_code" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialxdoc_code" Size="50,20">
+<OnClick><submit next="xdoc_code_vLst" function="initial"/><submit next="records_xdoc_code" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPxdoc_code_vLst" Size="50,20">
+<OnClick><submit next="xdoc_code_vLst" function="GetPage(first)"/><submit next="records_xdoc_code"/></OnClick></Button>
+<Button Text="prepage" Name="PRExdoc_code_vLst" Size="50,20">
+<OnClick><submit next="xdoc_code_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPxdoc_code_vLst" Size="50,20">
+<OnClick><submit next="xdoc_code_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

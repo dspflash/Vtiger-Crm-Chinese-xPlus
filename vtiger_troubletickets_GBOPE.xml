@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_troubletickets" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ticketid" Text="create" ToolTip="ttp_createvtiger_troubletickets" Name="insertvtiger_troubletickets" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_troubletickets</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>title,category[ticketcategories_id],days,hours,contact_id[contactid],parent_id[ticketid],priority[ticketpriorities_id],severity[ticketseverities_id],groupname[groupid],product_id[productid],version_id,update_log,solution</Data>
+<DataEx>ticket_no,status,created_by,creation_date,last_update_by,last_update_date;@odn,1,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SET @seq=0; SELECT SUBSTR(ticket_no,-5)+0 INTO @seq FROM vtigercrm6.vtiger_troubletickets WHERE DATE(creation_date)=CURDATE() ORDER BY ticket_no DESC LIMIT 0,1; SELECT generate_orderNo(Code_Prefix, DT_MODE, @seq,'','') INTO @odn FROM vtigercrm6.xdoc_code WHERE docType='tkt'; insert into %{table} %{data};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_troubletickets[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_troubleticketsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_troubletickets_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_troubletickets" Name="modifyvtiger_troubletickets" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_troubletickets</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>title,category[ticketcategories_id],days,hours,contact_id[contactid],parent_id[ticketid],priority[ticketpriorities_id],severity[ticketseverities_id],groupname[groupid],product_id[productid],version_id,update_log,solution</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ticketid='%{ticketid}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_troubletickets[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_troubleticketsLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_troubletickets_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_troubletickets" Name="resetvtiger_troubletickets" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_troubletickets" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_troubletickets" Name="gsearchvtiger_troubletickets" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_troubleticketsLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_troubletickets" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

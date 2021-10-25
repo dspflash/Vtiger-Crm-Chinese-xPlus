@@ -1,0 +1,20 @@
+﻿<WndTap Name="vtiger_projecttaskpriority_v" Text="vtiger_projecttaskpriority">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><projecttaskpriority format="(v.projecttaskpriority like '%%{opvalue}%')"/><presence format="(v.presence like '%%{opvalue}%')"/><picklist_valueid format="(v.picklist_valueid like '%%{opvalue}%')"/><sortorderid format="(v.sortorderid like '%%{opvalue}%')"/><projecttaskpriorityid format="(v.projecttaskpriorityid like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttaskpriority.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projecttaskpriority" id="vtiger_projecttaskpriority" Text="vtiger_projecttaskpriority" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projecttaskpriority" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_projecttaskpriority.GBDEDITvtiger_projecttaskpriority" function="reset"/><assign name="$this.vtiger_projecttaskpriority.frmwndctrl" expr="%{$this.vtiger_projecttaskpriority_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttaskpriority" Name="resetvtiger_projecttaskpriority" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projecttaskpriority" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_projecttaskpriority" Name="gsearchvtiger_projecttaskpriority" Size="50,20">	<OnClick>	
+<search next="vtiger_projecttaskpriority_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projecttaskpriority" namelist="search" function="search"/>	
+<search next="records_vtiger_projecttaskpriority" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITvtiger_projecttaskpriority" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttaskpriority_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,103 @@
+<Language name="general">
+<Lang name="icon_vtiger_account_v" value="vicon-accounts"/>
+<Lang name="icon_vtiger_contactdetails_V" value="vicon-contacts"/>
+<Lang name="icon_vtiger_leaddetails_v" value="vicon-leads"/>
+<Lang name="icon_vtiger_campaign_v" value="vicon-campaigns"/>
+<Lang name="icon_vtiger_potential_v" value="vicon-potentials"/>
+<Lang name="icon_vtiger_quotes_v" value="vicon-quotes"/>
+<Lang name="icon_vtiger_project_v" value="vicon-project"/>
+<Lang name="icon_vtiger_projecttask_V" value="vicon-projecttask"/>
+<Lang name="icon_vtiger_projectmilestone_v" value="vicon-projectmilestone"/>
+<Lang name="icon_vtiger_project_tpl_v" value=" vicon-duplicaterecords "/>
+<Lang name="icon_vtiger_vendor_v" value="vicon-vendors"/>
+<Lang name="icon_vtiger_purchaseorder_v" value="vicon-purchaseorder"/>
+<Lang name="icon_vtiger_invoice_v" value="vicon-invoice"/>
+<Lang name="icon_vtiger_salesorder_v" value="vicon-salesorder"/>
+<Lang name="icon_vtiger_servicecontracts_v" value="vicon-servicecontracts"/>
+<Lang name="icon_vtiger_troubletickets_v" value="vicon-helpdesk"/>
+<Lang name="icon_vtiger_products_v" value="vicon-products"/>
+<Lang name="icon_vtiger_groups_v" value="vicon-meeting"/>
+<Lang name="icon_vtiger_service_v" value="vicon-services"/>
+<Lang name="icon_vtiger_assets_v" value="vicon-assets"/>
+<Lang name="icon_xdoc_code_v" value="vicon-code"/>
+<Lang name="icon_vtiger_activity_v" value="vicon-equalizer"/>
+<Lang name="icon_vtiger_announcement_v" value="vicon-bell"/>
+<Lang name="icon_vtiger_users_v" value="vicon-vtigeruser"/>
+<Lang name="icon_vtiger_role_v" value="vicon-vtigeruser2"/>
+<Lang name="icon_myinfo" value="vicon-mycalendar"/>
+<Lang name="icon_vSystem" value="vicon-cog"/>
+<Lang name="icon_add milestone" value="vicon-projectmilestone"/>
+<Lang name="icon_addone" 	value="fas fa-plus"/>
+<Lang name="icon_reset" value="fas fa-eraser"/>
+<Lang name="icon_search" value="fas fa-search"/>
+<Lang name="icon_create" value="fas fa-save"/>lni-add-files fa-file-medical  
+<Lang name="icon_modify" value="fas fa-edit"/>fa
+<Lang name="icon_go2Page" value="fas fa-directions"/>
+<Lang name="icon_initial" value="fab fa-first-order"/>
+<Lang name="icon_firstpage" value="fas fa-step-backward"/>
+<Lang name="icon_prepage" value="fas fa-angle-double-left"/>
+<Lang name="icon_nextpage" value="fas fa-angle-double-right"/>
+<Lang name="icon_endpage" value="fas fa-step-forward"/>
+<Lang name="icon_delete" value="fas fa-times"/>
+<Lang name="responsible" value="责任工程师"/>
+<Lang name="accountname" value="客户"/>
+<Lang name="imagename" value="图片"/>
+<Lang name="projectmilestonename" value="项目阶段"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+<Lang name="operator" value="操作"/>
+<Lang name="search" value="搜索"/>
+<Lang name="initial" value="初始"/>
+<Lang name="addone" value="添加"/>
+<Lang name="ttp_addone" value="打开新建页面添加新项目"/>
+<Lang name="records" value="记录数"/>
+<Lang name="ttp_records" value="记录数"/>
+<Lang name="ttp_pgs" value="总页数"/>
+<Lang name="ttp_pgcur" value="当前页"/>
+<Lang name="go2page" value="跳转"/>
+<Lang name="created_by" value="创建人"/>
+<Lang name="creation_date" value="创建时间"/>
+<Lang name="last_update_by" value="修改人"/>
+<Lang name="last_update_date" value="修改时间"/>
+<Lang name="presence" value="显示"/>
+<Lang name="locationmap" value="地图显示"/>
+<Lang name="address" value="地址"/>
+<Lang name="picklist_valueid" value="选取值"/>
+<Lang name="sortorderid" value="显示顺序"/>
+<Lang name="contact" value="联系人"/>
+<Lang name="basic" value="基本"/>
+<Lang name="phone" value="电话"/>
+<Lang name="mobile" value="手机"/>
+<Lang name="initiate" value="启动"/>
+<Lang name="complete" value="完成"/>
+<Lang name="completetask" value="任务完成"/>
+<Lang name="archive" value="归档"/>
+<Lang name="cancel" value="取消"/>
+<Lang name="salesorder" value="订单"/>
+<Lang name="salesorderid" value="订单"/>
+<Lang name="import" value="导入"/>
+<Lang name="export" value="导出"/>
+<Lang name="view" value="查看"/>
+<Lang name="viewimg" value="查看图片"/>
+<Lang name="download" value="下载"/>
+<Lang name="submit" value="提交"/>
+<Lang name="approval_diagram" value="审批流图"/>
+<Lang name="modify" value="修改"/>
+<Lang name="save" value="保存"/>
+<Lang name="sendfile" value="发送文件"/>
+<Lang name="success" value="成功"/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="taskprogress" value="任务处理"/>
+<Lang name="attachedfile" value="必须上传附件"/>
+<Lang name="attachment2" value="任务跟踪"/>
+<Lang name="attachments" value="附件"/>
+<Lang name="SetResponsible" value="设置责任人"/>
+</Language>

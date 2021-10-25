@@ -1,0 +1,14 @@
+﻿<WndTap Name="vtiger_projecttask_detail_v" Text="vtiger_projecttask_detail">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\vtiger_projecttask_detail.xml"/>
+<Ctrls><GroupBox  Name="GBvtiger_projecttask_detail" id="vtiger_projecttask_detail" Text="vtiger_projecttask_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVvtiger_projecttask_detail" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.vtiger_projecttask_detail.GBDEDITvtiger_projecttask_detail" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetvtiger_projecttask_detail" Name="resetvtiger_projecttask_detail" Size="50,20">	<OnClick>	<submit next="GBDEDITvtiger_projecttask_detail" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchvtiger_projecttask_detail" Name="gsearchvtiger_projecttask_detail" Size="50,20" visible="true">	<OnClick>	<search next="vtiger_projecttask_detail_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITvtiger_projecttask_detail" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projecttask_detail_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

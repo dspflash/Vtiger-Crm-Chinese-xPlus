@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_users" Size="100,100"><Ctrls>
+<Button sqlpkinsert="id" Text="create" ToolTip="ttp_createvtiger_users" Name="insertvtiger_users" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>user_name,first_name,last_name,title,phone_home,phone_mobile,phone_work,phone_other,phone_fax,email1,email2,secondaryemail,description,status</Data>
+<DataEx>user_password,created_by,creation_date,last_update_by,last_update_date;md5('%{user_password}'),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertvtiger_users[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_usersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_users_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyvtiger_users" Name="modifyvtiger_users" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>vtigercrm6.vtiger_users</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>user_name,first_name,last_name,title,phone_home,phone_mobile,phone_work,phone_other,phone_fax,email1,email2,secondaryemail,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>id='%{id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyvtiger_users[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="vtiger_usersLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.vtiger_users_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetvtiger_users" Name="resetvtiger_users" Size="50,20">
+<OnClick>
+<submit next="GBDEDITvtiger_users" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchvtiger_users" Name="gsearchvtiger_users" Size="50,20" visible="false">
+<OnClick>
+<search next="vtiger_usersLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITvtiger_users" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

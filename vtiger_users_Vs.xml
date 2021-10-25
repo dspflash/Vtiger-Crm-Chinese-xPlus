@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITvtiger_users" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_user_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_name" Size="60,20" Text="user_name" Align="Right"/>
+<TextBox Name="user_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_first_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_first_name" Size="60,20" Text="first_name" Align="Right"/>
+<TextBox Name="first_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_first_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_last_name" Size="60,20" Text="last_name" Align="Right"/>
+<TextBox Name="last_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_name"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVvtiger_projectmilestone" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="vtiger_projectmilestone_vLst" ToolTip="ttp_vtiger_projectmilestone_v" Size="700,450" OnLoad="init" Heading="projectmilestonename,250;reviewed,60;projectmilestonedate,90;projectmilestoneid,55;reviewed_date,150;reviewed_by,55;review_memo,640;"       colsDisplay="5" loadedclick="0">
+	<DbDetails >
+<Index>projectmilestoneid</Index>
+<DbTable>vtigercrm6.vtiger_projectmilestone v</DbTable>
+<Data>v.projectmilestonename,v.reviewed,v.projectmilestonedate,v.projectmilestoneid,v.reviewed_date,v.reviewed_by,v.review_memo</Data>
+<Order>projectmilestoneid</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtiger_projectmilestone_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_vtiger_projectmilestone" expr="js(%{vtiger_projectmilestone_vLst[currentpage]}+1)"/>
+<assign name="pgscb_vtiger_projectmilestone" expr="js(%{vtiger_projectmilestone_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

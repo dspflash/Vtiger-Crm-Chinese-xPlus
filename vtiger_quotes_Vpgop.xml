@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVvtiger_quotes" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialvtiger_quotes" Size="50,20">
+<OnClick><submit next="vtiger_quotes_vLst" function="initial"/><submit next="records_vtiger_quotes" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPvtiger_quotes_vLst" Size="50,20">
+<OnClick><submit next="vtiger_quotes_vLst" function="GetPage(first)"/><submit next="records_vtiger_quotes"/></OnClick></Button>
+<Button Text="prepage" Name="PREvtiger_quotes_vLst" Size="50,20">
+<OnClick><submit next="vtiger_quotes_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPvtiger_quotes_vLst" Size="50,20">
+<OnClick><submit next="vtiger_quotes_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

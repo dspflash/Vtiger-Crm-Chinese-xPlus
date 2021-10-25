@@ -1,0 +1,70 @@
+﻿<GroupBox Name="GBDEDITvtiger_projecttask" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projecttaskname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskname" Size="60,20" Text="projecttaskname" Align="Right"/>
+<TextBox Name="projecttaskname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projecttaskname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_linkcontact" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_linkcontact" Size="60,20" Text="linkcontact" Align="Right"/>
+<ComboBox Name="linkcontact" Size="150,100" Text="" Weight="150"  ToolTip="ttp_linkcontact">
+	<DbDetails fcsm="true">
+<Index>contactid</Index>
+<DbTable>vtigercrm6.contacts_v</DbTable>
+<Data>fullname contact,if(mobile='',phone,mobile) telphone,contactid</Data>
+<Where>accountid=(select linktoaccountscontacts from vtigercrm6.vtiger_project where projectid='%{projectid}')</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshlinkcontact" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="linkcontact"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_contact" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_contact" Size="60,20" Text="contact" Align="Right"/>
+<TextBox Name="contact" Size="170,20" Text="" Weight="170" ToolTip="ttp_contact"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_telphone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_telphone" Size="60,20" Text="telphone" Align="Right"/>
+<TextBox Name="telphone" Size="150,20" Text="" Weight="150" ToolTip="ttp_telphone"></TextBox>
+<MagicCtrl Name="dialtelphone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{telphone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_projecttasktype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttasktype" Size="60,20" Text="projecttasktype" Align="Right" onload="init" selectedIndex="1"/>
+<ComboBox Name="projecttasktype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttasktype" onload="init" selectedIndex="1">
+	<DbDetails>
+<Index>projecttasktypeid</Index>
+<DbTable>vtigercrm6.vtiger_projecttasktype</DbTable>
+<Data>projecttasktype,projecttasktypeid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_schedule_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_schedule_date" Size="60,20" Text="schedule_date" Align="Right" Format="yyyy-MM-dd"/>
+<DateTime Name="schedule_date" Size="170,20" Text="" Weight="170" Text2="1 day" ToolTip="ttp_schedule_date" Format="yyyy-MM-dd"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_responsible" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_responsible" Size="60,20" Text="responsible" Align="Right"  onload="init"/>
+<ComboBox Name="responsible" Size="150,100" Text="" Weight="150"  ToolTip="ttp_responsible"  onload="init">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.users_v</DbTable>
+<Data>fullname,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshresponsible" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="responsible"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_projecttaskpriority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskpriority" Size="60,20" Text="projecttaskpriority" Align="Right" onload="init" selectedIndex="1"/>
+<ComboBox Name="projecttaskpriority" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttaskpriority" onload="init" selectedIndex="1">
+	<DbDetails>
+<Index>projecttaskpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Data>projecttaskpriority,projecttaskpriorityid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachedfile" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="attachedfile" Size="230,20" Text="attachedfile" ToolTip="ttp_attachedfile"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_address" Multiline="0" cols="xs12"><Ctrls>
+<Label Name="lb_address" Size="60,20" Text="address" Align="Right"/>
+<TextBox Name="address" Size="550,20" Text="" Weight="550" ToolTip="ttp_address"></TextBox>
+<MagicCtrl Name="pickaddress" Link="tip:Pick" images=",data/marker.png" button="type:0" Size="20,20"><OnClick><assign name="$this.address_pick.frmwndctrl" expr="vtiger_projecttask"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12"><Ctrls>
+<Label Name="lb_description" Size="60,120" Text="description" Align="Right" autosizeable="0"/>
+<TextBox Name="description" Size="630,120" Text="" Weight="630" ToolTip="ttp_description" autosizeable="0"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

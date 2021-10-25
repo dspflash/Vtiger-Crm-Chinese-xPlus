@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="createprjwithtpl"><DbDetails><Where>projecttplid='%{vtiger_project_tpl_vLst[projecttplid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.createPrjWithTpl.projecttplname"/><assign name="$this.createPrjWithTpl.frmwndctrl" expr="%{this}"/></op>
+<op text="modify"><DbDetails><Where>projecttplid='%{vtiger_project_tpl_vLst[projecttplid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vtiger_project_tpl.vtiger_project_tplLst"/><assign name="$this.vtiger_project_tpl.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>vtigercrm6.vtiger_project_tpl</DbTable>
+<Where>projecttplid='%{vtiger_project_tpl_vLst[projecttplid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

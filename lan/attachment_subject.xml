@@ -1,0 +1,34 @@
+﻿<Language name="attachment_subject">
+<Lang name="attachment_subject" value="任务进度主题"/>
+<Lang name="TabEditattachment_subject" value="attachment_subject Edit"/>
+<Lang name="TabViewattachment_subject" value="attachment_subject View"/>
+<Lang name="subject" value="主题"/>
+<Lang name="ttp_subject" value=""/>
+<Lang name="remark" value="说明"/>
+<Lang name="ttp_remark" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="attachment_subject_id" value=""/>
+<Lang name="ttp_attachment_subject_id" value=""/>
+<Lang name="ttp_operationattachment_subject" value=""/>
+<Lang name="ttp_createattachment_subject" value=""/>
+<Lang name="ttp_modifyattachment_subject" value=""/>
+<Lang name="ttp_resetattachment_subject" value=""/>
+<Lang name="ttp_deleteattachment_subject" value=""/>
+<Lang name="ttp_refreshattachment_subject" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,53 @@
+﻿<GroupBox Name="GBDEDITvtiger_project_tpl_task" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_projecttpltaskname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttpltaskname" Size="60,20" Text="projecttpltaskname" Align="Right"/>
+<TextBox Name="projecttpltaskname" Size="170,20" Text="" Weight="170" ToolTip="ttp_projecttpltaskname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_project_ms_idx" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_ms_idx" Size="60,20" Text="project_ms_idx" Align="Right"/>
+<ComboBox Name="project_ms_idx" Size="170,100" Text="" Weight="170"  ToolTip="ttp_project_ms_idx">
+	<DbDetails>
+<Index>project_ms_idx</Index>
+<DbTable>vtigercrm6.vtiger_project_tpl_milestone</DbTable>
+<Data>projecttplmilestonename,project_ms_idx</Data>
+<Where>projecttplid='%{projecttplid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_responsible" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_responsible" Size="60,20" Text="responsible" Align="Right"  onload="init"/>
+<ComboBox Name="responsible" Size="170,100" Text="" Weight="170"  ToolTip="ttp_responsible"  onload="init">
+	<DbDetails>
+<Index>id</Index>
+<DbTable>vtigercrm6.users_v</DbTable>
+<Data>fullname,id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_projecttasktype" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttasktype" Size="60,20" Text="projecttasktype" Align="Right" onload="init" selectedIndex="1"/>
+<ComboBox Name="projecttasktype" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttasktype" onload="init" selectedIndex="1">
+	<DbDetails>
+<Index>projecttasktypeid</Index>
+<DbTable>vtigercrm6.vtiger_projecttasktype</DbTable>
+<Data>projecttasktype,projecttasktypeid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_projecttaskpriority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_projecttaskpriority" Size="60,20" Text="projecttaskpriority" Align="Right" onload="init" selectedIndex="1"/>
+<ComboBox Name="projecttaskpriority" Size="170,100" Text="" Weight="170"  ToolTip="ttp_projecttaskpriority" onload="init" selectedIndex="1">
+	<DbDetails>
+<Index>projecttaskpriorityid</Index>
+<DbTable>vtigercrm6.vtiger_projecttaskpriority</DbTable>
+<Data>projecttaskpriority,projecttaskpriorityid</Data>
+<Where>presence</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachedfile" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="attachedfile" Size="230,20" Text="attachedfile" ToolTip="ttp_attachedfile"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12"><Ctrls>
+<Label Name="lb_description" Size="60,120" Text="description" Align="Right" autosizeable="0"/>
+<TextBox Name="description" Size="630,120" Text="" Weight="630" ToolTip="ttp_description" autosizeable="0"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
