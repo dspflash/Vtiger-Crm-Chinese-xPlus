@@ -1,5 +1,5 @@
 ## ViterCrm-Chinese-xPlus (http://prj.3ucs.com)
-源代码文件太多，而安装包带有完整源代码，安装完成后源代码在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便）。
+源代码文件太多(90%以上的代码都是使用3UCS BizTool 自动化工具生成，给个性化定制节省了大量的时间，带来了极大的便利，参见http://3ucs.com/x)，而安装包带有完整源代码，安装完成后源代码在安装目录下（vtiger文件夹，直接下载release的exe安装包，简单方便）。
 
 升级时可将新的代码直接覆盖vtiger文件夹的代码
 
